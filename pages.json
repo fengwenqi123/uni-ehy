@@ -10,9 +10,9 @@
 			"path": "pages/news/index",
 			"style": {
 				"navigationBarTitleText": "通航",
-				"app-plus" : {
-								"bounce" : "none" // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消, 点此查看H5端的取消方法... )
-							}
+				"app-plus": {
+					"bounce": "none" // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消, 点此查看H5端的取消方法... )
+				}
 			}
 		}, {
 			"path": "pages/user/index",
@@ -23,8 +23,8 @@
 		{
 			"path": "pages/water/index",
 			"style": {
-				"navigationBarTitleText": "水位",
-				"enablePullDownRefresh": true //设置为true表示当前页面开启下拉刷新
+				"navigationBarTitleText": "水位信息查询"
+				// "enablePullDownRefresh": true //设置为true表示当前页面开启下拉刷新
 			}
 		}
 	],
@@ -40,8 +40,8 @@
 			}, {
 				"pagePath": "pages/news/index",
 				"text": "通航",
-				"iconPath": "static/img/user.png",
-				"selectedIconPath": "static/img/userHL.png"
+				"iconPath": "static/img/info.png",
+				"selectedIconPath": "static/img/infoHL.png"
 			},
 			{
 				"pagePath": "pages/user/index",

@@ -1,10 +1,10 @@
 <template>
-	<view class="container">
-		<view class="list" :style="{ position: headerPosition, top: headerTop }">
+	<view class="ehy-content">
+		<mescroll-uni class="list" :down="downOption" @down="downCallback" :up="upOption" @up="upCallback">
 			<p>{{ city }}市</p>
-			<ul>
-				<li v-for="(item, index) in items" :key="index" :class="{ danger: item.status !== 1 }">
-					<div class="box">
+			<view class="li" v-for="(item, index) in items" :key="index" :class="{ danger: item.status !== 1 }">
+				<ul>
+					<li>
 						<div>
 							<span>{{ item.name }}</span>
 							<span>{{ item.modifyTimeString }}</span>
@@ -19,132 +19,110 @@
 							<label>{{ item.depthMin || '--' }}</label>
 							<label>{{ item.depthMax || '--' }}</label>
 						</div>
-					</div>
-				</li>
-			</ul>
-			<uni-load-more :status="loadingType"></uni-load-more>
-		</view>
+					</li>
+				</ul>
+			</view>
+		</mescroll-uni>
 	</view>
 </template>
 
 <script>
-import uniLoadMore from '@/components/uni-load-more/uni-load-more.vue';
-import { hydrology } from '../../api/test';
+	// 引入mescroll-uni组件
+	import MescrollUni from "mescroll-uni"; // npm安装的引入方式
+	import {
+		hydrology
+	} from '../../api/test';
 
-export default {
-	components: {
-		uniLoadMore
-	},
-	data() {
-		return {
-			loadingType: 'more', //加载更多状态
-			headerPosition: 'absolute',
-			headerTop: '0px',
-			province: '浙江',
-			city: '湖州',
-			items: [],
-			page: {
-				pageSize: 20,
-				pageNum: 1,
-				total: 0
+	export default {
+		components: {
+			MescrollUni
+		},
+		data() {
+			return {
+				// 下拉刷新的常用配置
+				downOption: {
+					use: true, // 是否启用下拉刷新; 默认true
+					auto: true, // 是否在初始化完毕之后自动执行下拉刷新的回调; 默认true
+				},
+				// 上拉加载的常用配置
+				upOption: {
+					use: true, // 是否启用上拉加载; 默认true
+					auto: true, // 是否在初始化完毕之后自动执行上拉加载的回调; 默认true
+					page: {
+						num: 0, // 当前页码,默认0,回调之前会加1,即callback(page)会从1开始
+						size: 20 // 每页数据的数量,默认10
+					},
+					noMoreSize: 1, // 配置列表的总数量要大于等于5条才显示'-- END --'的提示
+					empty: {
+						tip: '暂无数据'
+					},
+					textNoMore: '—— 到底了 ——'
+				},
+				province: '浙江',
+				city: '湖州',
+				items: []
+			};
+		},
+		methods: {
+			/*下拉刷新的回调, 有三种处理方式: */
+			downCallback(mescroll) {
+				// 第2种: 下拉刷新和上拉加载调同样的接口, 那以上请求可删, 直接用mescroll.resetUpScroll()代替
+				mescroll.resetUpScroll(); // 重置列表为第一页 (自动执行 page.num=1, 再触发upCallback方法 )
+			},
+
+			/*上拉加载的回调*/
+			upCallback(mescroll) {
+				hydrology('浙江', this.city, mescroll.num, mescroll.size)
+					.then(res => {
+						console.log(res);
+
+						// 接口返回的当前页数据列表 (数组)
+						let curPageData = res.data.dataList;
+						// 接口返回的总页数 (比如列表有26个数据,每页10条,共3页; 则totalPage值为3)
+						// let totalPage = res.xxx; 
+						// 接口返回的总数据量(比如列表有26个数据,每页10条,共3页; 则totalSize值为26)
+						let totalSize = res.data.page.total;
+						if (mescroll.num == 1) this.dataList = []; //如果是第一页需手动置空列表
+						this.items = this.dataList.concat(curPageData); //追加新数据
+						mescroll.endByPage(curPageData.length, totalSize);
+					})
+					.catch(err => {
+						console.log(err);
+					});
 			}
-		};
-	},
-	onLoad() {
-		// #ifdef H5
-		this.headerTop = document.getElementsByTagName('uni-page-head')[0].offsetHeight + 'px';
-		// #endif
-		this.loadData();
-	},
-	//加载更多
-	onReachBottom() {
-		if (this.loadingType === 'more') {
-			this.loadData();
 		}
-	},
-	onPageScroll(e) {
-		// 兼容iOS端下拉时顶部漂移
-		console.log(e.scrollTop >= 0);
-		if (e.scrollTop < 0) {
-			this.headerPosition = 'fixed';
-		} else {
-			this.headerPosition = 'absolute';
-		}
-	},
-	//下拉刷新
-	onPullDownRefresh() {
-		this.page.pageNum = 1;
-		this.loadData('refresh');
-	},
-	methods: {
-		loadData(type = 'add', loading) {
-			hydrology('浙江', this.city, this.page.pageNum, this.page.pageSize)
-				.then(res => {
-					console.log(res);
-					//没有更多直接返回
-					if (type === 'add') {
-						if (this.loadingType === 'nomore') {
-							return;
-						}
-						this.loadingType = 'loading';
-					} else {
-						this.loadingType = 'more';
-					}
-
-					if (type === 'refresh') {
-						this.page.pageNum = 1;
-						this.items = [];
-					}
-					this.page.pageNum++;
-					this.items = this.items.concat(res.data.dataList);
-
-					//判断是否还有下一页，有是more  没有是nomore(测试数据判断大于20就没有了)
-					this.loadingType = this.items.length === res.data.page.total ? 'nomore' : 'more';
-					if (type === 'refresh') {
-						if (loading == 1) {
-							uni.hideLoading();
-						} else {
-							uni.stopPullDownRefresh();
-						}
-					}
-				})
-				.catch(err => {
-					console.log(err);
-				});
-		}
-	}
-};
+	};
 </script>
 
 <style scoped lang="scss">
-.container {
-	width: 100%;
-	margin: 0 auto;
-	box-sizing: border-box;
-
-	p {
-		height: 96rpx;
-		line-height: 96rpx;
-		color: #858585;
-		padding-left: 16rpx;
-		font-size: 30rpx;
-		background: #f2f2f2;
-	}
-
-	.list {
+	.ehy-content {
 		width: 100%;
-		top:0 !important;
-		ul {
+		margin: 0 auto;
+		box-sizing: border-box;
+
+		p {
+			height: 96rpx;
+			line-height: 96rpx;
+			color: #858585;
+			padding-left: 16rpx;
+			font-size: 30rpx;
+			background: #f2f2f2;
+		}
+
+		.list {
+			width: 100%;
+			top: 0 !important;
 			background: #fff;
 
-			li {
-				height: 163rpx;
+			ul {
 				padding-left: 32rpx;
+				background: #fff;
 
-				.box {
-					height: 100%;
+				li {
 					width: 100%;
 					border-bottom: 1rpx solid #d8d8d8;
+					height: 163rpx;
+
 
 					div {
 						padding-right: 32rpx;
@@ -200,7 +178,12 @@ export default {
 					font-weight: bold;
 				}
 			}
+
+			.li:last-child {
+				li {
+					border: 0;
+				}
+			}
 		}
 	}
-}
 </style>
