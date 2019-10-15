@@ -1,19 +1,27 @@
 <template>
-		<mescroll-uni :down="downOption" @down="downCallback" :up="upOption" @up="upCallback" >
-			<view v-for="data in dataList" :key="data.id"> 
-			  <view style="height:100px;">{{data.content}}</view>
+	<view class="news">  
+	        <nav-bar>
+				<block slot="content">导航栏</block>
+				<block slot="right">导航栏</block>
+			</nav-bar>
+			<view>	
 			</view>
-		</mescroll-uni>
-	</template>
+			<mescroll-uni :down="downOption" @down="downCallback" :up="upOption" @up="upCallback" >
+					<view v-for="data in dataList" :key="data.id"> 
+					  <view style="height:100px;">{{data.content}}</view>
+					</view>
+			</mescroll-uni>
+	</view>
+</template>
 
 	<script>
 		// 引入mescroll-uni组件
+		import {newsList} from '@/api/news.js'
 		import MescrollUni from "mescroll-uni"; // npm安装的引入方式
-		import { newsList } from '@/api/news.js'
-		
+		import navBar from '../../colorui/components/cu-custom.vue'
 		export default {
 			components: {
-				MescrollUni
+				MescrollUni, navBar
 			},
 			data() {
 				return {
@@ -68,5 +76,10 @@
 		}
 	</script>
 
-	<style>
+	<style lang="scss" scoped>
+		.news{
+			.mescroll-uni-fixed{
+				top: 45px !important;
+			}
+		}
 	</style>
