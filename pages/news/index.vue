@@ -1,14 +1,23 @@
 <template>
 	<view class="news">  
-	        <nav-bar>
+	       <!-- <nav-bar>
 				<block slot="content">导航栏</block>
 				<block slot="right">导航栏</block>
-			</nav-bar>
-			<view>	
-			</view>
+			</nav-bar> -->
 			<mescroll-uni :down="downOption" @down="downCallback" :up="upOption" @up="upCallback" >
-					<view v-for="data in dataList" :key="data.id"> 
-					  <view style="height:100px;">{{data.content}}</view>
+					<view v-for="data in dataList" :key="data.id" @click="goDetail(data)"> 
+					  <div class="news-content">
+						  <div>
+							  <p>
+								  <span>{{data.categoryName}}</span>
+								  <span>{{data.addTimeString}}</span>
+							  </p>
+							  <p>{{data.title}}</p>
+						  </div>
+						  <div>
+							  <span>></span>
+						  </div>   						  
+					   </div>
 					</view>
 			</mescroll-uni>
 	</view>
@@ -50,6 +59,15 @@
 				}
 			},
 			methods: {
+				//
+				goDetail(item){
+					let itemString=JSON.stringify(item)
+					uni.navigateTo({
+					    url: `details?details=${itemString}`
+					});
+					
+				},
+				//
 				/*下拉刷新的回调, 有三种处理方式: */
 				downCallback(mescroll){	
 					//下拉刷新和上拉加载调同样的接口, 那以上请求可删, 直接用mescroll.resetUpScroll()代替
@@ -78,8 +96,45 @@
 
 	<style lang="scss" scoped>
 		.news{
-			.mescroll-uni-fixed{
-				top: 45px !important;
+			.news-content{
+			 width:100%;
+			 display: flex;
+			 height:150rpx;
+			 background-color:#ffffff;
+			 padding:10rpx 20rpx;
+			 border-bottom:1rpx solid #eeeeee;
+			 div:nth-child(1){
+				 width:85%;
+				 p:nth-child(1){
+					 span{
+						 display: inlien-block;
+						 line-height:40rpx;
+						 
+					 }
+					 span:nth-child(2){
+						 float:right;	 
+					 }
+				 }
+				 p:nth-child(2){
+				 		width:100%;
+						font-size:30rpx;
+						padding-top:70rpx;
+				 		overflow: hidden;
+				 		white-space: nowrap;
+				 		text-overflow: ellipsis;
+				 }
+			 }
+			 div:nth-child(2){
+			 	 width:15%;
+				 span{
+					width:80%;
+					text-align: center;
+                    display: inline-block;
+					line-height: 150rpx;
+					font-size:40rpx;
+					color:#888;
+				 }
+			 }
 			}
 		}
 	</style>
