@@ -1,9 +1,5 @@
 <template>
 	<view class="container">
-<!-- 		<cu-custom bgColor="bg-gradual-blue" :isBack="true">
-			<block slot="backText">返回</block>
-			<block slot="content">背景</block>
-		</cu-custom> -->
 		<view class="list" :style="{ position: headerPosition, top: headerTop }">
 			<p>{{ city }}市</p>
 			<ul>
@@ -26,8 +22,8 @@
 					</div>
 				</li>
 			</ul>
+			<uni-load-more :status="loadingType"></uni-load-more>
 		</view>
-		<uni-load-more :status="loadingType"></uni-load-more>
 	</view>
 </template>
 
@@ -42,7 +38,7 @@ export default {
 	data() {
 		return {
 			loadingType: 'more', //加载更多状态
-			headerPosition: 'fixed',
+			headerPosition: 'absolute',
 			headerTop: '0px',
 			province: '浙江',
 			city: '湖州',
@@ -68,7 +64,8 @@ export default {
 	},
 	onPageScroll(e) {
 		// 兼容iOS端下拉时顶部漂移
-		if (e.scrollTop >= 0) {
+		console.log(e.scrollTop >= 0);
+		if (e.scrollTop < 0) {
 			this.headerPosition = 'fixed';
 		} else {
 			this.headerPosition = 'absolute';
@@ -135,6 +132,8 @@ export default {
 	}
 
 	.list {
+		width: 100%;
+		top:0 !important;
 		ul {
 			background: #fff;
 
