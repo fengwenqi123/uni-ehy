@@ -1,10 +1,9 @@
 <template>
-	<mescroll-uni  :down="downOption" @down="downCallback" :up="upOption" @up="upCallback">
-		<view class="ehy-content">
-		  <view class="list">
-			<p>{{ city }}市</p>
+	<view class="ehy-content">
+		<mescroll-uni class="list" :down="downOption" @down="downCallback" :up="upOption" @up="upCallback">
+			<p class="address">{{ city }}市</p>
 			<view class="li" v-for="(item, index) in items" :key="index" :class="{ danger: item.status !== 1 }">
-				<ul >
+				<ul>
 					<li>
 						<div>
 							<span>{{ item.name }}</span>
@@ -23,9 +22,8 @@
 					</li>
 				</ul>
 			</view>
-		  </view>		
-		 </view>	
 		</mescroll-uni>
+	</view>
 </template>
 
 <script>
@@ -33,7 +31,7 @@
 	import MescrollUni from "mescroll-uni"; // npm安装的引入方式
 	import {
 		hydrology
-	} from '../../api/test';
+	} from '../../../api/test';
 
 	export default {
 		components: {
@@ -97,11 +95,12 @@
 </script>
 
 <style scoped lang="scss">
-	.ehy-content {
+	.list {
 		width: 100%;
-		margin: 0 auto;
-		box-sizing: border-box;
-		p {
+		top: 0 !important;
+		background: #fff;
+
+		.address {
 			height: 96rpx;
 			line-height: 96rpx;
 			color: #858585;
@@ -110,80 +109,75 @@
 			background: #f2f2f2;
 		}
 
-		.list {
-			width: 100%;
-			top: 0 !important;
+
+		ul {
+			padding-left: 32rpx;
 			background: #fff;
 
-			ul {
-				padding-left: 32rpx;
-				background: #fff;
-
-				li {
-					width: 100%;
-					border-bottom: 1rpx solid #d8d8d8;
-					height: 163rpx;
+			li {
+				width: 100%;
+				border-bottom: 1rpx solid #d8d8d8;
+				height: 163rpx;
 
 
-					div {
-						padding-right: 32rpx;
-					}
+				div {
+					padding-right: 32rpx;
+				}
 
-					div:first-child {
-						height: 68rpx;
-						line-height: 68rpx;
+				div:first-child {
+					height: 68rpx;
+					line-height: 68rpx;
 
-						span:first-child {
-							float: left;
-							color: #333333;
-							font-size: 30rpx;
-						}
-
-						span {
-							float: right;
-							font-size: 26rpx;
-							color: #666666;
-						}
-					}
-
-					div:nth-child(2),
-					div:nth-child(3) {
+					span:first-child {
 						float: left;
-						width: 100%;
+						color: #333333;
+						font-size: 30rpx;
+					}
 
-						i,
-						label {
-							height: 25rpx;
-							line-height: 25rpx;
-							width: 33.33333%;
-							float: left;
-							color: #555555;
-							font-size: 26rpx;
-						}
+					span {
+						float: right;
+						font-size: 26rpx;
+						color: #666666;
+					}
+				}
 
-						label {
-							height: 57rpx;
-							line-height: 57rpx;
-							color: #108ee9;
-							font-size: 30rpx;
-						}
+				div:nth-child(2),
+				div:nth-child(3) {
+					float: left;
+					width: 100%;
+
+					i,
+					label {
+						height: 25rpx;
+						line-height: 25rpx;
+						width: 33.33333%;
+						float: left;
+						color: #555555;
+						font-size: 26rpx;
+					}
+
+					label {
+						height: 57rpx;
+						line-height: 57rpx;
+						color: #108ee9;
+						font-size: 30rpx;
 					}
 				}
 			}
+		}
 
-			.danger {
-				background: #fff0f0;
+		.danger {
+			background: #fff0f0;
 
-				.red {
-					color: red !important;
-					font-weight: bold;
-				}
+			.red {
+				color: red !important;
+				font-weight: bold;
 			}
+		}
 
-			.li:last-child {
-				li {
-					border: 0;
-				}
+		.li:last-child {
+			li {
+				border: 0;
 			}
 		}
 	}
