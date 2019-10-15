@@ -21,8 +21,7 @@
 			"path": "pages/water/index",
 			"style": {
 				"navigationBarTitleText": "水位",
-				"enablePullDownRefresh": true, //设置为true表示当前页面开启下拉刷新
-				"backgroundTextStyle": "dark" //下拉 loading 的样式，仅支持 dark/light
+				"enablePullDownRefresh": true //设置为true表示当前页面开启下拉刷新
 			}
 		}
 	],

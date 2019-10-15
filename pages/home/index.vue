@@ -3,7 +3,7 @@
 		<div class="header">
 			<div class="top">
 				<div>
-					<img src="../../static/img/address.png" alt="">
+					<image src="../../static/img/address.png" alt="">
 					<span>湖州市</span>
 				</div>
 				<p>e航运</p>
@@ -14,7 +14,7 @@
 					<p>多云 西风 3级</p>
 				</div>
 				<div @click="water()">
-					<img src="../../static/img/water.png" alt="">
+					<image src="../../static/img/water.png" alt="">
 				</div>
 			</div>
 		</div>
@@ -28,35 +28,35 @@
 			<view class="padding-xl radius shadow-warp bg-white margin-top">
 				<ul>
 					<li>
-						<img src="../../static/img/h1.png" alt="">
+						<image src="../../static/img/h1.png" alt="">
 						<p>过闸申报</p>
 					</li>
 					<li>
-						<img src="../../static/img/h2.png" alt="">
+						<image src="../../static/img/h2.png" alt="">
 						<p>过闸申报</p>
 					</li>
 					<li>
-						<img src="../../static/img/h3.png" alt="">
+						<image src="../../static/img/h3.png" alt="">
 						<p>过闸申报</p>
 					</li>
 					<li>
-						<img src="../../static/img/h4.png" alt="">
+						<image src="../../static/img/h4.png" alt="">
 						<p>过闸申报</p>
 					</li>
 					<li>
-						<img src="../../static/img/h5.png" alt="">
+						<image src="../../static/img/h5.png" alt="">
 						<p>过闸申报</p>
 					</li>
 					<li>
-						<img src="../../static/img/h6.png" alt="">
+						<image src="../../static/img/h6.png" alt="">
 						<p>过闸申报</p>
 					</li>
 					<li>
-						<img src="../../static/img/h1.png" alt="">
+						<image src="../../static/img/h1.png" alt="">
 						<p>过闸申报</p>
 					</li>
 					<li>
-						<img src="../../static/img/h8.png" alt="">
+						<image src="../../static/img/h8.png" alt="">
 						<p>过闸申报</p>
 					</li>
 				</ul>
@@ -115,8 +115,8 @@
 					left: 0;
 					top: 48rpx;
 
-					img {
-						width: 55rpx;
+					image {
+						width: 58rpx;
 						height: 36rpx;
 						padding-left: 24rpx;
 					}
@@ -165,7 +165,7 @@
 					margin-right: 40rpx;
 					margin-top: 103rpx;
 
-					img {
+					image {
 						width: 66rpx;
 						height: 66rpx;
 					}
@@ -190,7 +190,7 @@
 					text-align: center;
 					float: left;
 
-					img {
+					image {
 						width: 75rpx;
 						height: 125rpx;
 						padding-top: 50rpx;
