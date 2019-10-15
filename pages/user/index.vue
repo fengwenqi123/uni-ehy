@@ -1,6 +1,6 @@
 <template>
 	<view class="container">
-		<view class="status_bar"></view>
+		<!-- <view class="status_bar"></view> -->
 		<view class="header">
 			<div class="main">
 				<div class="info">
@@ -33,6 +33,7 @@ export default {
 <style scoped lang="scss">
 .container {
 	width: 100%;
+	position: relative;
 }
 .status_bar {
 	height: var(--status-bar-height);
