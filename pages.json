@@ -7,6 +7,18 @@
 			}
 		},
 		{
+			"path": "pages/home/police/index",
+			"style": {
+				"navigationBarTitleText": "一键报警"
+			}
+		},
+		{
+			"path": "pages/home/water/index",
+			"style": {
+				"navigationBarTitleText": "水位信息查询"
+			}
+		},
+		{
 			"path": "pages/news/index",
 			"style": {
 				"navigationBarTitleText": "通航",
@@ -18,13 +30,6 @@
 			"path": "pages/user/index",
 			"style": {
 				"navigationBarTitleText": "我的"
-			}
-		},
-		{
-			"path": "pages/water/index",
-			"style": {
-				"navigationBarTitleText": "水位信息查询"
-				// "enablePullDownRefresh": true //设置为true表示当前页面开启下拉刷新
 			}
 		}
 	],
@@ -56,13 +61,13 @@
 		"navigationBarBackgroundColor": "#0faeff",
 		"backgroundColor": "#fbf9fe",
 		"navigationStyle": "default"
-	},
-	"condition": { //模式配置，仅开发期间生效
-		"current": 0, //当前激活的模式（list 的索引项）
-		"list": [{
-			"name": "home", //模式名称
-			"path": "pages/home/index", //启动页面，必选
-			"query": "interval=4000&autoplay=false" //启动参数，在页面的onLoad函数里面得到。
-		}]
 	}
+	// "condition": { //模式配置，仅开发期间生效
+	// 	"current": 0, //当前激活的模式（list 的索引项）
+	// 	"list": [{
+	// 		"name": "police", //模式名称
+	// 		"path": "pages/home/police/index", //启动页面，必选
+	// 		"query": "interval=4000&autoplay=false" //启动参数，在页面的onLoad函数里面得到。
+	// 	}]
+	// }
 }

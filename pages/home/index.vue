@@ -33,31 +33,31 @@
 					</li>
 					<li>
 						<image src="../../static/img/h2.png" alt="">
-						<p>过闸申报</p>
+						<p>船舶排污</p>
 					</li>
 					<li>
 						<image src="../../static/img/h3.png" alt="">
-						<p>过闸申报</p>
+						<p>电子报告</p>
 					</li>
 					<li>
 						<image src="../../static/img/h4.png" alt="">
-						<p>过闸申报</p>
+						<p>问题上报</p>
 					</li>
-					<li>
+					<li @click="police()">
 						<image src="../../static/img/h5.png" alt="">
-						<p>过闸申报</p>
+						<p>一键报警</p>
 					</li>
 					<li>
 						<image src="../../static/img/h6.png" alt="">
-						<p>过闸申报</p>
+						<p>法律法规</p>
 					</li>
 					<li>
 						<image src="../../static/img/h1.png" alt="">
-						<p>过闸申报</p>
+						<p>船员采集点</p>
 					</li>
 					<li>
 						<image src="../../static/img/h8.png" alt="">
-						<p>过闸申报</p>
+						<p>浙里办</p>
 					</li>
 				</ul>
 			</view>
@@ -88,7 +88,12 @@
 		methods: {
 			water() {
 				uni.navigateTo({
-					url: '/pages/water/index'
+					url: '/pages/home/water/index'
+				});
+			},
+			police() {
+				uni.navigateTo({
+					url: '/pages/home/police/index'
 				});
 			}
 		}
