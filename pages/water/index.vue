@@ -33,7 +33,7 @@
 
 <script>
 	import uniLoadMore from '@/components/uni-load-more/uni-load-more.vue';
-	import Api from '../../api/test';
+	import {hydrology} from '../../api/test';
 
 	export default {
 		components: {
@@ -80,8 +80,8 @@
 		methods: {
 			loadData(type = 'add', loading) {
 
-				Api.hydrology('浙江', this.city, this.page.pageNum, this.page.pageSize).then(res => {
-					// console.log(res);
+				hydrology('浙江', this.city, this.page.pageNum, this.page.pageSize).then(res => {
+					console.log(res);
 					//没有更多直接返回
 					if (type === 'add') {
 						if (this.loadingType === 'nomore') {
@@ -97,10 +97,10 @@
 						this.items = [];
 					}
 					this.page.pageNum++;
-					this.items = this.items.concat(res.data.data.dataList);
+					this.items = this.items.concat(res.data.dataList);
 
 					//判断是否还有下一页，有是more  没有是nomore(测试数据判断大于20就没有了)
-					this.loadingType = this.items.length === res.data.data.page.total ? 'nomore' : 'more';
+					this.loadingType = this.items.length === res.data.page.total ? 'nomore' : 'more';
 					if (type === 'refresh') {
 						if (loading == 1) {
 							uni.hideLoading()
