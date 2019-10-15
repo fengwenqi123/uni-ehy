@@ -3,7 +3,7 @@
 		<div class="header">
 			<div class="top">
 				<div>
-					<img src="../../static/img/address.png" alt="">
+					<image src="../../static/img/address.png" alt="">
 					<span>湖州市</span>
 				</div>
 				<p>e航运</p>
@@ -14,46 +14,53 @@
 					<p>多云 西风 3级</p>
 				</div>
 				<div @click="water()">
-					<img src="../../static/img/water.png" alt="">
+					<image src="../../static/img/water.png" alt="">
 				</div>
 			</div>
 		</div>
 		<div class="login">
-			
+
 		</div>
 		<div class="info">
-			
+
 		</div>
 		<div class="box">
-	<view class="padding-xl radius shadow-warp bg-white margin-top">
-		<ul>
-			<li>
-				<img src="../../static/img/h1.png" alt="">
-				<p>过闸申报</p>
-			</li><li>
-				<img src="../../static/img/h2.png" alt="">
-				<p>过闸申报</p>
-			</li><li>
-				<img src="../../static/img/h3.png" alt="">
-				<p>过闸申报</p>
-			</li><li>
-				<img src="../../static/img/h4.png" alt="">
-				<p>过闸申报</p>
-			</li><li>
-				<img src="../../static/img/h5.png" alt="">
-				<p>过闸申报</p>
-			</li><li>
-				<img src="../../static/img/h6.png" alt="">
-				<p>过闸申报</p>
-			</li><li>
-				<img src="../../static/img/h1.png" alt="">
-				<p>过闸申报</p>
-			</li><li>
-				<img src="../../static/img/h8.png" alt="">
-				<p>过闸申报</p>
-			</li>
-		</ul>
-	</view>
+			<view class="padding-xl radius shadow-warp bg-white margin-top">
+				<ul>
+					<li>
+						<image src="../../static/img/h1.png" alt="">
+						<p>过闸申报</p>
+					</li>
+					<li>
+						<image src="../../static/img/h2.png" alt="">
+						<p>过闸申报</p>
+					</li>
+					<li>
+						<image src="../../static/img/h3.png" alt="">
+						<p>过闸申报</p>
+					</li>
+					<li>
+						<image src="../../static/img/h4.png" alt="">
+						<p>过闸申报</p>
+					</li>
+					<li>
+						<image src="../../static/img/h5.png" alt="">
+						<p>过闸申报</p>
+					</li>
+					<li>
+						<image src="../../static/img/h6.png" alt="">
+						<p>过闸申报</p>
+					</li>
+					<li>
+						<image src="../../static/img/h1.png" alt="">
+						<p>过闸申报</p>
+					</li>
+					<li>
+						<image src="../../static/img/h8.png" alt="">
+						<p>过闸申报</p>
+					</li>
+				</ul>
+			</view>
 		</div>
 	</view>
 </template>
@@ -76,12 +83,12 @@
 			}
 		},
 		onLoad() {
-			
+
 		},
-		methods:{
+		methods: {
 			water() {
 				uni.navigateTo({
-				    url: '/pages/water/index'
+					url: '/pages/water/index'
 				});
 			}
 		}
@@ -93,23 +100,25 @@
 		.header {
 			width: 100%;
 			height: 350rpx;
-			background: #0064E0;
+			background: rgb(15, 174, 255);
 			position: relative;
 
 			.top {
 				height: 96rpx;
+				padding-top: 45rpx;
 
 				div {
 					width: 100%;
 					height: 96rpx;
 					line-height: 96rpx;
 					position: absolute;
-					left: 24rpx;
-					top: 31rpx;
+					left: 0;
+					top: 48rpx;
 
-					img {
-						width: 38rpx;
+					image {
+						width: 58rpx;
 						height: 36rpx;
+						padding-left: 24rpx;
 					}
 
 					span {
@@ -130,7 +139,7 @@
 			}
 
 			.weather {
-				height: 254rpx;
+				// height: 254rpx;
 
 				div:first-child {
 					float: left;
@@ -156,7 +165,7 @@
 					margin-right: 40rpx;
 					margin-top: 103rpx;
 
-					img {
+					image {
 						width: 66rpx;
 						height: 66rpx;
 					}
@@ -164,26 +173,30 @@
 			}
 
 		}
-		
-		.box{
+
+		.box {
 			padding: 24rpx;
-			.padding-xl{
-					padding: 0;
+
+			.padding-xl {
+				padding: 0;
 			}
-			
-			ul{
+
+			ul {
 				height: 360rpx;
-				li{
+
+				li {
 					width: 25%;
 					height: 155rpx;
 					text-align: center;
 					float: left;
-					img{
+
+					image {
 						width: 75rpx;
-						// height: 50rpx;
+						height: 125rpx;
 						padding-top: 50rpx;
 					}
-					p{
+
+					p {
 						color: #555555;
 						font-size: 26rpx;
 						padding-top: 10rpx;
