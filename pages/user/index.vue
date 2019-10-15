@@ -15,9 +15,13 @@
 		</view>
 		<div class="list">
 			<ul>
-				<li>
+				<li v-for="(item,index) in list" :key="index">
 					<div class="item">
-						
+						<div class="label">
+							<image :src="item.icon" mode=""></image>
+							<div class="name">{{item.name}}</div>
+						</div>
+						<div class="right"><image src="../../static/img/i-right.png" mode=""></image></div>
 					</div>
 				</li>
 			</ul>
@@ -27,7 +31,40 @@
 
 <script>
 export default {
-	name: 'index'
+	data() {
+		return {
+			list: [
+				{
+					name: '我的船舶',
+					icon: require('@/static/img/i-ship.png'),
+					path: ''
+				},
+				{
+					name: '消息管理',
+					icon: require('@/static/img/i-msg.png'),
+					path: ''
+				},
+				{
+					name: '船员适任证',
+					icon: require('@/static/img/i-cer.png'),
+					path: ''
+				},
+				{
+					name: '关于我们',
+					icon: require('@/static/img/i-about.png'),
+					path: ''
+				},{
+					name: '检查新版本',
+					icon: require('@/static/img/i-update.png'),
+					path: ''
+				},{
+					name: '二维码',
+					icon: require('@/static/img/i-ewm.png'),
+					path: ''
+				}
+			]
+		};
+	}
 };
 </script>
 <style scoped lang="scss">
@@ -38,7 +75,7 @@ export default {
 .status_bar {
 	height: var(--status-bar-height);
 	width: 100%;
-	background: #007AFF;
+	background: #007aff;
 }
 .header {
 	background: url(../../static/img/background.png) no-repeat;
@@ -84,14 +121,42 @@ export default {
 		}
 	}
 }
-.list{
-	ul{
-		li{
-			.item{
-				width:100%;
-				height:104px;
-				background:rgba(255,255,255,1);
+.list {
+	ul {
+		li {
+			padding: 0 32rpx;
+			background: rgba(255, 255, 255, 1);
+			.item {
+				width: 100%;
+				height: 104rpx;
+
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				.label {
+					display: flex;
+					align-items: center;
+					image {
+						width: 30rpx;
+						height: 30rpx;
+					}
+					.name {
+						font-size: 30rpx;
+						margin-left: 30rpx;
+						font-weight: 500;
+						color: rgba(51, 51, 51, 1);
+					}
+				}
+				.right {
+					image {
+						width: 16rpx;
+						height: 36rpx;
+					}
+				}
 			}
+		}
+		li:nth-child(4){
+			margin-top: 20rpx;
 		}
 	}
 }

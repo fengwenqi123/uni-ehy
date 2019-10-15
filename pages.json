@@ -3,19 +3,24 @@
 		{
 			"path": "pages/home/index",
 			"style": {
-				"navigationStyle": "custom"
+				"app-plus": {
+					"scrollIndicator":"none"
+				}
 			}
 		},
 		{
 			"path": "pages/news/index",
 			"style": {
-				"navigationBarTitleText": "通航"
+				"navigationStyle": "default",
+				"navigationBarTitleText": "通航",
+				"app-plus": {
+					"scrollIndicator":"none"
+				}
 			}
 		},
 		{
 			"path": "pages/user/index",
 			"style": {
-				"navigationStyle": "custom",
 				"app-plus": {
 					"bounce": "none" // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消, 点此查看H5端的取消方法... )
 				}
@@ -24,8 +29,17 @@
 		{
 			"path": "pages/water/index",
 			"style": {
-				"navigationBarTitleText": "水位",
-				"enablePullDownRefresh": true //设置为true表示当前页面开启下拉刷新
+				"navigationStyle": "default",
+				"navigationBarTitleText": "水位"
+//				"enablePullDownRefresh": true //设置为true表示当前页面开启下拉刷新
+			}
+		},
+		{
+			"path": "pages/login/index",
+			"style": {
+				"app-plus": {
+					"bounce": "none"
+				}
 			}
 		}
 	],
@@ -56,6 +70,6 @@
 		"navigationBarTextStyle": "white",
 		"navigationBarBackgroundColor": "#0faeff",
 		"backgroundColor": "#fbf9fe",
-		"navigationStyle": "default"
+		"navigationStyle": "custom"
 	}
 }
