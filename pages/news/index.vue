@@ -30,11 +30,12 @@
 							num: 0, // 当前页码,默认0,回调之前会加1,即callback(page)会从1开始
 							size: 10 // 每页数据的数量,默认10
 						},
+						bottom: 20,
 						noMoreSize: 1, // 配置列表的总数量要大于等于5条才显示'-- END --'的提示
 						empty: {
 							tip: '暂无相关数据'
 						},
-						textNoMore:'没有更多的数据了'
+						textNoMore:'—— 到底了 ——'
 					},
 					// 列表数据
 					dataList: []

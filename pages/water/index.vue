@@ -1,9 +1,10 @@
 <template>
-	<view class="ehy-content">
-		<mescroll-uni class="list" :down="downOption" @down="downCallback" :up="upOption" @up="upCallback">
+	<mescroll-uni  :down="downOption" @down="downCallback" :up="upOption" @up="upCallback">
+		<view class="ehy-content">
+		  <view class="list">
 			<p>{{ city }}市</p>
 			<view class="li" v-for="(item, index) in items" :key="index" :class="{ danger: item.status !== 1 }">
-				<ul>
+				<ul >
 					<li>
 						<div>
 							<span>{{ item.name }}</span>
@@ -22,8 +23,9 @@
 					</li>
 				</ul>
 			</view>
+		  </view>		
+		 </view>	
 		</mescroll-uni>
-	</view>
 </template>
 
 <script>
@@ -99,7 +101,6 @@
 		width: 100%;
 		margin: 0 auto;
 		box-sizing: border-box;
-
 		p {
 			height: 96rpx;
 			line-height: 96rpx;
