@@ -1,9 +1,7 @@
-import Request from '../plugins/request/js/index';
-let res = Request();
+import fly from '@/network/request'
+
 export function newsList(form) {
-        return res.request({
-            url: '/news/news',
-            method: 'GET',	
-			params:form
-        });
+  return fly.request('/news/news', form, {
+    method: 'get'
+  })
 }

@@ -63,9 +63,7 @@
 				goDetail(item){
 					let itemString=JSON.stringify(item)
 					uni.navigateTo({
-					    url: `details?details=${itemString}`,
-						animationType: 'pop-in',
-						animationDuration: 300
+					    url: `details?details=${itemString}`
 					});
 					
 				},
@@ -101,16 +99,16 @@
 			.news-content{
 			 width:100%;
 			 display: flex;
-			 height:180rpx;
+			 height:150rpx;
 			 background-color:#ffffff;
 			 padding:10rpx 20rpx;
 			 border-bottom:1rpx solid #eeeeee;
 			 div:nth-child(1){
-				 width:88%;
+				 width:85%;
 				 p:nth-child(1){
 					 span{
 						 display: inlien-block;
-						 line-height:60rpx;
+						 line-height:40rpx;
 						 
 					 }
 					 span:nth-child(2){
@@ -127,12 +125,12 @@
 				 }
 			 }
 			 div:nth-child(2){
-			 	 width:12%;
+			 	 width:15%;
 				 span{
 					width:80%;
 					text-align: center;
                     display: inline-block;
-					line-height: 180rpx;
+					line-height: 150rpx;
 					font-size:40rpx;
 					color:#888;
 				 }
