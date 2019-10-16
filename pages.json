@@ -97,18 +97,6 @@
 					"bounce": "none"
 				}
 			}
-		},
-		{
-			"path": "pages/home/water/index",
-			"style": {
-				"navigationBarTitleText": "水位信息查询"
-			}
-		},
-		{
-			"path": "pages/home/police/index",
-			"style": {
-				"navigationBarTitleText": "一键报警"
-			}
 		}
 	],
 	"tabBar": {
