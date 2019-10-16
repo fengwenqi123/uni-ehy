@@ -3,24 +3,24 @@
 		<div class="form">
 			<view class="input">
 				<view class="title">姓名:</view>
-				<input v-model="form.name" class="uni-input" focus placeholder="请输入姓名" />
+				<input v-model="form.name" return-key-type="done" class="uni-input" placeholder="请输入姓名" />
 			</view>
 			<view class="input">
 				<view class="title">身份证:</view>
-				<input v-model="form.idCard" class="uni-input" focus placeholder="请输入身份证" />
+				<input v-model="form.idCard" return-key-type="done" type="idcard" class="uni-input" placeholder="请输入身份证" />
 			</view>
 			<view class="input">
 				<view class="title">手机号:</view>
-				<input v-model="form.mobile" class="uni-input" focus placeholder="请输入手机号" />
+				<input v-model="form.mobile" return-key-type="done" type="number" class="uni-input" placeholder="请输入手机号" />
 			</view>
 			<view class="input">
 				<view class="title">验证码:</view>
-				<input v-model="form.code" class="uni-input" focus placeholder="请输入验证码" />
+				<input v-model="form.code" return-key-type="done" type="number" class="uni-input" placeholder="请输入验证码" />
 				<button @click="_getSms" :disabled="disabled" size="mini" type="primary">{{ smsText }}</button>
 			</view>
 			<view class="input">
 				<view class="title">密码:</view>
-				<input v-model="form.password" class="uni-input" focus placeholder="请输入密码" />
+				<input v-model="form.password" return-key-type="done" password class="uni-input"  placeholder="请输入密码" />
 			</view>
 			<view class="input">
 				<view class="title">推广单位:</view>
@@ -29,7 +29,7 @@
 				</picker>
 			</view>
 		</div>
-		<div class="button"><button @click="submit" type="primary">注 册</button></div>
+		<div class="button"><button @click="submit" type="primary">确 定</button></div>
 	</div>
 </template>
 

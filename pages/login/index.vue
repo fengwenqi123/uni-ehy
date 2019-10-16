@@ -5,11 +5,11 @@
 		<div class="form">
 			<view class="input">
 				<view class="title"><image src="../../static/img/username.png" mode=""></image></view>
-				<input v-model="form.loginName" class="uni-input" focus placeholder="请输入帐号/手机号" />
+				<input v-model="form.loginName" focus placeholder="请输入帐号/手机号" />
 			</view>
 			<view class="input">
 				<view class="title"><image src="../../static/img/password.png" mode=""></image></view>
-				<input v-model="form.password" class="uni-input" password type="text" placeholder="请输入密码" />
+				<input v-model="form.password" password type="text" placeholder="请输入密码" />
 				<div class="forget">忘记密码</div>
 			</view>
 		</div>

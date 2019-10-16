@@ -11,6 +11,7 @@ import {
 } from '@/utils/cache.js'
 
 const host = 'https://api.cjbe88.com'
+const timeout = 6000
 
 // 添加请求拦截器
 fly.interceptors.request.use(request => {
@@ -50,5 +51,6 @@ fly.interceptors.response.use(response => {
 })
 
 fly.config.baseURL = host
+fly.config.timeout = timeout;
 
 export default fly
