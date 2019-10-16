@@ -2,7 +2,7 @@
 	<view class="container">
 		<!-- <view class="status_bar"></view> -->
 		<view class="header">
-			<div class="main">
+			<div class="main" @click="login">
 				<div class="info">
 					<div class="img"><image src="../../static/img/h8.png" mode=""></image></div>
 					<div class="name">
@@ -15,11 +15,11 @@
 		</view>
 		<div class="list">
 			<ul>
-				<li v-for="(item,index) in list" :key="index">
-					<div class="item">
+				<li v-for="(item, index) in list" :key="index">
+					<div class="item" @click="localTo(index)">
 						<div class="label">
 							<image :src="item.icon" mode=""></image>
-							<div class="name">{{item.name}}</div>
+							<div class="name">{{ item.name }}</div>
 						</div>
 						<div class="right"><image src="../../static/img/i-right.png" mode=""></image></div>
 					</div>
@@ -37,7 +37,7 @@ export default {
 				{
 					name: '我的船舶',
 					icon: require('@/static/img/i-ship.png'),
-					path: ''
+					path: '/pages/myShip/index'
 				},
 				{
 					name: '消息管理',
@@ -53,17 +53,36 @@ export default {
 					name: '关于我们',
 					icon: require('@/static/img/i-about.png'),
 					path: ''
-				},{
+				},
+				{
 					name: '检查新版本',
 					icon: require('@/static/img/i-update.png'),
 					path: ''
-				},{
+				},
+				{
 					name: '二维码',
 					icon: require('@/static/img/i-ewm.png'),
 					path: ''
 				}
 			]
 		};
+	},
+	methods: {
+		login() {
+			uni.navigateTo({
+				url: '/pages/login/index',
+				animationType: 'pop-in',
+				animationDuration: 300
+			});
+		},
+		localTo(index){
+			const url=this.list[index].path
+			uni.navigateTo({
+				url,
+				animationType: 'pop-in',
+				animationDuration: 300
+			});
+		}
 	}
 };
 </script>
@@ -155,7 +174,7 @@ export default {
 				}
 			}
 		}
-		li:nth-child(4){
+		li:nth-child(4) {
 			margin-top: 20rpx;
 		}
 	}
