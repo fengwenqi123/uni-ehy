@@ -99,16 +99,11 @@ globalInterceptor.response.use((response, config) => {
 				showCancel: false,
 				confirmText: "确定"
 			})
-			break;
+			return Promise.reject('error')
 	}
 
 }, (err, config) => {
 	uni.hideLoading();
-	uni.showModal({
-		content: err.errMsg,
-		showCancel: false,
-		confirmText: "确定"
-	})
 	return Promise.reject(err.errMsg);
 });
 

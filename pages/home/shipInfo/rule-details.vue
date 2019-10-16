@@ -81,7 +81,11 @@
 			}
 		},
 		created() {
-			this.item = JSON.parse(localStorage.ruleInfo).data;
+			const value = JSON.parse(localStorage.ruleInfo).data;
+			if (value) {
+			    console.log(value);
+				this.item = value
+			}
 		},
 		methods: {
 
