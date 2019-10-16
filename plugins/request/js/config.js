@@ -16,7 +16,7 @@ export const config = {
 	baseURL: 'https://api.cjbe88.com',
 	header: {
 		contentType: 'application/x-www-form-urlencoded',
-		accessToken: getToken()
+		accessToken: 'NSRDup9AFAFKZQbe99UweP' //getToken()
 	},
 }
 /**
