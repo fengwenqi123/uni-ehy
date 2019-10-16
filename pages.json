@@ -1,5 +1,5 @@
 {
-	"pages": [ //pages数组中第一项表示应用启动页,
+	"pages": [
 		{
 			"path": "pages/home/index",
 			"style": {
@@ -13,9 +13,8 @@
 			"path": "pages/news/index",
 			"style": {
 				"navigationStyle": "custom",
-				// "navigationBarTitleText": "通航",
 				"app-plus": {
-					"bounce": "none" // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消, 点此查看H5端的取消方法... )
+					"bounce": "none"
 				}
 			}
 		},
@@ -24,7 +23,7 @@
 			"style": {
 				"navigationBarTitleText": "详情",
 				"app-plus": {
-					"bounce": "none" // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消, 点此查看H5端的取消方法... )
+					"bounce": "none"
 				}
 			}
 		},
@@ -71,7 +70,6 @@
 			"path": "pages/water/index",
 			"style": {
 				"navigationBarTitleText": "水位信息查询"
-				// "enablePullDownRefresh": true //设置为true表示当前页面开启下拉刷新
 			}
 		}
 	],
