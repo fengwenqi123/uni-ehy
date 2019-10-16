@@ -2,7 +2,7 @@
 	<view class="ehy-content">
 		<view class="page-body">
 			<view class="page-section page-section-gap">
-				<map id="map" ref="map" style="width: 100%; height: 100vh;" :latitude="latitude" :longitude="longitude" :markers="markers"
+				<map id="map" ref="map" style="width: 100%; height: 100vh;" :latitude="latitude" :longitude="longitude"
 				 show-location="true">
 					<cover-view class="address"> {{address?'- 当前位置：' +address + '附近' : ''}}</cover-view>
 					<cover-view class="tel" @click="tel('12395')">12395</cover-view>
@@ -32,9 +32,8 @@
 			}
 		},
 		onReady() {
-			setTimeout(() => {
 				this.getLocation();
-			}, 10);
+				this.moveToLocation();
 		},
 		methods: {
 			tel(num) {
@@ -55,7 +54,7 @@
 						_this.markers[0].latitude = res.latitude;
 						_this.markers[0].longitude = res.longitude;
 						if (res.address) {
-							_this.address = res.address.city + res.address.district + res.address.street + res.address.streetNum;
+							_this.address = res.address.city + res.address.district + res.address.street;
 						}
 					}
 				});

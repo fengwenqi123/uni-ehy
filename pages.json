@@ -11,9 +11,9 @@
 		{
 			"path": "pages/news/index",
 			"style": {
-				"navigationStyle": "custom",
+				"navigationBarTitleText": "通航",
 				"app-plus": {
-					"bounce": "none"
+					"bounce": "none" // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消, 点此查看H5端的取消方法... 
 				}
 			}
 		},
@@ -34,6 +34,17 @@
 			"style": {
 				"navigationBarTitleText": "详情",
 				"app-plus": {
+					"bounce": "none" // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消, 点此查看H5端的取消方法... 
+				}
+			}
+		},
+		{
+			"path": "pages/sewage/index",
+			"style": {
+				"navigationBarTitleText": "排污",
+				"navigationBarTextStyle": "black",
+				"navigationBarBackgroundColor": "#fff",
+				"app-plus": {
 					"bounce": "none"
 				}
 			}
@@ -51,8 +62,6 @@
 			}
 		},
 		{
-			"path": "pages/news/index"
-		}, {
 			"path": "pages/user/index",
 			"style": {
 				"navigationStyle": "custom",
@@ -88,6 +97,18 @@
 					"bounce": "none"
 				}
 			}
+		},
+		{
+			"path": "pages/home/water/index",
+			"style": {
+				"navigationBarTitleText": "水位信息查询"
+			}
+		},
+		{
+			"path": "pages/home/police/index",
+			"style": {
+				"navigationBarTitleText": "一键报警"
+			}
 		}
 	],
 	"tabBar": {
@@ -99,18 +120,19 @@
 				"text": "首页",
 				"iconPath": "static/img/home.png",
 				"selectedIconPath": "static/img/homeHL.png"
-			}, {
+			},
+			{
 				"pagePath": "pages/news/index",
 				"text": "通航",
 				"iconPath": "static/img/info.png",
 				"selectedIconPath": "static/img/infoHL.png"
-			}, {
+			},
+			{
 				"pagePath": "pages/user/index",
 				"text": "我的",
 				"iconPath": "static/img/user.png",
 				"selectedIconPath": "static/img/userHL.png"
 			}
-
 		]
 	},
 	"globalStyle": {

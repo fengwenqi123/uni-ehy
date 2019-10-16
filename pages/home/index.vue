@@ -44,7 +44,7 @@
 						<image src="../../static/img/h1.png" alt="">
 							<p>过闸申报</p>
 					</li>
-					<li @click="port()">
+					<li @click="sewage()">
 						<image src="../../static/img/h2.png" alt="">
 							<p>船舶排污</p>
 					</li>
@@ -79,248 +79,252 @@
 </template>
 
 <script>
-	import {
-		selectByToken
-	} from '../../api/home';
+import {
+  selectByToken
+} from '../../api/home';
 
-	export default {
-		data() {
-			return {
-				loadingType: 'more', //加载更多状态
-				headerPosition: "fixed",
-				headerTop: "0px",
-				province: '浙江',
-				city: '湖州',
-				items: [],
-				swiperList: [],
-				dotStyle: false,
-				cardCur: 0,
-				page: {
-					pageSize: 20,
-					pageNum: 1,
-					total: 0
-				}
-			}
-		},
-		onLoad() {
-			this.getSelectByToken();
-		},
-		methods: {
-			water() {
-				uni.navigateTo({
-					url: '/pages/home/water/index',
-					animationType: 'pop-in',
-					animationDuration: 300
-				});
-			},
-			police() {
-				uni.navigateTo({
-					url: '/pages/home/police/index',
-					animationType: 'pop-in',
-					animationDuration: 300
-				});
-			},
-			port() {
-				uni.showModal({
-					content: "暂未开放，敬请期待！",
-					showCancel: false,
-					confirmText: "确定"
-				})
-			},
-			tabClick(item) {
-				uni.navigateTo({
-					url: '/pages/home/shipInfo/index?cm=' + item.shipName + '&cbdjh=' + item.cbdjh + '&cbsbh=' + item.cbsbh,
-					animationType: 'pop-in',
-					animationDuration: 300
-				});
-			},
-			// cardSwiper
-			cardSwiper(e) {
-				this.cardCur = e.detail.current
-			},
-			getSelectByToken() {
-				selectByToken(2)
-					.then(res => {
-						console.log(res);
-						this.swiperList = res.data;
-					})
-					.catch(err => {
-						console.log(err);
-					});
-			}
-		}
-	}
+export default {
+  data() {
+    return {
+      loadingType: 'more', //加载更多状态
+      headerPosition: "fixed",
+      headerTop: "0px",
+      province: '浙江',
+      city: '湖州',
+      items: [],
+      swiperList: [],
+      dotStyle: false,
+      cardCur: 0,
+      page: {
+        pageSize: 20,
+        pageNum: 1,
+        total: 0
+      }
+    }
+  },
+  onLoad() {
+    this.getSelectByToken();
+  },
+  methods: {
+    water() {
+      uni.navigateTo({
+        url: '/pages/home/water/index',
+        animationType: 'pop-in',
+        animationDuration: 300
+      });
+    },
+    police() {
+      uni.navigateTo({
+        url: '/pages/home/police/index',
+        animationType: 'pop-in',
+        animationDuration: 300
+      });
+    },
+    sewage() {
+      uni.navigateTo({
+        url: '/pages/sewage/index'
+      });
+    },
+    port() {
+      uni.showModal({
+        content: "暂未开放，敬请期待！",
+        showCancel: false,
+        confirmText: "确定"
+      })
+    },
+    tabClick(item) {
+      uni.navigateTo({
+        url: '/pages/home/shipInfo/index?cm=' + item.shipName + '&cbdjh=' + item.cbdjh + '&cbsbh=' + item.cbsbh,
+        animationType: 'pop-in',
+        animationDuration: 300
+      });
+    },
+    // cardSwiper
+    cardSwiper(e) {
+      this.cardCur = e.detail.current
+    },
+    getSelectByToken() {
+      selectByToken(2)
+        .then(res => {
+          console.log(res);
+          this.swiperList = res.data;
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
+  }
+}
 </script>
 
 <style lang="scss">
-	.ehy-content {
-		.header {
-			width: 100%;
-			height: 350rpx;
-			background: rgb(15, 174, 255);
-			position: relative;
+.ehy-content {
+  .header {
+    width: 100%;
+    height: 350rpx;
+    background: rgb(15, 174, 255);
+    position: relative;
 
-			.top {
-				height: 96rpx;
-				padding-top: 45rpx;
+    .top {
+      height: 96rpx;
+      padding-top: 45rpx;
 
-				div {
-					width: 100%;
-					height: 96rpx;
-					line-height: 96rpx;
-					position: absolute;
-					left: 0;
-					top: 48rpx;
+      div {
+        width: 100%;
+        height: 96rpx;
+        line-height: 96rpx;
+        position: absolute;
+        left: 0;
+        top: 48rpx;
 
-					image {
-						width: 58rpx;
-						height: 36rpx;
-						padding-left: 24rpx;
-					}
+        image {
+          width: 58rpx;
+          height: 36rpx;
+          padding-left: 24rpx;
+        }
 
-					span {
-						padding-left: 21rpx;
-						font-size: 30rpx;
-						color: #fff;
-					}
-				}
+        span {
+          padding-left: 21rpx;
+          font-size: 30rpx;
+          color: #fff;
+        }
+      }
 
-				p {
-					width: 100%;
-					height: 96rpx;
-					line-height: 96rpx;
-					text-align: center;
-					color: #fff;
-					font-size: 36rpx;
-				}
-			}
+      p {
+        width: 100%;
+        height: 96rpx;
+        line-height: 96rpx;
+        text-align: center;
+        color: #fff;
+        font-size: 36rpx;
+      }
+    }
 
-			.weather {
-				// height: 254rpx;
+    .weather {
+      // height: 254rpx;
 
-				div:first-child {
-					float: left;
-					margin-left: 39rpx;
-					margin-top: 67rpx;
+      div:first-child {
+        float: left;
+        margin-left: 39rpx;
+        margin-top: 67rpx;
 
-					p {
-						color: #fff;
-					}
+        p {
+          color: #fff;
+        }
 
-					p:first-child {
-						font-size: 60rpx;
-					}
+        p:first-child {
+          font-size: 60rpx;
+        }
 
-					p:last-child {
-						font-size: 30rpx;
-						margin-top: 23rpx;
-					}
-				}
+        p:last-child {
+          font-size: 30rpx;
+          margin-top: 23rpx;
+        }
+      }
 
-				div:last-child {
-					float: right;
-					margin-right: 40rpx;
-					margin-top: 103rpx;
+      div:last-child {
+        float: right;
+        margin-right: 40rpx;
+        margin-top: 103rpx;
 
-					image {
-						width: 66rpx;
-						height: 66rpx;
-					}
-				}
-			}
+        image {
+          width: 66rpx;
+          height: 66rpx;
+        }
+      }
+    }
+  }
 
-		}
+  .login {
+    padding: 0 24rpx 0 24rpx;
+    position: relative;
+    top: -60rpx;
+    z-index: 999;
+    height: 120rpx;
+    text-align: center;
 
-		.login {
-			padding: 0 24rpx 0 24rpx;
-			position: relative;
-			top: -60rpx;
-			z-index: 999;
-			height: 120rpx;
-			text-align: center;
+    .padding-xl {
+      padding: 32rpx;
+    }
+  }
 
-			.padding-xl {
-				padding: 32rpx;
-			}
-		}
+  .info {
+    padding: 0 24rpx 0 24rpx;
+    position: relative;
+    top: -60rpx;
+    z-index: 999;
+    height: 230rpx;
 
-		.info {
-			padding: 0 24rpx 0 24rpx;
-			position: relative;
-			top: -60rpx;
-			z-index: 999;
-			height: 230rpx;
+    .padding-xl {
+      padding: 0;
+      height: 100%;
 
-			.padding-xl {
-				padding: 0;
-				height: 100%;
+      .screen-swiper {
+        height: 100%;
+        min-height: initial;
+      }
+    }
 
-				.screen-swiper {
-					height: 100%;
-					min-height: initial;
-				}
-			}
+    .ship-info {
+      padding: 30rpx 26rpx;
+      position: relative;
 
-			.ship-info {
-				padding: 30rpx 26rpx;
-				position: relative;
+      p {
+        font-size: 36rpx;
+        color: #666666;
+        padding-bottom: 23rpx;
+      }
 
-				p {
-					font-size: 36rpx;
-					color: #666666;
-					padding-bottom: 23rpx;
-				}
+      p:first-child {
+        font-weight: bold;
+        color: #333;
+      }
 
-				p:first-child {
-					font-weight: bold;
-					color: #333;
-				}
+      p:nth-child(3) {
+        font-size: 24rpx;
+      }
 
-				p:nth-child(3) {
-					font-size: 24rpx;
-				}
+      image {
+        width: 70rpx;
+        height: 70rpx;
+        position: absolute;
+        right: 30rpx;
+        top: 30rpx;
+      }
+    }
+  }
 
-				image {
-					width: 70rpx;
-					height: 70rpx;
-					position: absolute;
-					right: 30rpx;
-					top: 30rpx;
-				}
-			}
-		}
+  .box {
+    padding: 0 24rpx 0 24rpx;
+    position: relative;
+    top: -30rpx;
 
-		.box {
-			padding: 0 24rpx 0 24rpx;
-			position: relative;
-			top: -30rpx;
+    .padding-xl {
+      padding: 0;
+    }
 
-			.padding-xl {
-				padding: 0;
-			}
+    ul {
+      height: 360rpx;
 
-			ul {
-				height: 360rpx;
+      li {
+        width: 25%;
+        height: 155rpx;
+        text-align: center;
+        float: left;
 
-				li {
-					width: 25%;
-					height: 155rpx;
-					text-align: center;
-					float: left;
+        image {
+          width: 75rpx;
+          height: 125rpx;
+          padding-top: 50rpx;
+        }
 
-					image {
-						width: 75rpx;
-						height: 125rpx;
-						padding-top: 50rpx;
-					}
-
-					p {
-						color: #555555;
-						font-size: 26rpx;
-						padding-top: 10rpx;
-					}
-				}
-			}
-		}
-	}
+        p {
+          color: #555555;
+          font-size: 26rpx;
+          padding-top: 10rpx;
+        }
+      }
+    }
+  }
+}
 </style>
