@@ -1,9 +1,13 @@
 {
-	"pages": [ //pages数组中第一项表示应用启动页,
+	"pages": [
+		//pages数组中第一项表示应用启动页,
 		{
 			"path": "pages/home/index",
 			"style": {
-				"navigationStyle": "custom"
+				"navigationStyle": "custom",
+				"app-plus": {
+					"scrollIndicator": "none"
+				}
 			}
 		},
 		{
@@ -11,7 +15,7 @@
 			"style": {
 				"navigationBarTitleText": "通航",
 				"app-plus": {
-					"bounce": "none" // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消, 点此查看H5端的取消方法... )
+					"bounce": "none" // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消, 点此查看H5端的取消方法... 
 				}
 			}
 		},
@@ -20,7 +24,7 @@
 			"style": {
 				"navigationBarTitleText": "详情",
 				"app-plus": {
-					"bounce": "none" // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消, 点此查看H5端的取消方法... )
+					"bounce": "none" // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消, 点此查看H5端的取消方法... 
 				}
 			}
 		},
@@ -31,35 +35,66 @@
 				"navigationBarTextStyle": "black",
 				"navigationBarBackgroundColor": "#fff",
 				"app-plus": {
-					"bounce": "none" // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消, 点此查看H5端的取消方法... )
+					"bounce": "none"
 				}
-			}
-		}, 
-		{
-			"path": "pages/user/index",
-			"style": {
-				"navigationBarTitleText": "我的"
 			}
 		},
 		{
-			"path": "pages/water/index",
+			"path": "pages/user/index",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/login/index",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/register/index",
+			"style": {
+				"navigationBarTitleText": "注册",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/myShip/index",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "我的船舶",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/home/water/index",
 			"style": {
 				"navigationBarTitleText": "水位信息查询"
-				// "enablePullDownRefresh": true //设置为true表示当前页面开启下拉刷新
 			}
 		}
-	    
-    ],
+	],
 	"tabBar": {
 		"color": "#7a7e83",
 		"selectedColor": "#0faeff",
 		"backgroundColor": "#ffffff",
-		"list": [{
+		"list": [
+			{
 				"pagePath": "pages/home/index",
 				"text": "首页",
 				"iconPath": "static/img/home.png",
 				"selectedIconPath": "static/img/homeHL.png"
-			}, {
+			},
+			{
 				"pagePath": "pages/news/index",
 				"text": "通航",
 				"iconPath": "static/img/info.png",
@@ -81,10 +116,12 @@
 	},
 	"condition": { //模式配置，仅开发期间生效
 		"current": 0, //当前激活的模式（list 的索引项）
-		"list": [{
-			"name": "home", //模式名称
-			"path": "pages/home/index", //启动页面，必选
-			"query": "interval=4000&autoplay=false" //启动参数，在页面的onLoad函数里面得到。
-		}]
+		"list": [
+			{
+				"name": "home", //模式名称
+				"path": "pages/home/index", //启动页面，必选
+				"query": "interval=4000&autoplay=false" //启动参数，在页面的onLoad函数里面得到。
+			}
+		]
 	}
 }
