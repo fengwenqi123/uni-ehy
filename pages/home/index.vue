@@ -4,7 +4,7 @@
 			<div class="top">
 				<div>
 					<image src="../../static/img/address.png" alt="">
-					<span>湖州市</span>
+						<span>湖州市</span>
 				</div>
 				<p>e航运</p>
 			</div>
@@ -19,45 +19,62 @@
 			</div>
 		</div>
 		<div class="login">
-
+			<view class="padding-xl radius bg-white">去登录</view>
 		</div>
 		<div class="info">
-
+			<view class="padding-xl radius bg-white">
+				<swiper class="screen-swiper" :class="dotStyle?'square-dot':'round-dot'" :indicator-dots="true" :circular="true"
+				 :autoplay="true" interval="5000" duration="500" indicator-color="#8799a3" indicator-active-color="#0081ff">
+					<swiper-item v-for="(item,index) in swiperList" :key="index">
+						<div class="ship-info" @click="tabClick(item)">
+							<p>{{item.shipName}}</p>
+							<p>船舶登记号：{{item.cbdjh}}</p>
+							<p>点击查看详情</p>
+							<image src="../../static/img/ship.png" mode=""></image>
+						</div>
+					</swiper-item>
+				</swiper>
+			</view>
 		</div>
+
 		<div class="box">
-			<view class="padding-xl radius shadow-warp bg-white margin-top">
+			<view class="padding-xl radius bg-white">
 				<ul>
-					<li>
+					<li @click="port()">
 						<image src="../../static/img/h1.png" alt="">
-						<p>过闸申报</p>
+							<p>过闸申报</p>
 					</li>
+<<<<<<< HEAD
 					<li @click="sewage()">
+=======
+					<li @click="port()">
+>>>>>>> 3eceea91ac6042478369a221a2247f50e73d19aa
 						<image src="../../static/img/h2.png" alt="">
-						<p>船舶排污</p>
+							<p>船舶排污</p>
 					</li>
-					<li>
+					<li @click="port()">
 						<image src="../../static/img/h3.png" alt="">
-						<p>电子报告</p>
+							<p>电子报告</p>
 					</li>
-					<li>
+					<li @click="port()">
 						<image src="../../static/img/h4.png" alt="">
-						<p>问题上报</p>
+							<p>问题上报</p>
 					</li>
 					<li @click="police()">
 						<image src="../../static/img/h5.png" alt="">
-						<p>一键报警</p>
+							<p>一键报警</p>
 					</li>
-					<li>
+					<li @click="port()">
 						<image src="../../static/img/h6.png" alt="">
-						<p>法律法规</p>
+							<p>法律法规</p>
 					</li>
-					<li>
+					<li @click="port()">
 						<image src="../../static/img/h1.png" alt="">
-						<p>船员采集点</p>
+							<p>船员采集点</p>
 					</li>
-					<li>
+					<li @click="port()">
 						<image src="../../static/img/h8.png" alt="">
-						<p>浙里办</p>
+							<p>浙里办</p>
 					</li>
 				</ul>
 			</view>
@@ -66,6 +83,10 @@
 </template>
 
 <script>
+	import {
+		selectByToken
+	} from '../../api/home';
+
 	export default {
 		data() {
 			return {
@@ -75,6 +96,9 @@
 				province: '浙江',
 				city: '湖州',
 				items: [],
+				swiperList: [],
+				dotStyle: false,
+				cardCur: 0,
 				page: {
 					pageSize: 20,
 					pageNum: 1,
@@ -83,24 +107,59 @@
 			}
 		},
 		onLoad() {
-
+			this.getSelectByToken();
 		},
 		methods: {
 			water() {
 				uni.navigateTo({
-					url: '/pages/home/water/index'
+					url: '/pages/home/water/index',
+					animationType: 'pop-in',
+					animationDuration: 300
 				});
 			},
 			police() {
 				uni.navigateTo({
-					url: '/pages/home/police/index'
+					url: '/pages/home/police/index',
+					animationType: 'pop-in',
+					animationDuration: 300
 				});
 			},
+<<<<<<< HEAD
 			sewage() {
 				uni.navigateTo({
 					url: '/pages/sewage/index'
 				});
 			},
+=======
+			port() {
+				uni.showModal({
+					content: "暂未开放，敬请期待！",
+					showCancel: false,
+					confirmText: "确定"
+				})
+			},
+			tabClick(item) {
+				uni.navigateTo({
+					url: '/pages/home/shipInfo/index?cm=' + item.shipName + '&cbdjh=' + item.cbdjh + '&cbsbh=' + item.cbsbh,
+					animationType: 'pop-in',
+					animationDuration: 300
+				});
+			},
+			// cardSwiper
+			cardSwiper(e) {
+				this.cardCur = e.detail.current
+			},
+			getSelectByToken() {
+				selectByToken(2)
+					.then(res => {
+						console.log(res);
+						this.swiperList = res.data;
+					})
+					.catch(err => {
+						console.log(err);
+					});
+			}
+>>>>>>> 3eceea91ac6042478369a221a2247f50e73d19aa
 		}
 	}
 </script>
@@ -184,8 +243,69 @@
 
 		}
 
+		.login {
+			padding: 0 24rpx 0 24rpx;
+			position: relative;
+			top: -60rpx;
+			z-index: 999;
+			height: 120rpx;
+			text-align: center;
+
+			.padding-xl {
+				padding: 32rpx;
+			}
+		}
+
+		.info {
+			padding: 0 24rpx 0 24rpx;
+			position: relative;
+			top: -60rpx;
+			z-index: 999;
+			height: 230rpx;
+
+			.padding-xl {
+				padding: 0;
+				height: 100%;
+
+				.screen-swiper {
+					height: 100%;
+					min-height: initial;
+				}
+			}
+
+			.ship-info {
+				padding: 30rpx 26rpx;
+				position: relative;
+
+				p {
+					font-size: 36rpx;
+					color: #666666;
+					padding-bottom: 23rpx;
+				}
+
+				p:first-child {
+					font-weight: bold;
+					color: #333;
+				}
+
+				p:nth-child(3) {
+					font-size: 24rpx;
+				}
+
+				image {
+					width: 70rpx;
+					height: 70rpx;
+					position: absolute;
+					right: 30rpx;
+					top: 30rpx;
+				}
+			}
+		}
+
 		.box {
-			padding: 24rpx;
+			padding: 0 24rpx 0 24rpx;
+			position: relative;
+			top: -30rpx;
 
 			.padding-xl {
 				padding: 0;

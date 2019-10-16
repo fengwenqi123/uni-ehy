@@ -1,6 +1,5 @@
 {
 	"pages": [
-		//pages数组中第一项表示应用启动页,
 		{
 			"path": "pages/home/index",
 			"style": {
@@ -37,6 +36,18 @@
 				"app-plus": {
 					"bounce": "none"
 				}
+			}
+		},
+		{
+			"path": "pages/home/shipInfo/index",
+			"style": {
+				"navigationBarTitleText": "船舶详情"
+			}
+		},
+		{
+			"path": "pages/home/shipInfo/rule-details",
+			"style": {
+				"navigationBarTitleText": "违章详情"
 			}
 		},
 		{
