@@ -18,7 +18,7 @@ fly.interceptors.request.use(request => {
 	request.headers['accessToken'] = getToken()
 	uni.showLoading({
 		title: '正在加载...',
-		mask: true
+		mask: false
 	});
 	return request
 }, error => {

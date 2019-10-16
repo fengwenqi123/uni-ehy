@@ -33,7 +33,7 @@
 	import MescrollUni from "mescroll-uni"; // npm安装的引入方式
 	import {
 		hydrology
-	} from '../../api/test';
+	} from '../../api/home';
 
 	export default {
 		components: {
