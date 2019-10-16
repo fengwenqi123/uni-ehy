@@ -31,7 +31,7 @@
 						<image src="../../static/img/h1.png" alt="">
 						<p>过闸申报</p>
 					</li>
-					<li>
+					<li @click="sewage()">
 						<image src="../../static/img/h2.png" alt="">
 						<p>船舶排污</p>
 					</li>
@@ -95,7 +95,12 @@
 				uni.navigateTo({
 					url: '/pages/home/police/index'
 				});
-			}
+			},
+			sewage() {
+				uni.navigateTo({
+					url: '/pages/sewage/index'
+				});
+			},
 		}
 	}
 </script>

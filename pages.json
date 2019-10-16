@@ -9,13 +9,12 @@
 		{
 			"path": "pages/news/index",
 			"style": {
-				"navigationStyle": "custom",
-				// "navigationBarTitleText": "通航",
+				"navigationBarTitleText": "通航",
 				"app-plus": {
 					"bounce": "none" // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消, 点此查看H5端的取消方法... )
 				}
 			}
-		}, 
+		},
 		{
 			"path": "pages/news/details",
 			"style": {
@@ -24,7 +23,19 @@
 					"bounce": "none" // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消, 点此查看H5端的取消方法... )
 				}
 			}
-		},{
+		},
+		{
+			"path": "pages/sewage/index",
+			"style": {
+				"navigationBarTitleText": "排污",
+				"navigationBarTextStyle": "black",
+				"navigationBarBackgroundColor": "#fff",
+				"app-plus": {
+					"bounce": "none" // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消, 点此查看H5端的取消方法... )
+				}
+			}
+		}, 
+		{
 			"path": "pages/user/index",
 			"style": {
 				"navigationBarTitleText": "我的"
@@ -37,7 +48,8 @@
 				// "enablePullDownRefresh": true //设置为true表示当前页面开启下拉刷新
 			}
 		}
-	],
+	    
+    ],
 	"tabBar": {
 		"color": "#7a7e83",
 		"selectedColor": "#0faeff",
