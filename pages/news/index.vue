@@ -63,7 +63,7 @@
 				goDetail(item){
 					let itemString=JSON.stringify(item)
 					uni.navigateTo({
-					    url: `details?details=${itemString}`
+					    url: `/pages/news/details?details=${itemString}`
 					});
 					
 				},

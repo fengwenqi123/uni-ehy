@@ -1,4 +1,5 @@
 import fly from '@/network/request'
+import flyNoLoading from '@/network/requestNoLoading'
 import qs from 'qs'
 
 export function login(form) {
@@ -9,7 +10,7 @@ export function login(form) {
 }
 
 export function online(accessToken) {
-  return fly.request('/login/user/online', {accessToken}, {
+  return flyNoLoading.request('/login/user/online', {accessToken}, {
     method: 'get'
   })
 }
