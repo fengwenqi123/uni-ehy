@@ -27,24 +27,24 @@
 			</div>
 			<div><image class="imgCell" src="../../static/img/i-right.png"></image></div>
 		</div>
-		<div class="cell">
+		<div class="cell" @click="goLifeWater">
 			<div>
 				<image class="imgCell" src="../../static/img/shws.png"></image>
 				<span>生活污水回收记录</span>
 			</div>
 			<div><image class="imgCell" src="../../static/img/i-right.png"></image></div>
 		</div>
-		<div class="cell">
+		<div class="cell" @click="goSite">
 			<div>
 				<image class="imgCell" src="../../static/img/hsdwz.png"></image>
 				<span>回收点位置查询</span>
 			</div>
 			<div><image class="imgCell" src="../../static/img/i-right.png"></image></div>
 		</div>
-		<div class="cell">
+		<div class="cell" @click="goReport">
 			<div>
 				<image class="imgCell" src="../../static/img/wfsa.png"></image>
-				<span>无法上岸问题上班</span>
+				<span>无法上岸问题上报</span>
 			</div>
 			<div><image class="imgCell" src="../../static/img/i-right.png"></image></div>
 		</div>
@@ -73,43 +73,68 @@ export default {
 				this.shipName = this.shipList[0];
 			});
 		},
+		goSite(){
+			uni.navigateTo({
+				url: '/pages/sewage/siteList/index'
+			});
+		},
+		goReport(){
+			uni.navigateTo({
+				url: '/pages/sewage/failReport/index'
+			});
+		},
+		goLifeWater(){
+			uni.navigateTo({
+				url: '/pages/sewage/lifeWaterReport/index'
+			});
+		},
 		selectShip(e) {
 			console.log(e.detail.value);
 			this.shipName = this.shipList[e.detail.value];
 		},
 		getScanCode() {
-			// uni.scanCode({
-			// 	success: function(res) {
-			// 		console.log('条码类型：' + res.scanType);
-			// 		console.log('条码内容：' + res.result);
-			// 		// this.code = res.result;
-			// 		this.getRecoveryInfo();
-			// 	}
-			// });
-			this.getRecoveryInfo();
+			uni.scanCode({
+				onlyFromCamera: true,
+				success: res => {
+					console.log('条码类型：' + res.scanType);
+					console.log('条码内容：' + res.result);
+					this.code = res.result
+					// console.log('条码内容：'+this.code)
+					this.getRecoveryInfo();
+				}
+			});
+			// this.getRecoveryInfo();
 		},
 		getRecoveryInfo() {
-			// recoveryInfo(this.shipName, this.code).then(response => {
-			// this.codeInfo=response.data
-			this.code = '123123213';
-			this.codeInfo = JSON.stringify({ shipName: 'sasasas', siteName: '花式科技', type: 3, attribute: 2, address: '湖州市港航管理局',name:"123213123" });
-			switch (2) {
-				case 1:
+			// this.code = '445678902454545453535';
+			recoveryInfo(this.shipName, this.code)
+				.then(response => {
+					this.codeInfo = response.data;
+					console.log(this.codeInfo)
+					// this.code = '445678902454545453535';
+					// this.codeInfo = JSON.stringify({ shipName: 'sasasas', siteName: '花式科技', type: 3, attribute: 2, address: '湖州市港航管理局',name:"123213123" });
+					switch (this.codeInfo.type) {
+						case 1:
+							uni.navigateTo({
+								url: `/pages/sewage/lifeWater/index?code=${this.code}&info=${JSON.stringify(this.codeInfo)}`
+							});
+							break;
+						case 2:
+							uni.navigateTo({
+								url: `/pages/sewage/oil/index?code=${this.code}&info=${JSON.stringify(this.codeInfo)}`
+							});
+							break;
+						default:
+							uni.navigateTo({
+								url: `/pages/sewage/lifeRubbish/index?code=${this.code}&info=${JSON.stringify(this.codeInfo)}`
+							});
+					}
+				})
+				.catch(() => {
 					uni.navigateTo({
-						url: `/pages/sewage/lifeWater/index?code=${this.code}&info=${this.codeInfo}`
+						url: '/pages/sewage/getCodeFail/fail'
 					});
-					break;
-				case 2:
-					uni.navigateTo({
-						url: `/pages/sewage/oil/index?code=${this.code}&info=${this.codeInfo}`
-					});
-					break;
-				default:
-					uni.navigateTo({
-						url: `/pages/sewage/lifeRubbish/index?code=${this.code}&info=${this.codeInfo}`
-					});
-			}
-			// });
+				});
 		}
 	}
 };
