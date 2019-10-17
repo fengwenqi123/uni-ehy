@@ -10,7 +10,7 @@
 			<view class="input">
 				<view class="title"><image src="../../static/img/password.png" mode=""></image></view>
 				<input v-model="form.password" password type="text" placeholder="请输入密码" />
-				<div class="forget">忘记密码</div>
+				<div @click="forget" class="forget">忘记密码</div>
 			</view>
 		</div>
 		<div class="botton" @click="submit"><button type="primary">登 录</button></div>
@@ -53,9 +53,9 @@ export default {
 					duration: 1500
 				});
 				setTimeout(() => {
-					uni.navigateBack({
-						delta: 1,
-						animationType: 'pop-out',
+					uni.switchTab({
+						url: '/pages/home/index',
+						animationType: 'pop-in',
 						animationDuration: 300
 					});
 				}, 1500);
@@ -64,6 +64,13 @@ export default {
 		register() {
 			uni.navigateTo({
 				url: '/pages/register/index',
+				animationType: 'pop-in',
+				animationDuration: 300
+			});
+		},
+		forget() {
+			uni.navigateTo({
+				url: '/pages/forget/index',
 				animationType: 'pop-in',
 				animationDuration: 300
 			});

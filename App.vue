@@ -130,6 +130,7 @@ export default {
 @import 'colorui/main.css';
 @import 'colorui/icon.css';
 @import 'uni.scss';
+@import 'style/vant.scss';
 
 /*每个页面公共css */
 page {

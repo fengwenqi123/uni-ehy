@@ -51,6 +51,9 @@ export default {
 .container {
 	width: 100%;
 	background: #ffffff;
+	.tab {
+		position: relative;
+	}
 	.form {
 		padding: 0 50rpx;
 		.input {

@@ -60,7 +60,7 @@ export default {
 				{
 					name: '消息管理',
 					icon: require('@/static/img/i-msg.png'),
-					path: ''
+					path: '/pages/message/index'
 				},
 				{
 					name: '船员适任证',
@@ -86,7 +86,7 @@ export default {
 		};
 	},
 	onShow() {
-		this.isLogin()
+		this.isLogin();
 	},
 	methods: {
 		isLogin() {
@@ -98,11 +98,19 @@ export default {
 			this.user = getUserInfo() || noLogin;
 		},
 		login() {
-			uni.navigateTo({
-				url: '/pages/login/index',
-				animationType: 'pop-in',
-				animationDuration: 300
-			});
+			if (getUserInfo()) {
+				uni.navigateTo({
+					url: '/pages/personal/index',
+					animationType: 'pop-in',
+					animationDuration: 300
+				});
+			} else {
+				uni.navigateTo({
+					url: '/pages/login/index',
+					animationType: 'pop-in',
+					animationDuration: 300
+				});
+			}
 		},
 		localTo(index) {
 			const url = this.list[index].path;

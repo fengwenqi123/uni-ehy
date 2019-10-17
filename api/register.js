@@ -1,19 +1,20 @@
-import Request from '../plugins/request/js/index';
-let res = Request();
+import fly from '@/network/request'
+import qs from 'qs'
+
 export function getSms(type, loginName) {
-	return res.request({
-		url: '/member/user/sendSmsCode',
-		method: 'GET',
-		params: {
-			type,
-			loginName
-		}
-	});
+	return fly.request('/member/user/sendSmsCode', {type, loginName}, {
+	  method: 'get'
+	})
 }
 export function getRegister(form) {
-	return res.request({
-		url: '/member/user/eRegister',
-		method: 'POST',
-		data: form
-	});
+	const data = qs.stringify(form)
+	return fly.request('/member/user/eRegister', data, {
+	  method: 'POST'
+	})
+}
+export function forgetpassword(form) {
+	const data = qs.stringify(form)
+	return fly.request('/member/user/forgetPassword', data, {
+	  method: 'POST'
+	})
 }

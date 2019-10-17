@@ -7,7 +7,7 @@
 			<van-nav-bar
 			  title="标题"
 			  left-text="返回"
-			  right-text="按钮"
+			  right-text=""
 			  left-arrow
 			/> 
 			<!-- <cu-custom bgColor="bg-blue" :isBack="true"><block slot="content">我的船舶</block></cu-custom>
