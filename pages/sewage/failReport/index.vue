@@ -212,6 +212,7 @@ export default {
 		background-color: #fff;
 		div {
 			padding: 20rpx;
+			border-bottom:1px solid #eee;
 			display: flex;
 			line-height: 60rpx;
 			border-bototm:1px solid #eee;

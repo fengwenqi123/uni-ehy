@@ -49,3 +49,24 @@ export function questionReport(form) {
   })
 }
 
+// 排污记录
+export function sewageReport(pageNum, pageSize, time, type) {
+  return fly.request({
+    url: '/sewage/sewageInfo/getRecord',
+    method: 'GET',
+    params: {
+      pageNum, pageSize, time, type
+    }
+  })
+}
+
+// 排污收集点列表
+export function sewagePoint(pageNum, pageSize, city, area, fomesType, currentLon, currentLat) {
+  return fly.request({
+    url: '/sewage/sewageSite/',
+    method: 'GET',
+    params: {
+      pageNum, pageSize, city, area, fomesType, currentLon, currentLat
+    }
+  })
+}
