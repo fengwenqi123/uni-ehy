@@ -15,6 +15,18 @@ export function hydrology(province, city, pageNum, pageSize) {
 	});
 }
 
+// 水位信息
+export function findByCity(province, city) {
+	return res.request({
+		url: '/environment/hydrology/findByCity',
+		method: 'GET',
+		params: {
+			province: province,
+			city: city
+		}
+	});
+}
+
 // 船舶列表
 export function selectByToken(tags) {
 	return res.request({
@@ -71,3 +83,29 @@ export function violation(pageNum, pageSize, shipName) {
     }
   })
 }
+
+// 绑定船舶
+export function submitAuthen(shipName,cbdjh,certificateImg,insuranceImg) {
+  return res.request({
+    url: '/member/memShip/submitAuthen',
+    method: 'POST',
+    params: {
+      shipName,
+      cbdjh,
+      certificateImg,
+      insuranceImg
+    }
+  })
+}
+
+// 解绑船舶
+export function removeShip(id) {
+  return res.request({
+    url: '/member/memShip/remove',
+    method: 'PUT',
+    params: {
+      id
+    }
+  })
+}
+

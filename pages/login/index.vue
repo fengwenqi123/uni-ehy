@@ -33,7 +33,7 @@ export default {
 			form: {
 				loginName: '',
 				password: '',
-				loginType: 0,
+				loginType: 3,
 				loginSource: 3
 			}
 		};

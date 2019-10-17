@@ -134,5 +134,21 @@ body, html {
 		background: #f2f2f2;
 }
 // .mescroll-upwarp{
-// 		background: #f2f2f2;
+// 		background: #f2f2f2; 
 // }
+#water-scroll .mescroll-uni-fixed{
+	// top: 160rpx !important;
+}
+.header .cu-custom,.header .cu-custom .cu-bar{
+	// height: 100rpx !important;
+	background-color: #0081ff; 
+}
+.header .cu-bar .content{
+	// text-align: center;
+	// font-weight: 700;
+	// font-size: 34rpx;
+}
+.header .cu-bar .action .cuIcon-back{
+	font-size: 45rpx;
+}
+

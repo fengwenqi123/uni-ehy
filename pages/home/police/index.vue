@@ -43,7 +43,6 @@
 			},
 			getLocation() {
 				let _this = this
-				console.log(this.latitude);
 				uni.getLocation({
 					type: 'gcj02',
 					geocode: true,

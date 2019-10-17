@@ -81,9 +81,8 @@
 			}
 		},
 		created() {
-			const value = JSON.parse(localStorage.ruleInfo).data;
+			const value = uni.getStorageSync('ruleInfo');
 			if (value) {
-			    console.log(value);
 				this.item = value
 			}
 		},
