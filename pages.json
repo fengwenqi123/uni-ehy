@@ -121,6 +121,30 @@
 		    "style": {
 		    	"navigationBarTitleText": "污染物上岸"
 		    }
+		},
+		{
+		    "path" : "pages/sewage/getCodeFail/fail",
+		    "style": {
+		    	"navigationBarTitleText": "申请失败"
+		    }
+		},
+		{
+		    "path" : "pages/sewage/getCodeFail/noDistinguish",
+		    "style": {
+		    	"navigationBarTitleText": "无法识别"
+		    }
+		},
+		{
+		    "path" : "pages/sewage/getCodeFail/manCode",
+		    "style": {
+		    	"navigationBarTitleText": "手动输入编码"
+		    }
+		},
+		{
+		    "path" : "pages/sewage/failReport/index",
+		    "style": {
+		    	"navigationBarTitleText": "无法上岸申报"
+		    }
 		}
     ],
 	"tabBar": {
