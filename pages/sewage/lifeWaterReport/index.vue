@@ -33,7 +33,7 @@
 <script>
 import { newsList } from '@/api/news.js';
 import MescrollUni from 'mescroll-uni'; // npm安装的引入方式
-import mpvueCityPicker from 'mpvue-citypicker';
+import mpvueCityPicker from 'mpvue-citypicker'; 
 export default {
 	data() {
 		return {
