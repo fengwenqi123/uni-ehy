@@ -1,5 +1,6 @@
 {
-	"pages": [{
+	"pages": [
+		{
 			"path": "pages/home/index",
 			"style": {
 				"navigationStyle": "custom",
@@ -188,7 +189,8 @@
 		"color": "#7a7e83",
 		"selectedColor": "#0faeff",
 		"backgroundColor": "#ffffff",
-		"list": [{
+		"list": [
+			{
 				"pagePath": "pages/home/index",
 				"text": "首页",
 				"iconPath": "static/img/home.png",
@@ -217,18 +219,17 @@
 			"van-button": "/wxcomponents/vant-weapp/button/index",
 			"van-picker": "/wxcomponents/vant-weapp/picker/index",
 			"van-icon": "/wxcomponents/vant-weapp/icon/index",
-			"van-nav-bar": "/wxcomponents/vant-weapp/nav-bar/index",
-			"van-datetime-picker": "/wxcomponents/vant-weapp/van-datetime-picker/index",
-			"van-popup": "/wxcomponents/vant-weapp/van-popup/index",
-			"van-list": "/wxcomponents/vant-weapp/van-list/index"
+			"van-nav-bar": "/wxcomponents/vant-weapp/nav-bar/index"
 		}
 	},
 	"condition": { //模式配置，仅开发期间生效
 		"current": 0, //当前激活的模式（list 的索引项）
-		"list": [{
-			"name": "home", //模式名称
-			"path": "pages/myShip/add", //启动页面，必选
-			"query": "interval=4000&autoplay=false" //启动参数，在页面的onLoad函数里面得到。
-		}]
+		"list": [
+			{
+				"name": "home", //模式名称
+				"path": "pages/home/water/index", //启动页面，必选
+				"query": "city=绍兴市&autoplay=false" //启动参数，在页面的onLoad函数里面得到。
+			}
+		]
 	}
 }

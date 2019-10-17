@@ -125,8 +125,12 @@ body, html {
   // background: $color-background;
   // color: $color-text;
 }
+#water-scroll .mescroll-uni-fixed{
+	top: 80rpx !important;
+}
 
-.uni-tabbar .uni-tabbar__icon{
+
+.uni-tabbar .uni-tabbar__icon{ 
 	width: 23px;
 }
 .ehy-content{
@@ -153,4 +157,10 @@ body, html {
 	font-size: 60rpx !important;
 	z-index: 999999999;
 }
+.status_bar {
+	height: var(--status-bar-height);
+	width: 100%;
+	background: #007AFF;
+}
+
 
