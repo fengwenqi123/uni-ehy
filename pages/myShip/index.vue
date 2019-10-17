@@ -1,9 +1,11 @@
 <template>
 	<view class="ehy-content">
+		        <view class="status_bar">
+		            <!-- 这里是状态栏 -->
+		        </view>
 		<view class="header">
 			<van-nav-bar
 			  title="标题"
-			  fixed="true"
 			  left-text="返回"
 			  right-text="按钮"
 			  left-arrow
@@ -113,6 +115,10 @@
 </script>
 
 <style scoped lang="scss">
+	    .status_bar {
+	        height: var(--status-bar-height);
+	        width: 100%;
+	    }
 	.ehy-content {
 		.header {
 			// height: 100rpx; 
