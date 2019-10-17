@@ -1,11 +1,16 @@
 <template>
 	<view class="ehy-content">
 		<view class="header">
-			<cu-custom bgColor="bg-blue" :isBack="true"><block slot="content">我的船舶</block></cu-custom>
+			<van-nav-bar
+			  title="标题"
+			  fixed="true"
+			  left-text="返回"
+			  right-text="按钮"
+			  left-arrow
+			/> 
+			<!-- <cu-custom bgColor="bg-blue" :isBack="true"><block slot="content">我的船舶</block></cu-custom>
+			<text class="lg cuIcon-add" @click="add()"></text> -->
 			
-			<!-- #ifdef H5 -->
-			<!-- #endif -->
-			<text class="lg cuIcon-add" @click="add()"></text>
 			<!-- <text class="lg cuIcon-back" @click="back()"></text> -->
 			<!-- <i class="uni-btn-icon" style="color: rgb(255, 255, 255); font-size: 27px;"></i>
 			 <p>我的船舶</p>
@@ -110,7 +115,7 @@
 <style scoped lang="scss">
 	.ehy-content {
 		.header {
-			// height: 100rpx;
+			// height: 100rpx; 
 			// line-height: 92rpx;
 			// border-bottom: 1px solid #ddd;
 			// background-color: rgb(0, 122, 255);
