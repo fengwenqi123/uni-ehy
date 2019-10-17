@@ -148,30 +148,6 @@
 			}
 		},
 		{
-			"path": "pages/sewage/lifeRubbish/index",
-			"style": {
-				"navigationBarTitleText": "污染物上岸"
-			}
-		},
-		{
-			"path": "pages/sewage/oil/index",
-			"style": {
-				"navigationBarTitleText": "污染物上岸"
-			}
-		},
-		{
-			"path": "pages/sewage/lifeWater/index",
-			"style": {
-				"navigationBarTitleText": "污染物上岸"
-			}
-		},
-		{
-			"path": "pages/sewage/success/index",
-			"style": {
-				"navigationBarTitleText": "污染物上岸"
-			}
-		},
-		{
 			"path": "pages/sewage/getCodeFail/fail",
 			"style": {
 				"navigationBarTitleText": "申请失败"
