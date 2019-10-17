@@ -4,10 +4,10 @@
 		<view class="header">
 			<div class="main" @click="login">
 				<div class="info">
-					<div class="img"><image src="../../static/img/h8.png" mode=""></image></div>
+					<div class="img"><image :src="user.headImage" mode=""></image></div>
 					<div class="name">
-						<p class="p1">张三</p>
-						<p class="p2">10989882928</p>
+						<p class="p1">{{ user.name }}</p>
+						<p class="p2">{{ user.mobile }}</p>
 					</div>
 				</div>
 				<div class="set"><image src="../../static/img/set.png" mode=""></image></div>
@@ -30,9 +30,27 @@
 </template>
 
 <script>
+import { getUserInfo } from '@/utils/cache.js';
+import { mapGetters } from 'vuex';
 export default {
+	computed: {
+		...mapGetters(['userInfo'])
+	},
+	watch: {
+		userInfo: {
+			handler() {
+				this.isLogin();
+			},
+			deep: true
+		}
+	},
 	data() {
 		return {
+			user: {
+				name: '未登录',
+				mobile: '',
+				headImage: ''
+			},
 			list: [
 				{
 					name: '我的船舶',
@@ -47,7 +65,7 @@ export default {
 				{
 					name: '船员适任证',
 					icon: require('@/static/img/i-cer.png'),
-					path: ''
+					path: '/pages/certificate/index'
 				},
 				{
 					name: '关于我们',
@@ -67,7 +85,18 @@ export default {
 			]
 		};
 	},
+	onShow() {
+		this.isLogin()
+	},
 	methods: {
+		isLogin() {
+			const noLogin = {
+				name: '未登录',
+				mobile: '',
+				headImage: ''
+			};
+			this.user = getUserInfo() || noLogin;
+		},
 		login() {
 			uni.navigateTo({
 				url: '/pages/login/index',
@@ -75,8 +104,8 @@ export default {
 				animationDuration: 300
 			});
 		},
-		localTo(index){
-			const url=this.list[index].path
+		localTo(index) {
+			const url = this.list[index].path;
 			uni.navigateTo({
 				url,
 				animationType: 'pop-in',
@@ -111,6 +140,8 @@ export default {
 			display: flex;
 			align-items: center;
 			.img {
+				background: #ffffff;
+				border-radius: 50%;
 				image {
 					border-radius: 50%;
 					height: 124rpx;

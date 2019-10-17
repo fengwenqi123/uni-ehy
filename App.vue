@@ -1,6 +1,6 @@
 <script>
 import Vue from 'vue';
-import { getToken, removeToken, saveUserInfo, removeUserInfo } from '@/utils/cache.js';
+import { getToken, removeToken, saveUserInfo, removeUserInfo, getUserInfo } from '@/utils/cache.js';
 import { online } from '@/api/login.js';
 export default {
 	onLaunch: function() {
@@ -116,6 +116,7 @@ export default {
 				.catch(err => {
 					removeToken();
 					removeUserInfo();
+					this.$store.commit('SET_userInfo', getUserInfo());
 				});
 		}
 	},
