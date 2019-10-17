@@ -7,9 +7,6 @@ var Fly = require("flyio/dist/npm/fly")
 // #ifndef MP-WEIXIN
 var Fly=require("flyio/dist/npm/wx") 
 // #endif
-// #ifdef MP
-var Fly=require("flyio/dist/npm/wx") 
-// #endif
 const fly = new Fly
 import {
 	getToken
