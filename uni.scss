@@ -127,28 +127,30 @@ body, html {
 }
 
 .uni-tabbar .uni-tabbar__icon{
-	    width: 23px;
+	width: 23px;
 }
 .ehy-content{
-		width: 100%;
-		background: #f2f2f2;
+	width: 100%;
+	background: #f2f2f2;
 }
-// .mescroll-upwarp{
-// 		background: #f2f2f2; 
-// }
-#water-scroll .mescroll-uni-fixed{
-	// top: 160rpx !important;
+.van-nav-bar{
+	padding: 0 !important;
+	background: #007AFF !important;
+	color: #fff !important;
+		
 }
-.header .cu-custom,.header .cu-custom .cu-bar{
-	// height: 100rpx !important;
-	background-color: #0081ff; 
+.van-icon{
+	color: #fff !important;
+	font-size: 40rpx !important;
 }
-.header .cu-bar .content{
-	// text-align: center;
-	// font-weight: 700;
-	// font-size: 34rpx;
+.van-icon-plus{
+	top: 6px !important;
 }
-.header .cu-bar .action .cuIcon-back{
-	font-size: 45rpx;
+.van-icon-photo-o{
+	width: 80rpx;
+	height: 80rpx;
+	color: #888 !important;
+	font-size: 60rpx !important;
+	z-index: 999999999;
 }
 

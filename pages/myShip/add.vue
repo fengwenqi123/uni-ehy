@@ -18,12 +18,15 @@
 				<input type="text" placeholder="请输入船舶识别号" v-model="input.cbsbh">
 			</li>
 			<li>
-				<span>船舶登记证书</span>
-				<span>点击上传图片</span>
+				<span>图片上传</span>
 			</li>
-			<li>
+			<li class="img-up">
+				<p>船舶登记证书</p>
+				<ss-upload-image :url="url" :file-list="fileList" :name="name" :limit="limit" @on-success="onSuccess" @on-error="onError" @on-remove="onRemove" @on-process="onProcess"></ss-upload-image>
+			</li>
+			<li class="img-up">
 				<span>船舶保险</span>
-				<span>点击上传图片</span>
+				<ss-upload-image :url="url" :file-list="fileList" :name="name" :limit="limit" @on-success="onSuccess" @on-error="onError" @on-remove="onRemove" @on-process="onProcess"></ss-upload-image>
 			</li>
 		</ul>
 		<view class="button">
@@ -36,9 +39,17 @@
 	import {
 		submitAuthen
 	} from '../../api/home';
+	import ssUploadImage from '../../components/ss-upload-image/ss-upload-image'
 	export default {
+		components: {
+		  ssUploadImage
+		},
 		data() {
 			return {
+				fileList: [],
+				url: 'https://api.cjbe88.com/storage/storage',
+				name: 'file',
+				limit: 1,
 				input: {
 					name: '',
 					cbdjh: '',
@@ -47,8 +58,37 @@
 			}
 		},
 		created() {
+			 // this.fileList.push('https://api.cjbe88.com/storage/storage/'); 
 		},
 		methods: {
+			// 上传成功
+			onSuccess(res) {
+			  // 响应示例
+			  // {
+			  //    code: 0,
+			  //    data: {
+			  //      image_url: 'http://www.xxxxx.png'
+			  //    },
+			  //    message: '上传成功'
+			  // }
+			  if (res.code === 200) {
+			    this.fileList.push('https://api.cjbe88.com/storage/storage/'+ res.data); 
+			  }
+			  console.log(res)
+			  console.log(this.fileList) 
+			},
+			// 上传进程
+			onProcess(res) {
+			  console.log(res)
+			},
+			// 上传失败
+			onError(err) {
+			  console.log(err)
+			},
+			// 移除
+			onRemove(index) {
+			  this.fileList.splice(index, 1)
+			},
 			postSubmitAuthen() {
 				console.log(this.input)
 				submitAuthen(this.input.name,this.input.cbdjh,this.input.cbsbh)
@@ -84,10 +124,17 @@
 				}
 			}
 
-			li:first-child,
-			li:nth-child(4) {
+			li:first-child{
 				border: 0;
 				margin-bottom: 40rpx;
+			}
+			li:nth-child(5){
+				height: 80rpx;
+				color: #007AFF;
+				background: #f2f2f2;
+			}
+			.img-up{
+				height: 200rpx;
 			}
 
 			li:last-child {
