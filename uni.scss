@@ -126,7 +126,7 @@ body, html {
   // color: $color-text;
 }
 #water-scroll .mescroll-uni-fixed{
-	top: 80rpx !important;
+	top: 80rpx !important; 
 }
 #lifeWater-scroll .mescroll-uni-fixed{
 	top: 100rpx !important;
@@ -139,7 +139,13 @@ body, html {
 .ehy-content{
 	width: 100%;
 	background: #f2f2f2;
+} 
+.status_bar {
+	height: var(--status-bar-height);
+	width: 100%;
+	background: #007AFF;
 }
+
 .van-nav-bar{
 	padding: 0 !important;
 	background: #007AFF !important;
@@ -159,11 +165,6 @@ body, html {
 	color: #888 !important;
 	font-size: 60rpx !important;
 	z-index: 999999999;
-}
-.status_bar {
-	height: var(--status-bar-height);
-	width: 100%;
-	background: #007AFF;
 }
 
 

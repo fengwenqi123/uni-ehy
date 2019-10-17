@@ -2,8 +2,7 @@
 	<view class="upload">
 		<view class="list">
 			<view class="item interval" v-for="(item,index) in fileList" :key="index">
-					<image :src="item" v-if="item" @click="previewImage()"></image>
-
+				<image :src="item" v-if="item" @click="previewImage()"></image>
 				<view class="icon-close" @click.stop="handleRemove(index)">
 					<span style="color: #fff;">×</span>
 					<!-- <uni-icon type="closeempty" size="20" color="#fff"></uni-icon> -->
@@ -11,7 +10,7 @@
 			</view>
 			<view class="item" @click="chooseImage" v-if="fileList.length<limit">
 				<!-- <uni-icon type="image" size="30" color="#cccccd"></uni-icon> -->
-				<span style="color: #fff;font-size: 40px;">+</span>
+				<span class="add">+</span>
 			</view>
 		</view>
 	</view>
@@ -87,7 +86,6 @@
 				})
 			},
 			handleRemove(index) {
-					console.log(111);
 				this.$emit('on-remove', index)
 			}
 		}
@@ -137,11 +135,10 @@
 					border-radius: 0 8upx 0 0;
 				}
 
-				.icon {
-					width: 48upx;
-					height: 48upx;
+				.add {
+					font-size: 40upx;
+					color: #fff;
 				}
-
 			}
 		}
 	}
