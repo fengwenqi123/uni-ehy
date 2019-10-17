@@ -54,7 +54,6 @@
 			}
 		},
 		onLoad() {
-			console.log(this.$route.query.cbsbh)
 			this.cbsbh = this.$route.query.cbsbh;
 			this.cbdjh = this.$route.query.cbdjh;
 			this.cm = this.$route.query.cm;

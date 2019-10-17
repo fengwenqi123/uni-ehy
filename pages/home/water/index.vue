@@ -1,28 +1,41 @@
 <template>
 	<view class="ehy-content">
-		<mescroll-uni class="list" :down="downOption" @down="downCallback" :up="upOption" @up="upCallback">
-			<p class="address">{{ city }}市</p>
-			<view class="li" v-for="(item, index) in items" :key="index" :class="{ danger: item.status !== 1 }">
-				<ul>
-					<li>
-						<div>
-							<span>{{ item.name }}</span>
-							<span>{{ item.modifyTimeString }}</span>
-						</div>
-						<div>
-							<i>当前水位</i>
-							<i>警戒水位</i>
-							<i>保障水位</i>
-						</div>
-						<div>
-							<label :class="{ red: item.status !== 1 }">{{ item.depth || '--' }}</label>
-							<label>{{ item.depthMin || '--' }}</label>
-							<label>{{ item.depthMax || '--' }}</label>
-						</div>
-					</li>
-				</ul>
+		<view class="picker-city">
+			<view class="uni-list">
+				<view class="uni-list-cell">
+					<view class="uni-list-cell-db">
+						<picker @change="bindPickerChange" :value="index" :range="array">
+							<view class="uni-input">{{city}}<text class="lg cuIcon-triangledownfill"></text></view>
+						</picker>
+					</view>
+				</view>
 			</view>
-		</mescroll-uni>
+		</view>
+		<view id="water-scroll">
+			<mescroll-uni class="list" :down="downOption" @down="downCallback" :up="upOption" @up="upCallback">
+				<view class="li" v-for="(item, index) in items" :key="index" :class="{ danger: item.status !== 1 }">
+					<ul>
+						<li>
+							<div>
+								<span>{{ item.name }}</span>
+								<span>{{ item.modifyTimeString }}</span>
+							</div>
+							<div>
+								<i>当前水位</i>
+								<i>警戒水位</i>
+								<i>保障水位</i>
+							</div>
+							<div>
+								<label :class="{ red: item.status !== 1 }">{{ item.depth || '--' }}</label>
+								<label>{{ item.depthMin || '--' }}</label>
+								<label>{{ item.depthMax || '--' }}</label>
+							</div>
+						</li>
+					</ul>
+				</view>
+			</mescroll-uni>
+		</view>
+
 	</view>
 </template>
 
@@ -32,13 +45,14 @@
 	import {
 		hydrology
 	} from '../../../api/home';
-
 	export default {
 		components: {
 			MescrollUni
 		},
 		data() {
 			return {
+				array: ['杭州市', '湖州市', '宁波市', '绍兴市', '嘉兴市', '金华市', '衢州市', '台州市', '丽水市', '舟山市'],
+				index: 0,
 				// 下拉刷新的常用配置
 				downOption: {
 					use: true, // 是否启用下拉刷新; 默认true
@@ -58,21 +72,32 @@
 					},
 					textNoMore: '—— 到底了 ——'
 				},
-				province: '浙江',
-				city: '湖州',
+				mescroll: null,
+				province: '浙江省',
+				city: '杭州市',
 				items: []
 			};
 		},
+		created() {
+			this.city = this.$route.query.city;
+		},
 		methods: {
+			bindPickerChange: function(e) {
+				console.log('picker发送选择改变，携带值为', e.target.value)
+				this.index = e.target.value
+				this.city = this.array[this.index];
+				this.downCallback(this.mescroll);
+			},
 			/*下拉刷新的回调, 有三种处理方式: */
 			downCallback(mescroll) {
 				// 第2种: 下拉刷新和上拉加载调同样的接口, 那以上请求可删, 直接用mescroll.resetUpScroll()代替
 				mescroll.resetUpScroll(); // 重置列表为第一页 (自动执行 page.num=1, 再触发upCallback方法 )
+				this.mescroll = mescroll
 			},
 
 			/*上拉加载的回调*/
 			upCallback(mescroll) {
-				hydrology('浙江', this.city, mescroll.num, mescroll.size)
+				hydrology(this.province, this.city, mescroll.num, mescroll.size)
 					.then(res => {
 						console.log(res);
 
@@ -95,9 +120,21 @@
 </script>
 
 <style scoped lang="scss">
+	.picker-city {
+		width: 100%;
+		height: 70rpx;
+		line-height: 70rpx;
+		padding-left: 32rpx;
+		background: #f2f2f2;
+		position: fixed;
+		top: 92rpx;
+		z-index: 9999;
+		background: #fff;
+		border-bottom: 1px solid #ddd;
+	}
+
 	.list {
 		width: 100%;
-		top: 0 !important;
 		background: #fff;
 
 		.address {
@@ -181,4 +218,6 @@
 			}
 		}
 	}
+
+	
 </style>
