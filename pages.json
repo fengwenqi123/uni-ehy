@@ -124,6 +124,12 @@
 			}
 		},
 		{
+			"path": "pages/sewage/lifeRubbish/index",
+			"style": {
+				"navigationBarTitleText": "污染物上岸"
+			}
+		},
+		{
 			"path": "pages/sewage/oil/index",
 			"style": {
 				"navigationBarTitleText": "污染物上岸"
