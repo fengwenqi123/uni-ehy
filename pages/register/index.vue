@@ -20,7 +20,7 @@
 			</view>
 			<view class="input">
 				<view class="title">密码:</view>
-				<input v-model="form.password" return-key-type="done" password class="uni-input"  placeholder="请输入密码" />
+				<input v-model="form.password" return-key-type="done" password class="uni-input" placeholder="请输入密码" />
 			</view>
 			<view class="input">
 				<view class="title">推广单位:</view>
@@ -82,7 +82,7 @@ export default {
 				// Toast('请填写手机号');
 				uni.showToast({
 					title: '请填写手机号',
-					duration: 1500
+					icon: 'none'
 				});
 				return;
 			}
@@ -109,42 +109,42 @@ export default {
 			if (!this.form.name) {
 				uni.showToast({
 					title: '请输入姓名',
-					icon:'none'
+					icon: 'none'
 				});
 				return;
 			}
 			if (!this.form.idCard) {
 				uni.showToast({
 					title: '请输入身份证',
-					icon:'none'
+					icon: 'none'
 				});
 				return;
 			}
 			if (!this.form.mobile) {
 				uni.showToast({
 					title: '请输入手机号',
-					icon:'none'
+					icon: 'none'
 				});
 				return;
 			}
 			if (!this.form.code) {
 				uni.showToast({
 					title: '请输入短信验证码',
-					icon:'none'
+					icon: 'none'
 				});
 				return;
 			}
 			if (!this.form.password) {
 				uni.showToast({
 					title: '请输入密码',
-					icon:'none'
+					icon: 'none'
 				});
 				return;
 			}
 			if (!this.form.channel) {
 				uni.showToast({
 					title: '请选择推广单位',
-					icon:'none'
+					icon: 'none'
 				});
 				return;
 			}
@@ -154,8 +154,8 @@ export default {
 					title: '注册成功'
 				});
 				setTimeout(() => {
-					uni.switchTab({
-						url: '/pages/home/index',
+					uni.navigateTo({
+						url: '/pages/login/index',
 						animationType: 'pop-in',
 						animationDuration: 300
 					});
