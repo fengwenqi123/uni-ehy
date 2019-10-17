@@ -80,7 +80,6 @@
 			},
 			clearBoat(item) {
 				const _this = this;
-				console.log(this)
 				uni.showModal({
 					title: "提示",
 					content: "确定解绑船舶：" + item.shipName,
@@ -114,24 +113,6 @@
 </script>
 
 <style scoped lang="scss">
-	.status_bar {
-		height: var(--status-bar-height);
-		width: 100%;
-		background: #007AFF;
-	}
-
-	.van-nav-bar {
-		padding: 0 !important;
-		background: #007AFF;
-		color: #fff;
-
-	}
-
-	.van-icon {
-		color: #fff;
-	}
-
-
 	.ehy-content {
 		.header {
 			// height: 100rpx; 

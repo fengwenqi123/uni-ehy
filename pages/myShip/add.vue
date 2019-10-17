@@ -22,11 +22,13 @@
 			</li>
 			<li class="img-up">
 				<p>船舶登记证书</p>
-				<ss-upload-image :url="url" :file-list="fileList" :name="name" :limit="limit" @on-success="onSuccess" @on-error="onError" @on-remove="onRemove" @on-process="onProcess"></ss-upload-image>
+				<ss-upload-image :url="url" :file-list="fileList1" :name="name" :limit="limit" @on-success="onSuccess1" @on-error="onError1"
+				 @on-remove="onRemove1" @on-process="onProcess1"></ss-upload-image>
 			</li>
 			<li class="img-up">
 				<span>船舶保险</span>
-				<ss-upload-image :url="url" :file-list="fileList" :name="name" :limit="limit" @on-success="onSuccess" @on-error="onError" @on-remove="onRemove" @on-process="onProcess"></ss-upload-image>
+				<ss-upload-image :url="url" :file-list="fileList2" :name="name" :limit="limit" @on-success="onSuccess2" @on-error="onError2"
+				 @on-remove="onRemove2" @on-process="onProcess2"></ss-upload-image>
 			</li>
 		</ul>
 		<view class="button">
@@ -42,11 +44,14 @@
 	import ssUploadImage from '../../components/ss-upload-image/ss-upload-image'
 	export default {
 		components: {
-		  ssUploadImage
+			ssUploadImage
 		},
 		data() {
 			return {
-				fileList: [],
+				fileList1: [],  //'https://api.cjbe88.com/storage/storage/d1d1201910171527275110.jpeg'
+				fileName1: '',
+				fileList2: [],
+				fileName2: '',
 				url: 'https://api.cjbe88.com/storage/storage',
 				name: 'file',
 				limit: 1,
@@ -58,40 +63,55 @@
 			}
 		},
 		created() {
-			 // this.fileList.push('https://api.cjbe88.com/storage/storage/'); 
 		},
 		methods: {
 			// 上传成功
-			onSuccess(res) {
-			  // 响应示例
-			  // {
-			  //    code: 0,
-			  //    data: {
-			  //      image_url: 'http://www.xxxxx.png'
-			  //    },
-			  //    message: '上传成功'
-			  // }
-			  if (res.code === 200) {
-			    this.fileList.push('https://api.cjbe88.com/storage/storage/'+ res.data); 
-			  }
-			  console.log(res)
-			  console.log(this.fileList) 
+			onSuccess1(res) {
+				if (res.code === 200) {
+					this.fileList1.push('https://api.cjbe88.com/storage/storage/' + res.data);
+					this.fileName1 = 'https://api.cjbe88.com/storage/storage/' + res.data;
+				}
+				console.log(res)
+				console.log(this.fileList1)
 			},
 			// 上传进程
-			onProcess(res) {
-			  console.log(res)
+			onProcess1(res) {
+				console.log(res)
 			},
 			// 上传失败
-			onError(err) {
-			  console.log(err)
+			onError1(err) {
+				console.log(err)
 			},
 			// 移除
-			onRemove(index) {
-			  this.fileList.splice(index, 1)
+			onRemove1(index) {
+				this.fileList1.splice(index, 1);
+				this.fileName1 = "";
+
+			},
+			// 上传成功
+			onSuccess2(res) {
+				if (res.code === 200) {
+					this.fileList2.push('https://api.cjbe88.com/storage/storage/' + res.data);
+					this.fileName2 = 'https://api.cjbe88.com/storage/storage/' + res.data;
+				}
+				console.log(res)
+				console.log(this.fileList2)
+			},
+			// 上传进程
+			onProcess2(res) {
+				console.log(res)
+			},
+			// 上传失败
+			onError2(err) {
+				console.log(err)
+			},
+			// 移除
+			onRemove2(index) {
+				this.fileList2.splice(index, 1);
+				this.fileName2 = "";
 			},
 			postSubmitAuthen() {
-				console.log(this.input)
-				submitAuthen(this.input.name,this.input.cbdjh,this.input.cbsbh)
+				submitAuthen(this.input.name, this.input.cbdjh, this.input.cbsbh, this.fileName1, this.fileName2)
 					.then(res => {
 						console.log(res);
 						uni.navigateTo({
@@ -119,21 +139,23 @@
 				background: #fff;
 				box-sizing: border-box;
 
-				uni-input {
+				input {
 					text-align: right;
 				}
 			}
 
-			li:first-child{
+			li:first-child {
 				border: 0;
 				margin-bottom: 40rpx;
 			}
-			li:nth-child(5){
+
+			li:nth-child(5) {
 				height: 80rpx;
 				color: #007AFF;
 				background: #f2f2f2;
 			}
-			.img-up{
+
+			.img-up {
 				height: 200rpx;
 			}
 
@@ -141,7 +163,8 @@
 				border: 0;
 			}
 		}
-		.button{
+
+		.button {
 			padding: 64rpx 32rpx;
 		}
 	}

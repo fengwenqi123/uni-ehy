@@ -67,8 +67,8 @@ export function violation(pageNum, pageSize, shipName) {
 }
 
 // 绑定船舶
-export function submitAuthen(shipName,cbdjh,certificateImg,insuranceImg) {
-	  const data = qs.stringify( {shipName,cbdjh,certificateImg,insuranceImg})
+export function submitAuthen(shipName,cbdjh,cbsbh,certificateImg,insuranceImg) {
+	  const data = qs.stringify( {shipName,cbdjh,cbsbh,certificateImg,insuranceImg})
 	return fly.request('/member/memShip/submitAuthen',data, {
 	  method: 'POST'
 	})
@@ -76,7 +76,8 @@ export function submitAuthen(shipName,cbdjh,certificateImg,insuranceImg) {
 
 // 解绑船舶
 export function removeShip(id) {
-	return fly.request('/member/memShip/remove', {id}, {
+	  const data = qs.stringify( {id})
+	return fly.request('/member/memShip/remove', data, {
 	  method: 'PUT'
 	})
   // return res.request({
