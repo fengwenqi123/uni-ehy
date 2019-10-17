@@ -29,7 +29,11 @@
 				certificate(this.cbdjh)
 					.then(res => {
 						console.log(res);
-						this.items = res.data;
+						res.data.forEach((item, index) => {
+							if (item.zsmc === '船舶营业运输证' || item.zsmc === '船舶国籍证书') {
+								this.items.push(item);
+							}
+						})
 					})
 			}
 		}

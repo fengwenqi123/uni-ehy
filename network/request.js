@@ -1,10 +1,8 @@
 // #ifdef APP-PLUS
 const Fly = require("flyio/dist/npm/weex")
 // #endif
-// #ifdef H5
-var Fly = require("flyio/dist/npm/fly")
-// #endif
-// #ifndef MP-WEIXIN
+
+// #ifdef MP-WEIXIN
 var Fly=require("flyio/dist/npm/wx") 
 // #endif
 const fly = new Fly

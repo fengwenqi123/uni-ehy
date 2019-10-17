@@ -34,11 +34,13 @@
 		</div>
 		<div class="bottom" v-if="recoveryInfo.attribute === 1"><button :loading="isLoading" @click="submit">确认开始排放</button></div>
 		<div class="bottom" v-if="recoveryInfo.attribute !== 1"><button :loading="isLoading" @click="submit1">确认排放</button></div>
+		<report></report>
 	</view>
 </template>
 
 <script>
 import { discharge } from '@/api/sewage.js';
+import report from '../../../components/report.vue'
 export default {
 	onLoad(option) {
 		const item = option;
@@ -55,6 +57,9 @@ export default {
 			recoveryCode: '',
 			recoveryInfo: {}
 		};
+	},
+	components:{
+		report
 	},
 	methods: {
 		submit() {
