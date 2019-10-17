@@ -42,8 +42,6 @@
 			"path": "pages/sewage/index",
 			"style": {
 				"navigationBarTitleText": "排污",
-				"navigationBarTextStyle": "black",
-				"navigationBarBackgroundColor": "#fff",
 				"app-plus": {
 					"bounce": "none"
 				}
@@ -103,10 +101,49 @@
 		{
 			"path": "pages/myShip/add",
 			"style": {
-				"navigationBarTitleText": "船舶认证",
+				"navigationBarTitleText": "船舶认证"
+			}
+		},
+		{
+			"path": "pages/certificate/cerDetails",
+			"style": {
+				"navigationBarTitleText": "适任证详情",
 				"app-plus": {
 					"bounce": "none"
 				}
+			}
+		},
+		{
+			"path": "pages/certificate/index",
+			"style": {
+				"navigationBarTitleText": "船员适任证",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/sewage/lifeRubbish/index",
+			"style": {
+				"navigationBarTitleText": "污染物上岸"
+			}
+		},
+		{
+			"path": "pages/sewage/oil/index",
+			"style": {
+				"navigationBarTitleText": "污染物上岸"
+			}
+		},
+		{
+			"path": "pages/sewage/lifeWater/index",
+			"style": {
+				"navigationBarTitleText": "污染物上岸"
+			}
+		},
+		{
+			"path": "pages/sewage/success/index",
+			"style": {
+				"navigationBarTitleText": "污染物上岸"
 			}
 		}
 	],
@@ -138,13 +175,16 @@
 		"navigationBarTextStyle": "white",
 		"navigationBarBackgroundColor": "#007AFF",
 		"backgroundColor": "#fbf9fe",
-		"navigationStyle": "default"
+		"navigationStyle": "default",
+		"usingComponents": { //这里为方便，全局引入了所有组件，也可以在某个page下单独引用某个组件
+			"van-button": "/wxcomponents/vant-weapp/button/index"
+		}
 	},
 	"condition": { //模式配置，仅开发期间生效
 		"current": 0, //当前激活的模式（list 的索引项）
 		"list": [{
 			"name": "home", //模式名称
-			"path": "pages/myShip/index", //启动页面，必选
+			"path": "pages/home/index", //启动页面，必选
 			"query": "interval=4000&autoplay=false" //启动参数，在页面的onLoad函数里面得到。
 		}]
 	}

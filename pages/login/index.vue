@@ -50,15 +50,15 @@ export default {
 				saveUserInfo(response.data);
 				uni.showToast({
 					title: '登录成功',
-					duration: 2000
+					duration: 1500
 				});
 				setTimeout(() => {
-					uni.switchTab({
-						url: '/pages/home/index',
-						animationType: 'pop-in',
+					uni.navigateBack({
+						delta: 1,
+						animationType: 'pop-out',
 						animationDuration: 300
 					});
-				}, 2000);
+				}, 1500);
 			});
 		},
 		register() {
