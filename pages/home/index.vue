@@ -9,7 +9,7 @@
 				<p>e航运</p>
 			</div>
 			<div class="weather">
-				<div v-if="weather">
+				<div v-if="weather.daytemp">
 					<p>{{weather.nighttemp}} ~{{weather.daytemp}}℃</p>
 					<p>
 						<span>{{weather.dayweather }}</span>
@@ -101,7 +101,10 @@
 				headerTop: "0px",
 				province: '浙江省',
 				city: '杭州市',
-				waterInfo: {},
+				waterInfo: {
+					depth:'0',
+					name:'暂无',
+				},
 				weather: {},
 				items: [],
 				swiperList: [],

@@ -1,23 +1,22 @@
 <template>
 	<view class="ehy-content">
-		        <view class="status_bar">
-		            <!-- 这里是状态栏 -->
-		        </view>
+		<!-- 这里是状态栏 -->
+		<view class="status_bar"></view>
+
 		<view class="header">
-			<van-nav-bar
-			  title="标题"
-			  left-text="返回"
-			  right-text=""
-			  left-arrow
-			/> 
+			<van-nav-bar title="我的船舶" left-arrow @click-left="back()" @click-right="add()">
+				<van-icon name="plus" slot="right" />
+			</van-nav-bar>
+			
+
 			<!-- <cu-custom bgColor="bg-blue" :isBack="true"><block slot="content">我的船舶</block></cu-custom>
 			<text class="lg cuIcon-add" @click="add()"></text> -->
-			
+
 			<!-- <text class="lg cuIcon-back" @click="back()"></text> -->
 			<!-- <i class="uni-btn-icon" style="color: rgb(255, 255, 255); font-size: 27px;"></i>
 			 <p>我的船舶</p>
 			<text class="lg cuIcon-add" @click="add()"></text> -->
-			
+
 		</view>
 
 		<div class="list">
@@ -81,7 +80,6 @@
 			},
 			clearBoat(item) {
 				const _this = this;
-				console.log(this)
 				uni.showModal({
 					title: "提示",
 					content: "确定解绑船舶：" + item.shipName,
@@ -115,10 +113,6 @@
 </script>
 
 <style scoped lang="scss">
-	    .status_bar {
-	        height: var(--status-bar-height);
-	        width: 100%;
-	    }
 	.ehy-content {
 		.header {
 			// height: 100rpx; 
@@ -128,12 +122,13 @@
 			// color: rgb(255, 255, 255);
 			// position: relative;
 
-			.cuIcon-add {
+
+			.van-icon-plus {
 				color: #fff;
 				font-size: 60rpx;
 				position: absolute;
 				right: 24rpx;
-				top: 66rpx;
+				top: -66rpx;
 				z-index: 999999999;
 			}
 

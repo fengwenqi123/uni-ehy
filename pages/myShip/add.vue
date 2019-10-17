@@ -18,12 +18,17 @@
 				<input type="text" placeholder="请输入船舶识别号" v-model="input.cbsbh">
 			</li>
 			<li>
-				<span>船舶登记证书</span>
-				<span>点击上传图片</span>
+				<span>图片上传</span>
 			</li>
-			<li>
+			<li class="img-up">
+				<p>船舶登记证书</p>
+				<ss-upload-image :url="url" :file-list="fileList1" :name="name" :limit="limit" @on-success="onSuccess1" @on-error="onError1"
+				 @on-remove="onRemove1" @on-process="onProcess1"></ss-upload-image>
+			</li>
+			<li class="img-up">
 				<span>船舶保险</span>
-				<span>点击上传图片</span>
+				<ss-upload-image :url="url" :file-list="fileList2" :name="name" :limit="limit" @on-success="onSuccess2" @on-error="onError2"
+				 @on-remove="onRemove2" @on-process="onProcess2"></ss-upload-image>
 			</li>
 		</ul>
 		<view class="button">
@@ -36,9 +41,20 @@
 	import {
 		submitAuthen
 	} from '../../api/home';
+	import ssUploadImage from '../../components/ss-upload-image/ss-upload-image'
 	export default {
+		components: {
+			ssUploadImage
+		},
 		data() {
 			return {
+				fileList1: [],  //'https://api.cjbe88.com/storage/storage/d1d1201910171527275110.jpeg'
+				fileName1: '',
+				fileList2: [],
+				fileName2: '',
+				url: 'https://api.cjbe88.com/storage/storage',
+				name: 'file',
+				limit: 1,
 				input: {
 					name: '',
 					cbdjh: '',
@@ -49,9 +65,53 @@
 		created() {
 		},
 		methods: {
+			// 上传成功
+			onSuccess1(res) {
+				if (res.code === 200) {
+					this.fileList1.push('https://api.cjbe88.com/storage/storage/' + res.data);
+					this.fileName1 = 'https://api.cjbe88.com/storage/storage/' + res.data;
+				}
+				console.log(res)
+				console.log(this.fileList1)
+			},
+			// 上传进程
+			onProcess1(res) {
+				console.log(res)
+			},
+			// 上传失败
+			onError1(err) {
+				console.log(err)
+			},
+			// 移除
+			onRemove1(index) {
+				this.fileList1.splice(index, 1);
+				this.fileName1 = "";
+
+			},
+			// 上传成功
+			onSuccess2(res) {
+				if (res.code === 200) {
+					this.fileList2.push('https://api.cjbe88.com/storage/storage/' + res.data);
+					this.fileName2 = 'https://api.cjbe88.com/storage/storage/' + res.data;
+				}
+				console.log(res)
+				console.log(this.fileList2)
+			},
+			// 上传进程
+			onProcess2(res) {
+				console.log(res)
+			},
+			// 上传失败
+			onError2(err) {
+				console.log(err)
+			},
+			// 移除
+			onRemove2(index) {
+				this.fileList2.splice(index, 1);
+				this.fileName2 = "";
+			},
 			postSubmitAuthen() {
-				console.log(this.input)
-				submitAuthen(this.input.name,this.input.cbdjh,this.input.cbsbh)
+				submitAuthen(this.input.name, this.input.cbdjh, this.input.cbsbh, this.fileName1, this.fileName2)
 					.then(res => {
 						console.log(res);
 						uni.navigateTo({
@@ -79,22 +139,32 @@
 				background: #fff;
 				box-sizing: border-box;
 
-				uni-input {
+				input {
 					text-align: right;
 				}
 			}
 
-			li:first-child,
-			li:nth-child(4) {
+			li:first-child {
 				border: 0;
 				margin-bottom: 40rpx;
+			}
+
+			li:nth-child(5) {
+				height: 80rpx;
+				color: #007AFF;
+				background: #f2f2f2;
+			}
+
+			.img-up {
+				height: 200rpx;
 			}
 
 			li:last-child {
 				border: 0;
 			}
 		}
-		.button{
+
+		.button {
 			padding: 64rpx 32rpx;
 		}
 	}

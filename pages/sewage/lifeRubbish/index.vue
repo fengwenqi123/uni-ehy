@@ -76,9 +76,9 @@ export default {
 				url: `/pages/sewage/success/index?type=3&attr=1`
 			});
 			discharge(obj).then(response => {
-				Toast.success({
-					message: response.msg,
-					duration: 2000
+				uni.showToast({
+					icon: 'success',
+					title: response.msg
 				});
 				setTimeout(() => {
 					uni.navigateTo({
@@ -108,9 +108,9 @@ export default {
 				url: `/pages/sewage/success/index?type=3&attr=1`
 			});
 			discharge(obj).then(response => {
-				Toast.success({
-					message: response.msg,
-					duration: 2000
+				uni.showToast({
+					icon: 'success',
+					title: response.msg
 				});
 				setTimeout(() => {
 					uni.navigateTo({

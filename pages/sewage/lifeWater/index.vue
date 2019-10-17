@@ -30,7 +30,7 @@
 			</p>
 			<p v-if="recoveryInfo.attribute !== 1">
 				<span>排放容积(L)</span>
-				<!-- <input  v-model="amount" placeholder="请输入排放容积"></input> -->
+				<input  v-model="amount" placeholder="请输入排放容积"></input>
 			</p>
 		</div>
 		<div class="bottom" v-if="recoveryInfo.attribute === 1"><button :loading="isLoading" @click="submit">确认开始排放</button></div>
@@ -71,13 +71,10 @@ export default {
 				code: this.recoveryCode,
 				orderWay: 1
 			};
-			uni.navigateTo({
-				url: `/pages/sewage/success/index?type=1&attr=1`
-			});
 			discharge(obj).then(response => {
-				Toast.success({
-					message: response.msg,
-					duration: 2000
+				uni.showToast({
+					icon: 'success',
+					title: response.msg
 				});
 				setTimeout(() => {
 					uni.navigateTo({
@@ -102,13 +99,10 @@ export default {
 				amount: this.amount,
 				orderWay: 1
 			};
-			uni.navigateTo({
-				url: `/pages/sewage/success/index?type=1&attr=1`
-			});
 			discharge(obj).then(response => {
-				Toast.success({
-					message: response.msg,
-					duration: 2000
+				uni.showToast({
+					icon: 'success',
+					title: response.msg
 				});
 				setTimeout(() => {
 					uni.navigateTo({

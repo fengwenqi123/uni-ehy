@@ -1,3 +1,6 @@
+
+
+
 // * {
 //   font-size: 30px;
 // }
@@ -44,7 +47,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-size: 100%;
+  font-size: 100%;
 }
 
 address,
@@ -53,14 +56,14 @@ dfn,
 em,
 i,
 var {
-	font-style: normal;
+  font-style: normal;
 }
 
 code,
 kbd,
 pre,
 samp {
-	font-family: couriernew, courier, monospace;
+  font-family: couriernew, courier, monospace;
 }
 
 // small {
@@ -69,84 +72,83 @@ samp {
 
 ul,
 ol {
-	list-style: none;
+  list-style: none;
 }
 
 li {
-	list-style-type: none;
+  list-style-type: none
 }
 
 a {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 a:hover {
-	text-decoration: underline;
+  text-decoration: underline;
 }
 
 sup {
-	vertical-align: text-top;
+  vertical-align: text-top;
 }
 
 sub {
-	vertical-align: text-bottom;
+  vertical-align: text-bottom;
 }
 
 legend {
-	color: #000;
+  color: #000;
 }
 
 fieldset,
 img {
-	border: 0;
+  border: 0;
 }
 
 button,
 input,
 select,
 textarea {
-	font-size: 100%;
+  font-size: 100%;
 }
 
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
-body,
-html {
-	line-height: 1;
-	font-family: 'PingFang SC', 'STHeitiSC-Light', 'Helvetica-Light', arial, sans-serif, 'Droid Sans Fallback';
-	user-select: none;
-	-webkit-tap-highlight-color: transparent;
-	// background: $color-background;
-	// color: $color-text;
+
+body, html {
+  line-height: 1;
+  font-family: 'PingFang SC', 'STHeitiSC-Light', 'Helvetica-Light', arial, sans-serif, 'Droid Sans Fallback';
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  // background: $color-background;
+  // color: $color-text;
 }
 
-.uni-tabbar .uni-tabbar__icon {
-	width: 23px;
+.uni-tabbar .uni-tabbar__icon{
+	    width: 23px;
 }
-.ehy-content {
-	width: 100%;
-	background: #f2f2f2;
+.ehy-content{
+		width: 100%;
+		background: #f2f2f2;
 }
 // .mescroll-upwarp{
 // 		background: #f2f2f2;
 // }
-#water-scroll .mescroll-uni-fixed {
+#water-scroll .mescroll-uni-fixed{
 	// top: 160rpx !important;
 }
-.header .cu-custom,
-.header .cu-custom .cu-bar {
+.header .cu-custom,.header .cu-custom .cu-bar{
 	// height: 100rpx !important;
 	background-color: #0081ff;
 }
-.header .cu-bar .content {
+.header .cu-bar .content{
 	// text-align: center;
 	// font-weight: 700;
 	// font-size: 34rpx;
 }
-.header .cu-bar .action .cuIcon-back {
+.header .cu-bar .action .cuIcon-back{
 	font-size: 45rpx;
 }
 

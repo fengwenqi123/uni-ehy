@@ -79,6 +79,7 @@
 			};
 		},
 		created() {
+			console.log(this.$route.query.city)
 			this.city = this.$route.query.city;
 		},
 		methods: {
@@ -122,13 +123,14 @@
 <style scoped lang="scss">
 	.picker-city {
 		width: 100%;
-		height: 70rpx;
-		line-height: 70rpx;
+		height:80rpx;
+		line-height: 80rpx;
 		padding-left: 32rpx;
 		background: #f2f2f2;
 		position: fixed;
-		top: 92rpx;
-		z-index: 9999;
+		top: 0rpx;
+		left:0;
+		z-index: 99999999999999;
 		background: #fff;
 		border-bottom: 1px solid #ddd;
 	}
@@ -218,6 +220,4 @@
 			}
 		}
 	}
-
-	
 </style>

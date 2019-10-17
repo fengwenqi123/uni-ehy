@@ -6,7 +6,7 @@
 			<span>{{ form.categoryName }}</span>
 			<span>{{ form.addTimeString }}</span>
 			</p>
-			<p>{{ form.content }}</p>
+			<p v-html="form.content"></p>
 		</div>
 	</view>
 </template>
@@ -44,7 +44,7 @@ export default {
       line-height: 80rpx;
     }
     span:nth-child(2) {
-      margin-left: 10rpx;
+      margin-left: 20rpx;
     }
   }
   p:nth-child(3) {
