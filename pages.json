@@ -42,8 +42,6 @@
 			"path": "pages/sewage/index",
 			"style": {
 				"navigationBarTitleText": "排污",
-				"navigationBarTextStyle": "black",
-				"navigationBarBackgroundColor": "#fff",
 				"app-plus": {
 					"bounce": "none"
 				}
@@ -100,7 +98,31 @@
 				}
 			}
 		}
-	],
+	    ,{
+            "path" : "pages/sewage/lifeRubbish/index",
+            "style": {
+            	"navigationBarTitleText": "污染物上岸"
+            }
+        }
+        ,{
+            "path" : "pages/sewage/oil/index",
+            "style": {
+            	"navigationBarTitleText": "污染物上岸"
+            }
+        }
+        ,{
+            "path" : "pages/sewage/lifeWater/index",
+            "style": {
+            	"navigationBarTitleText": "污染物上岸"
+            }
+        },
+		{
+		    "path" : "pages/sewage/success/index",
+		    "style": {
+		    	"navigationBarTitleText": "污染物上岸"
+		    }
+		}
+    ],
 	"tabBar": {
 		"color": "#7a7e83",
 		"selectedColor": "#0faeff",
