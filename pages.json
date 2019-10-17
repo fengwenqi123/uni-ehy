@@ -179,6 +179,12 @@
 			}
 		},
 		{
+			"path": "pages/sewage/lifeWaterReport/detail",
+			"style": {
+				"navigationBarTitleText": "生活污水回收记录详情"
+			}
+		},
+		{
 			"path": "pages/sewage/siteList/index",
 			"style": {
 				"navigationBarTitleText": "回收点位置查询"
