@@ -168,7 +168,19 @@
 		{
 			"path": "pages/sewage/failReport/index",
 			"style": {
-				"navigationBarTitleText": "无法上岸申报"
+				"navigationBarTitleText": "无法上岸问题上报"
+			}
+		},
+		{
+			"path": "pages/sewage/lifeWaterReport/index",
+			"style": {
+				"navigationBarTitleText": "生活污水回收记录"
+			}
+		},
+		{
+			"path": "pages/sewage/siteList/index",
+			"style": {
+				"navigationBarTitleText": "回收点位置查询"
 			}
 		}
 	],
@@ -203,6 +215,7 @@
 		"navigationStyle": "default",
 		"usingComponents": { //这里为方便，全局引入了所有组件，也可以在某个page下单独引用某个组件
 			"van-button": "/wxcomponents/vant-weapp/button/index",
+			"van-picker": "/wxcomponents/vant-weapp/picker/index",
 			"van-icon": "/wxcomponents/vant-weapp/icon/index",
 			"van-nav-bar": "/wxcomponents/vant-weapp/nav-bar/index"
 		}

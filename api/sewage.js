@@ -25,3 +25,27 @@ export function discharge(form) {
     })
 }
 
+export function recoveryPointList() {
+  return fly.request({
+    url: '/sewage/sewageSite/list',
+    method: 'GET'
+  })
+}
+export function outLetList(siteName) {
+  return fly.request({
+    url: '/sewage/sewageOutlet/list',
+    method: 'GET',
+    params: {
+      siteName
+    }
+  })
+}
+export function questionReport(form) {
+  const data = qs.stringify(form)
+  return fly.request({
+    url: '/sewage/recordLog/update',
+    method: 'POST',
+    data
+  })
+}
+

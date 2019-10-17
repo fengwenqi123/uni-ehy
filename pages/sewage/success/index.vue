@@ -2,12 +2,12 @@
 	<view class="success">
 		<div class="top">
 			<div><image src="../../../static/img/success.png" class="img"></image></div>
-			<div v-if="attr===1"><p>回收成功</p></div>
-			<div v-if="attr===2"><p>开始回收</p></div>
-			<div v-if="attr === 1"><p>工作人员审核后记录及积分生效</p></div>
-			<div v-if="type === 1&&attr===2"><p>请开启回收设备完成回收作业</p></div>
-			<div v-if="type === 2&&attr===2"><p>请工作人员确认开始回收作业</p></div>
-			<div v-if="type === 3&&attr===2"><p>请等待垃圾箱远程开盖完成投放</p></div>
+			<div v-if="attr === '1'"><p>回收成功</p></div>
+			<div v-if="attr === '2'"><p>开始回收</p></div>
+			<div v-if="attr === '1'"><p>工作人员审核后记录及积分生效</p></div>
+			<div v-if="type === '1' && attr === '2'"><p>请开启回收设备完成回收作业</p></div>
+			<div v-if="type === '2' && attr === '2'"><p>请工作人员确认开始回收作业</p></div>
+			<div v-if="type === '3' && attr === '2'"><p>请等待垃圾箱远程开盖完成投放</p></div>
 		</div>
 		<div class="bottom">
 			<p>预计可获得积分</p>
@@ -38,14 +38,14 @@
 export default {
 	onLoad(option) {
 		const item = option;
-		console.log(item.type);
+		console.log(item);
 		this.type = item.type;
 		this.attr = item.attr;
 	},
 	data() {
 		return {
-			type: 1,
-			attr: 1
+			type: '',
+			attr: ''
 		};
 	},
 	methods: {

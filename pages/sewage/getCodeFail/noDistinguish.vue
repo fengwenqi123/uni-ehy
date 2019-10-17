@@ -1,7 +1,7 @@
 <template>
 	<view class="success">
 		<div class="top">
-			<div><image src="../../../static/img/success.png" class="img"></image></div>
+			<div><image src="../../../static/img/unrecognized.png" class="img"></image></div>
 			<div><p>无法识别</p></div>
 			<div><p>设备二维码无法识别，请确认是否正确扫描二维码，请尝试手动输入设备码或报修</p></div>
 		</div>

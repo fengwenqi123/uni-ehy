@@ -3,21 +3,18 @@
 </template>
 
 <script>
-	export default {
-		data() {
-			return {
-				
-			}
-		},
-		methods: {
-			goReport(){
-				uni.navigateTo({
-					url: '/pages/sewage/failReport/index'
-				});
-			}
-			
+export default {
+	data() {
+		return {};
+	},
+	methods: {
+		goReport() {
+			uni.navigateTo({
+				url: '/pages/sewage/failReport/index'
+			});
 		}
 	}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -28,7 +25,7 @@
 	p {
 		width: 100%;
 		text-align: center;
-		color: #108ee9;
+		color: #007aff;
 	}
 }
 </style>

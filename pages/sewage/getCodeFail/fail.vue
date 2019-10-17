@@ -1,7 +1,7 @@
 <template>
 	<view class="success">
 		<div class="top">
-			<div><image src="../../../static/img/success.png" class="img"></image></div>
+			<div><image src="../../../static/img/fail.png" class="img"></image></div>
 			<div><p>申请失败</p></div>	
 			<div><p>接受设备可能故障，请联系管理人员或报修</p></div>
 		</div>
