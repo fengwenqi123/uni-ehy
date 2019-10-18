@@ -4,49 +4,49 @@
 			<div>
 				<div>
 					<image class="img" src="../../static/img/ships.png"></image>
-					<p>{{ shipName }}</p>
+					<span>{{ shipName }}</span>
 				</div>
 				<div>
-					<picker mode="selector" :range="shipList" @change="selectShip"><image class="img1" src="../../static/img/ships.png"></image></picker>
+					<picker mode="selector" :range="shipList" @change="selectShip"><span>切换</span><image class="img1" src="../../static/img/change.png"></image></picker>
 				</div>
 			</div>
-			<div><span>排污积分：0 ></span></div>
+			<div><span style="font-size:30rpx;margin-top:20rpx;" @click="goPoint">排污积分：0 ></span></div>
 			<div @click="getScanCode"><image class="imgCode" src="../../static/img/sys.png"></image></div>
 		</div>
-		<div class="cell">
+		<div class="cell" @click="goOli">
 			<div>
 				<image class="imgCell" src="../../static/img/ywshs.png"></image>
 				<span>油污水回收记录</span>
 			</div>
-			<div><image class="imgCell" src="../../static/img/i-right.png"></image></div>
+			<div><image class="imgCell1" src="../../static/img/i-right.png"></image></div>
 		</div>
-		<div class="cell">
+		<div class="cell" @click="goLifeRubbish">
 			<div>
 				<image class="imgCell" src="../../static/img/shlj.png"></image>
 				<span>生活垃圾回收记录</span>
 			</div>
-			<div><image class="imgCell" src="../../static/img/i-right.png"></image></div>
+			<div><image class="imgCell1" src="../../static/img/i-right.png"></image></div>
 		</div>
 		<div class="cell" @click="goLifeWater">
 			<div>
 				<image class="imgCell" src="../../static/img/shws.png"></image>
 				<span>生活污水回收记录</span>
 			</div>
-			<div><image class="imgCell" src="../../static/img/i-right.png"></image></div>
+			<div><image class="imgCell1" src="../../static/img/i-right.png"></image></div>
 		</div>
 		<div class="cell" @click="goSite">
 			<div>
 				<image class="imgCell" src="../../static/img/hsdwz.png"></image>
 				<span>回收点位置查询</span>
 			</div>
-			<div><image class="imgCell" src="../../static/img/i-right.png"></image></div>
+			<div><image class="imgCell1" src="../../static/img/i-right.png"></image></div>
 		</div>
 		<div class="cell" @click="goReport">
 			<div>
 				<image class="imgCell" src="../../static/img/wfsa.png"></image>
 				<span>无法上岸问题上报</span>
 			</div>
-			<div><image class="imgCell" src="../../static/img/i-right.png"></image></div>
+			<div><image class="imgCell1" src="../../static/img/i-right.png"></image></div>
 		</div>
 	</view>
 </template>
@@ -66,12 +66,29 @@ export default {
 		this.list();
 	},
 	methods: {
+		goOli(){
+			uni.showModal({
+				content: "暂未开放，敬请期待！",
+				showCancel: false,
+				confirmText: "确定"
+			})
+		},
+		goLifeRubbish(){
+			uni.showModal({
+				content: "暂未开放，敬请期待！",
+				showCancel: false,
+				confirmText: "确定"
+			})
+		},
 		list() {
 			boatList(2).then(response => {
 				console.log(response);
 				this.shipList = response.data.map(item => item.shipName);
 				this.shipName = this.shipList[0];
 			});
+		},
+		goPoint(){
+			
 		},
 		goSite(){
 			uni.navigateTo({
@@ -157,7 +174,8 @@ export default {
 				height: 60rpx;
 				float: left;
 			}
-			p {
+			span { 
+				display: inline-block;
 				line-height: 60rpx;
 				color: #fff;
 				margin-left: 20rpx;
@@ -166,11 +184,13 @@ export default {
 			div:nth-child(2) {
 				display: flex;
 				justify-content: flex-end;
-				margin-right: 20rpx;
+				align-items: center;
+				span{
+					font-size:25rpx;
+				}
 				.img1 {
-					float: right;
-					width: 60rpx;
-					height: 60rpx;
+					width: 25rpx;
+					height: 25rpx;
 				}
 			}
 			span {
@@ -185,7 +205,7 @@ export default {
 		div:nth-child(3) {
 			text-align: center;
 			height: 300rpx;
-			padding: 50rpx;
+			padding: 30rpx 50rpx 50rpx 50rpx;
 			.imgCode {
 				height: 200rpx;
 				width: 200rpx;
@@ -196,8 +216,8 @@ export default {
 		width: 100%;
 		background-color: #fff;
 		display: flex;
-		height: 80rpx;
-		padding: 10rpx 0;
+		height: 104rpx;
+		padding: 0rpx 32rpx;
 		justify-content: space-between;
 		div {
 			display: flex;
@@ -208,10 +228,14 @@ export default {
 				width: 30rpx;
 				height: 30rpx;
 			}
+			.imgCell1 {
+				width: 16rpx;
+				height: 36rpx;
+			}
 			span {
-				color: #333;
 				margin-left: 10px;
-				font-size: 30rpx;
+				font-weight: 500;
+				color: rgba(51, 51, 51, 1);
 			}
 		}
 		div:nth-child(2) {
