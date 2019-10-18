@@ -2,20 +2,37 @@
 	<view class="container">
 		<div class="list">
 			<ul>
-				<li @click="chooseImage">
+				<li @click="check">
 					<div class="item header">
 						<div class="label"><div class="name">头像</div></div>
 						<div class="right">
-							<image class="hedimg" :src="user.headImage" mode=""></image>
+							<ss-upload-image
+								:url="url"
+								ref="upload"
+								:file-list="fileList"
+								:name="name"
+								:limit="limit"
+								@on-success="onSuccess"
+								@on-error="onError"
+							></ss-upload-image>
 							<image src="../../static/img/i-right.png" mode=""></image>
 						</div>
 					</div>
 				</li>
-				<li>
+				<li @click="editName">
 					<div class="item nicheng">
 						<div class="label"><div class="name">账号昵称</div></div>
 						<div class="right">
 							<div class="name">{{ user.name }}</div>
+							<image src="../../static/img/i-right.png" mode=""></image>
+						</div>
+					</div>
+				</li>
+				<li @click="editCity">
+					<div class="item nicheng">
+						<div class="label"><div class="name">地区</div></div>
+						<div class="right">
+							<div class="name">{{ province }} {{ city }}</div>
 							<image src="../../static/img/i-right.png" mode=""></image>
 						</div>
 					</div>
@@ -34,18 +51,18 @@
 </template>
 
 <script>
-import { getUserInfo, getToken } from '@/utils/cache.js';
-import { updatePhoto } from '@/api/personal.js';
+import { getUserInfo, getToken, removeToken, removeUserInfo, saveUserInfo } from '@/utils/cache.js';
+import { updatePhoto, userInfoById } from '@/api/personal.js';
+import ssUploadImage from '@/components/ss-upload-image/ss-upload-image1';
+import { online } from '@/api/login.js';
 export default {
 	data() {
 		return {
-			user: getUserInfo(),
+			user: null,
+			token: getToken(),
+			city: '',
+			province: '',
 			list: [
-				{
-					name: '地区',
-
-					path: ''
-				},
 				{
 					name: '修改密码',
 
@@ -56,10 +73,70 @@ export default {
 
 					path: ''
 				}
-			]
+			],
+			url: 'https://api.cjbe88.com/storage/storage/',
+			fileList: [], //'https://api.cjbe88.com/storage/storage/d1d1201910171527275110.jpeg'
+			fileName: '',
+			name: 'file',
+			limit: 1
 		};
 	},
+
+	components: {
+		ssUploadImage
+	},
+	onShow() {
+		this.checkOnline();
+		this.getCity();
+	},
 	methods: {
+		checkOnline() {
+			if (this.token) {
+				online(this.token)
+					.then(response => {
+						this.user = response.data;
+						this.fileList = [response.data.headImage];
+						saveUserInfo(response.data);
+					})
+					.catch(err => {
+						console.log(err);
+						removeToken();
+						removeUserInfo();
+					});
+			}
+		},
+		getCity() {
+			userInfoById().then(response => {
+				this.city = response.data.city;
+				this.province = response.data.province;
+			});
+		},
+		check() {
+			this.$refs.upload.chooseImage();
+		},
+		// 上传成功
+		onSuccess(res) {
+			if (res.code === 200) {
+				this.fileName = 'https://api.cjbe88.com/storage/storage/' + res.data;
+				this.set_updatePhoto(this.fileName);
+			}
+			console.log(res);
+			console.log(this.fileList);
+		},
+		// 上传进程
+		onProcess(res) {
+			uni.showLoading({
+				title: '正在加载...',
+				mask: false
+			});
+		},
+		// 上传失败
+		onError(err) {
+			uni.showToast({
+				title: '上传失败',
+				icon: 'none'
+			});
+		},
 		localTo(index) {
 			const url = this.list[index].path;
 			uni.navigateTo({
@@ -68,19 +145,27 @@ export default {
 				animationDuration: 300
 			});
 		},
-		chooseImage() {
-			var _this = this;
-			uni.chooseImage({
-				count: 1, //默认9
-				sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
-				success: function(res) {
-					console.log(JSON.stringify(res.tempFilePaths));
-					_this.setupdatePhoto(res.tempFilePaths);
-				}
+		set_updatePhoto(photo) {
+			updatePhoto({ photo }).then(response => {
+				uni.hideLoading();
+				this.fileList = [photo];
+				console.log(response);
 			});
 		},
-		setupdatePhoto(photo) {
-			updatePhoto({ accessToken: getToken(), photo }).then(response => {});
+		editName() {
+			uni.navigateTo({
+				url: '/pages/personal/newName',
+				animationType: 'pop-in',
+				animationDuration: 300  
+			});
+		},
+		editCity() {
+			console.log(this.city)
+			uni.navigateTo({
+				url: `/pages/personal/selectCity?city=${this.city}`,
+				animationType: 'pop-in',
+				animationDuration: 300
+			});
 		}
 	}
 };

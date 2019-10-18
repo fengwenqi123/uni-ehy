@@ -116,7 +116,6 @@ export default {
 				.catch(err => {
 					removeToken();
 					removeUserInfo();
-					this.$store.commit('SET_userInfo', getUserInfo());
 				});
 		}
 	},

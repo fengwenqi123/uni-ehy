@@ -30,20 +30,8 @@
 </template>
 
 <script>
-import { getUserInfo } from '@/utils/cache.js';
-import { mapGetters } from 'vuex';
+import { getUserInfo, removeToken, removeUserInfo } from '@/utils/cache.js';
 export default {
-	computed: {
-		...mapGetters(['userInfo'])
-	},
-	watch: {
-		userInfo: {
-			handler() {
-				this.isLogin();
-			},
-			deep: true
-		}
-	},
 	data() {
 		return {
 			user: {

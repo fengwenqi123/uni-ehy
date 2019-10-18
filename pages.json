@@ -95,8 +95,7 @@
 				"navigationStyle": "custom",
 				"navigationBarTitleText": "我的船舶",
 				"app-plus": {
-					"bounce": "none",
-					"titleNView": false
+					"bounce": "none"
 				}
 			}
 		},
@@ -206,6 +205,18 @@
 			"path": "pages/sewage/siteList/index",
 			"style": {
 				"navigationBarTitleText": "回收点位置查询"
+			}
+		},
+		{
+			"path": "pages/personal/newName",
+			"style": {
+				"navigationBarTitleText": "修改昵称"
+			}
+		},
+		{
+			"path": "pages/personal/selectCity",
+			"style": {
+				"navigationBarTitleText": "选择城市"
 			}
 		}
 	],
