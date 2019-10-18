@@ -11,7 +11,7 @@
 				</view>
 			</view>
 		</view>
-		<view id="water-scroll">
+		<view class="water-scroll">
 			<mescroll-uni class="list" :down="downOption" @down="downCallback" :up="upOption" @up="upCallback">
 				<view class="li" v-for="(item, index) in items" :key="index" :class="{ danger: item.status !== 1 }">
 					<ul>

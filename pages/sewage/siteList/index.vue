@@ -15,7 +15,7 @@
 			</p>
 		</div>
 		<mpvue-city-picker ref="mpvueCityPicker" :pickerValueDefault="pickerValueDefault" @onChange="onChange" @onCancel="onCancel" @onConfirm="onConfirm"></mpvue-city-picker>
-		<div id="lifeWater-scroll">
+		<div class="lifeWater-scroll">
 			<mescroll-uni :down="downOption" @down="downCallback" :up="upOption" @up="upCallback">
 				<view v-for="data in dataList" :key="data.id" @click="goDetail(data)">
 					<div class="card-content">

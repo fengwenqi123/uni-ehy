@@ -139,6 +139,7 @@
 					font-size: 40upx;
 					color: #fff;
 				}
+
 			}
 		}
 	}
