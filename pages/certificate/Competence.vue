@@ -82,6 +82,7 @@ export default {
 <style scoped lang="scss">
 .container {
 	width: 100%;
+	padding: 0 24rpx;
 	.header {
 		margin-top: 20rpx;
 		background: #ffffff;
@@ -109,7 +110,7 @@ export default {
 			}
 			.score {
 				text-align: right;
-				margin-left: 160rpx;
+				margin-left: 120rpx;
 				width: 250rpx;
 				font-size: 26rpx;
 				font-weight: 400;
@@ -119,9 +120,9 @@ export default {
 		.line:nth-child(2) {
 			margin-top: 20rpx;
 			.label {
-				font-size: 26rpx;
-				font-weight: 400;
-				color: rgba(102, 102, 102, 1);
+				font-size:26rpx;
+				font-weight:400;
+				color:rgba(102,102,102,1);
 			}
 			.value {
 				font-size: 30rpx;
@@ -133,21 +134,21 @@ export default {
 	}
 	.certificate {
 		background: #fff;
-		margin-top: 30px;
+		margin-top: 30rpx;
 
 		ul {
 			display: flex;
 			flex-wrap: wrap;
-			padding: 30px;
-			border-bottom: 1px solid #ccc;
+			padding: 30rpx;
+			border-bottom: 1rpx solid #ccc;
 
 			li {
 				width: 50%;
-				margin-top: 20px;
+				margin-top: 20rpx;
 
 				.item {
 					.value {
-						margin-top: 10px;
+						margin-top: 10rpx;
 					}
 				}
 			}

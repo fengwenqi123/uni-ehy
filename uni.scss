@@ -125,21 +125,40 @@ body, html {
   // background: $color-background;
   // color: $color-text;
 }
-#water-scroll .mescroll-uni-fixed{
-	top: 80rpx !important; 
+.water-scroll .mescroll-uni-fixed{
+	top: 80rpx !important;
 }
-#lifeWater-scroll .mescroll-uni-fixed{
+.lifeWater-scroll .mescroll-uni-fixed{
 	top: 100rpx !important;
 }
 
 
-.uni-tabbar .uni-tabbar__icon{ 
+.uni-tabbar .uni-tabbar__icon{
 	width: 23px;
 }
 .ehy-content{
-	width: 100%;
-	background: #f2f2f2;
-} 
+		width: 100%;
+		background: #f2f2f2;
+}
+// .mescroll-upwarp{
+// 		background: #f2f2f2;
+// }
+#water-scroll .mescroll-uni-fixed{
+	// top: 160rpx !important;
+}
+.header .cu-custom,.header .cu-custom .cu-bar{
+	// height: 100rpx !important;
+	background-color: #0081ff;
+}
+.header .cu-bar .content{
+	// text-align: center;
+	// font-weight: 700;
+	// font-size: 34rpx;
+}
+.header .cu-bar .action .cuIcon-back{
+	font-size: 45rpx;
+}
+
 .status_bar {
 	height: var(--status-bar-height);
 	width: 100%;
@@ -150,11 +169,10 @@ body, html {
 	padding: 0 !important;
 	background: #007AFF !important;
 	color: #fff !important;
-		
+
 }
-.van-icon{
-	color: #fff !important;
-	font-size: 40rpx !important;
+.container{
+	width: 100%;
 }
 .van-icon-plus{
 	top: 6px !important;

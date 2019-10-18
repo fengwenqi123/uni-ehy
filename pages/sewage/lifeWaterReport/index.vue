@@ -17,7 +17,7 @@
 				:pickerValueArray="pickerValueArray"
 			></mpvue-picker>
 		</div>
-		<div id="lifeWater-scroll">
+		<div class="lifeWater-scroll">
 			<mescroll-uni :down="downOption" @down="downCallback" :up="upOption" @up="upCallback">
 				<view v-for="data in dataList" :key="data.id" @click="goDetail(data)">
 					<div class="card-content" @click="goDetail(data)">

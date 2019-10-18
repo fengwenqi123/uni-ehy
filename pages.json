@@ -1,5 +1,6 @@
 {
-	"pages": [{
+	"pages": [
+		{
 			"path": "pages/home/index",
 			"style": {
 				"navigationStyle": "custom",
@@ -94,8 +95,7 @@
 				"navigationStyle": "custom",
 				"navigationBarTitleText": "我的船舶",
 				"app-plus": {
-					"bounce": "none",
-					"titleNView": false
+					"bounce": "none"
 				}
 			}
 		},
@@ -121,6 +121,30 @@
 				"app-plus": {
 					"bounce": "none"
 				}
+			}
+		},
+		{
+			"path": "pages/message/index",
+			"style": {
+				"navigationBarTitleText": "消息管理"
+			}
+		},
+		{
+			"path": "pages/message/details",
+			"style": {
+				"navigationBarTitleText": "详情"
+			}
+		},
+		{
+			"path": "pages/personal/index",
+			"style": {
+				"navigationBarTitleText": "个人信息"
+			}
+		},
+		{
+			"path": "pages/forget/index",
+			"style": {
+				"navigationBarTitleText": "忘记密码"
 			}
 		},
 		{
@@ -188,13 +212,26 @@
 			"style": {
 				"navigationBarTitleText": "回收点位置查询"
 			}
+		},
+		{
+			"path": "pages/personal/newName",
+			"style": {
+				"navigationBarTitleText": "修改昵称"
+			}
+		},
+		{
+			"path": "pages/personal/selectCity",
+			"style": {
+				"navigationBarTitleText": "选择城市"
+			}
 		}
 	],
 	"tabBar": {
 		"color": "#7a7e83",
 		"selectedColor": "#0faeff",
 		"backgroundColor": "#ffffff",
-		"list": [{
+		"list": [
+			{
 				"pagePath": "pages/home/index",
 				"text": "首页",
 				"iconPath": "static/img/home.png",
@@ -223,15 +260,22 @@
 			"van-button": "/wxcomponents/vant-weapp/button/index",
 			"van-picker": "/wxcomponents/vant-weapp/picker/index",
 			"van-icon": "/wxcomponents/vant-weapp/icon/index",
-			"van-nav-bar": "/wxcomponents/vant-weapp/nav-bar/index"
+			"van-nav-bar": "/wxcomponents/vant-weapp/nav-bar/index",
+			"van-tab": "/wxcomponents/vant-weapp/tab/index",
+			"van-tabs": "/wxcomponents/vant-weapp/tabs/index",
+			"van-panel": "/wxcomponents/vant-weapp/panel/index",
+			"van-field": "/wxcomponents/vant-weapp/field/index",
+			"van-action-sheet": "/wxcomponents/vant-weapp/action-sheet/index"
 		}
 	},
 	"condition": { //模式配置，仅开发期间生效
 		"current": 0, //当前激活的模式（list 的索引项）
-		"list": [{
-			"name": "home", //模式名称
-			"path": "pages/home/index", //启动页面，必选
-			"query": "city=绍兴市&autoplay=false" //启动参数，在页面的onLoad函数里面得到。
-		}]
+		"list": [
+			{
+				"name": "home", //模式名称
+				"path": "pages/myShip/add", //启动页面，必选
+				"query": "city=绍兴市&autoplay=false" //启动参数，在页面的onLoad函数里面得到。
+			}
+		]
 	}
 }

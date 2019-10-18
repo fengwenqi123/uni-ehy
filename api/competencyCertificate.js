@@ -6,3 +6,9 @@ export function search(xm, sfzhm) {
     method: 'get'
   })
 }
+export function jrzList(page, row, cyxm) {
+	const data = qs.stringify({page, row, cyxm})
+	return fly.request('/check/dataForward/data/rzcyxx', data, {
+	  method: 'post'
+	})
+}

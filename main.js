@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App'
 import store from './store'
 import cuCustom from './colorui/components/cu-custom.vue'
+import Toast from './wxcomponents/vant-weapp/toast/toast'
 
 Vue.component('cu-custom',cuCustom)
 
