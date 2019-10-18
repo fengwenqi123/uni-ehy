@@ -30,7 +30,7 @@
 			</p>
 			<p v-if="recoveryInfo.attribute !== 1">
 				<span>投放重量(KG)</span>
-				<!-- <input  v-model="amount" placeholder="请输入重量"></input> -->
+				<input  v-model="amount" placeholder="请输入重量"></input>
 			</p>
 		</div>
 		<div class="bottom" v-if="recoveryInfo.attribute === 1"><button :loading="isLoading" @click="submit">确认开始排放</button></div>
@@ -72,9 +72,6 @@ export default {
 				refuseType: parseFloat(this.recoveryInfo.type) - 2,
 				orderWay: 1
 			};
-			uni.navigateTo({
-				url: `/pages/sewage/success/index?type=3&attr=1`
-			});
 			discharge(obj).then(response => {
 				uni.showToast({
 					icon: 'success',
@@ -104,9 +101,6 @@ export default {
 				amount: this.amount,
 				orderWay: 1
 			};
-			uni.navigateTo({
-				url: `/pages/sewage/success/index?type=3&attr=1`
-			});
 			discharge(obj).then(response => {
 				uni.showToast({
 					icon: 'success',

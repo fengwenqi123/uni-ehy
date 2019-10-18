@@ -29,8 +29,8 @@ input,
 textarea,
 th,
 td {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body,
@@ -38,7 +38,7 @@ button,
 input,
 select,
 textarea {
-	font: 12px/1.5tahoma, arial, \5b8b\4f53;
+  font: 12px/1.5tahoma, arial, \5b8b\4f53;
 }
 
 h1,
@@ -125,9 +125,16 @@ body, html {
   // background: $color-background;
   // color: $color-text;
 }
+#water-scroll .mescroll-uni-fixed{
+	top: 80rpx !important;
+}
+#lifeWater-scroll .mescroll-uni-fixed{
+	top: 100rpx !important;
+}
+
 
 .uni-tabbar .uni-tabbar__icon{
-	    width: 23px;
+	width: 23px;
 }
 .ehy-content{
 		width: 100%;
@@ -155,7 +162,27 @@ body, html {
 .status_bar {
 	height: var(--status-bar-height);
 	width: 100%;
+	background: #007AFF;
+}
+
+.van-nav-bar{
+	padding: 0 !important;
+	background: #007AFF !important;
+	color: #fff !important;
+
 }
 .container{
 	width: 100%;
 }
+.van-icon-plus{
+	top: 6px !important;
+}
+.van-icon-photo-o{
+	width: 80rpx;
+	height: 80rpx;
+	color: #888 !important;
+	font-size: 60rpx !important;
+	z-index: 999999999;
+}
+
+

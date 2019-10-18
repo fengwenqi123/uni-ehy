@@ -71,9 +71,6 @@ export default {
 				amount: this.amount,
 				orderWay: 1
 			};
-			uni.navigateTo({
-				url: `/pages/sewage/success/index?type=2&attr=1`
-			});
 			discharge(obj).then(response => {
 				uni.showToast({
 					icon: 'success',
@@ -102,9 +99,6 @@ export default {
 				amount: this.amount,
 				orderWay: 1
 			};
-			uni.navigateTo({
-				url: `/pages/sewage/success/index?type=2&attr=1`
-			});
 			discharge(obj).then(response => {
 				uni.showToast({
 					icon: 'success',
