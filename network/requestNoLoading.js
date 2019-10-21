@@ -29,7 +29,24 @@ fly.interceptors.response.use(response => {
 		uni.showModal({
 			content: res.msg,
 			showCancel: false,
-			confirmText: "确定"
+			success:(data)=> { 
+				console.log(res)
+				console.log(data)
+				if (data.confirm) {
+					if(res.msg === '未登录'){
+						uni.showToast({
+							title: '请重新登录'
+						});
+						setTimeout(() => {
+							uni.navigateTo({
+								url: '/pages/login/index',
+								animationType: 'pop-in',
+								animationDuration: 300
+							});
+						}, 1000);
+					}
+				}
+			}
 		})
 		return Promise.reject('error')
 	} else {
