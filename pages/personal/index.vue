@@ -37,10 +37,18 @@
 						</div>
 					</div>
 				</li>
-				<li v-for="(item, index) in list" :key="index">
-					<div class="item" @click="localTo(index)">
+				<li>
+					<div class="item" @click="forget()">
 						<div class="label">
-							<div class="name">{{ item.name }}</div>
+							<div class="name">修改密码</div>
+						</div>
+						<div class="right"><image src="../../static/img/i-right.png" mode=""></image></div>
+					</div>
+				</li>
+				<li>
+					<div class="item" @click="SignOut()">
+						<div class="label">
+							<div class="name">退出</div>
 						</div>
 						<div class="right"><image src="../../static/img/i-right.png" mode=""></image></div>
 					</div>
@@ -54,7 +62,7 @@
 import { getUserInfo, getToken, removeToken, removeUserInfo, saveUserInfo } from '@/utils/cache.js';
 import { updatePhoto, userInfoById } from '@/api/personal.js';
 import ssUploadImage from '@/components/ss-upload-image/ss-upload-image1';
-import { online } from '@/api/login.js';
+import { online,logout } from '@/api/login.js';
 export default {
 	data() {
 		return {
@@ -62,18 +70,6 @@ export default {
 			token: getToken(),
 			city: '',
 			province: '',
-			list: [
-				{
-					name: '修改密码',
-
-					path: ''
-				},
-				{
-					name: '退出',
-
-					path: ''
-				}
-			],
 			url: 'https://api.cjbe88.com/storage/storage/',
 			fileList: [], //'https://api.cjbe88.com/storage/storage/d1d1201910171527275110.jpeg'
 			fileName: '',
@@ -114,6 +110,23 @@ export default {
 		check() {
 			this.$refs.upload.chooseImage();
 		},
+		postLogout() {
+			logout().then(response => {
+				console.log(response)
+				removeToken();
+				removeUserInfo();
+				uni.showToast({
+					title: '退出成功'
+				});
+				setTimeout(() => {
+					uni.navigateTo({
+						url: '/pages/login/index',
+						animationType: 'pop-in',
+						animationDuration: 300
+					});
+				}, 1500);
+			});
+		},
 		// 上传成功
 		onSuccess(res) {
 			if (res.code === 200) {
@@ -128,7 +141,7 @@ export default {
 			uni.showLoading({
 				title: '正在加载...',
 				mask: false
-			});
+			}); 
 		},
 		// 上传失败
 		onError(err) {
@@ -137,19 +150,28 @@ export default {
 				icon: 'none'
 			});
 		},
-		localTo(index) {
-			const url = this.list[index].path;
+		forget() {
 			uni.navigateTo({
-				url,
+				url: '/pages/forget/index',
 				animationType: 'pop-in',
 				animationDuration: 300
 			});
+		},
+		SignOut(){
+			uni.showModal({ 
+				content: "                           退出登录",
+				success:  (res)=> {
+					if (res.confirm) {
+						console.log(1111); 
+						this.postLogout();
+					}
+				}
+			})
 		},
 		set_updatePhoto(photo) {
 			updatePhoto({ photo }).then(response => {
 				uni.hideLoading();
 				this.fileList = [photo];
-				console.log(response);
 			});
 		},
 		editName() {

@@ -14,3 +14,9 @@ export function online(accessToken) {
     method: 'get'
   })
 }
+
+export function logout() {
+  return flyNoLoading.request('/login/user/logout', {}, {
+    method: 'post'
+  })
+}
