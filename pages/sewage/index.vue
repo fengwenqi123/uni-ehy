@@ -88,7 +88,11 @@ export default {
 			});
 		},
 		goPoint(){
-			
+			uni.showModal({
+				content: "暂未开放，敬请期待！",
+				showCancel: false,
+				confirmText: "确定"
+			})
 		},
 		goSite(){
 			uni.navigateTo({
