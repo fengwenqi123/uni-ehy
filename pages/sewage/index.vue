@@ -93,6 +93,9 @@ export default {
 				showCancel: false,
 				confirmText: "确定"
 			})
+			// uni.navigateTo({
+			// 	url: '/pages/sewage/sewageScore/index'
+			// });
 		},
 		goSite(){
 			uni.navigateTo({
@@ -190,11 +193,11 @@ export default {
 				justify-content: flex-end;
 				align-items: center;
 				span{
-					font-size:25rpx;
+					font-size:30rpx;
 				}
 				.img1 {
-					width: 25rpx;
-					height: 25rpx;
+					width: 30rpx;
+					height: 30rpx;
 				}
 			}
 			span {

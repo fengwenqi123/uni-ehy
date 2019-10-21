@@ -71,3 +71,17 @@ export function sewagePoint(pageNum, pageSize, city, area, fomesType, currentLon
   })
 }
 
+//排污积分
+export function pwList(pageNum, pageSize, time, type) {
+  return fly.request({
+    url: '/poi/sewage',
+    method: 'GET',
+    params: {
+      pageNum,
+      pageSize,
+      time,
+      type
+    }
+  })
+}
+
