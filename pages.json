@@ -273,8 +273,8 @@
 		"list": [
 			{
 				"name": "home", //模式名称
-				"path": "pages/myShip/add", //启动页面，必选
-				"query": "city=绍兴市&autoplay=false" //启动参数，在页面的onLoad函数里面得到。
+				"path": "pages/home/index", //启动页面，必选
+				"query": "" //启动参数，在页面的onLoad函数里面得到。
 			}
 		]
 	}
