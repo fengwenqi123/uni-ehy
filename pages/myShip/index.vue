@@ -122,7 +122,6 @@
 			// color: rgb(255, 255, 255);
 			// position: relative;
 
-
 			.van-icon-plus {
 				color: #fff;
 				font-size: 60rpx;
