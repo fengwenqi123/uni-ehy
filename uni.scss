@@ -131,8 +131,6 @@ body, html {
 .lifeWater-scroll .mescroll-uni-fixed{
 	top: 100rpx !important;
 }
-
-
 .uni-tabbar .uni-tabbar__icon{
 	width: 23px;
 }
@@ -183,6 +181,14 @@ body, html {
 	color: #888 !important;
 	font-size: 60rpx !important;
 	z-index: 999999999;
+}
+
+.van-nav-bar__left{
+	font-size: 50rpx !important;
+	color: #fff;
+}
+.van-nav-bar__right{
+	font-size: 55rpx !important;
 }
 
 
