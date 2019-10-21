@@ -3,7 +3,7 @@ const Fly = require("flyio/dist/npm/weex")
 // #endif
 
 // #ifdef MP-WEIXIN
-var Fly=require("flyio/dist/npm/wx") 
+var Fly = require("flyio/dist/npm/wx")
 // #endif
 const fly = new Fly
 import {
@@ -30,33 +30,57 @@ fly.interceptors.request.use(request => {
 fly.interceptors.response.use(response => {
 	uni.hideLoading();
 	const res = response.data
-	if (res.code !== 200) {
-		uni.showModal({
-			content: res.msg, 
-			showCancel: false,
-			success: (data)=> {
-				console.log(res)
-				console.log(data)
-				if (data.confirm) {
-					if(res.msg === '未登录'){
-						uni.showToast({
-							title: '请重新登录'
-						});
-						setTimeout(() => {
-							uni.navigateTo({
-								url: '/pages/login/index',
-								animationType: 'pop-in',
-								animationDuration: 300
-							});
-						}, 1000);
-					}
-				}
-			}
-		})
-		return Promise.reject('error')
-	} else {
-		return res
+	switch (res.code) {
+		case 200:
+			return response.data
+		case 500:
+			uni.showModal({
+				content: res.msg,
+				showCancel: false,
+				confirmText: "确定"
+			})
+			return Promise.reject('error')
+		case 502:
+			return Promise.reject('error')
+		case 503:
+			uni.showModal({
+				content: '未登录，请重新登录!',
+				showCancel: false,
+				confirmText: "确定"
+			})
+			return Promise.reject('error')
+		case 401:
+			uni.showModal({
+				content: '未授权',
+				showCancel: false,
+				confirmText: "确定"
+			})
+			return Promise.reject('error')
+		case 403:
+			uni.showModal({
+				content: '非法请求',
+				showCancel: false,
+				confirmText: "确定"
+			})
+			return Promise.reject('error')
+		default:
+			uni.showModal({
+				content: '未知错误',
+				showCancel: false,
+				confirmText: "确定"
+			})
+			return Promise.reject('error')
 	}
+	// if (res.code !== 200) {
+	// 	uni.showModal({
+	// 		content: res.msg,
+	// 		showCancel: false,
+	// 		confirmText: "确定"
+	// 	})
+	// 	return Promise.reject('error')
+	// } else {
+	// 	return res
+	// }
 }, err => {
 	uni.hideLoading();
 	uni.showToast({
