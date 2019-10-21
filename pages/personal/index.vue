@@ -112,7 +112,6 @@ export default {
 		},
 		postLogout() {
 			logout().then(response => {
-				console.log(response)
 				removeToken();
 				removeUserInfo();
 				uni.showToast({
@@ -159,10 +158,9 @@ export default {
 		},
 		SignOut(){
 			uni.showModal({ 
-				content: "                           退出登录",
+				content: "退出登录",
 				success:  (res)=> {
 					if (res.confirm) {
-						console.log(1111); 
 						this.postLogout();
 					}
 				}
