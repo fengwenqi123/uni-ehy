@@ -25,13 +25,13 @@
 
 <script>
 import { login, online } from '@/api/login.js';
-import { saveToken, saveUserInfo } from '@/utils/cache.js';
+import { saveToken, saveUserInfo, saveUserName, getUserName } from '@/utils/cache.js';
 export default {
 	name: 'index',
 	data() {
 		return {
 			form: {
-				loginName: '',
+				loginName: getUserName() || '',
 				password: '',
 				loginType: 3,
 				loginSource: 3
@@ -48,6 +48,7 @@ export default {
 			online(token).then(response => {
 				saveToken(response.data.accessToken);
 				saveUserInfo(response.data);
+				saveUserName(response.data.loginName);
 				uni.showToast({
 					title: '登录成功',
 					duration: 1500

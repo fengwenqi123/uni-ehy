@@ -1,22 +1,22 @@
 {
-    "name" : "e航运",
-    "appid" : "__UNI__6A80F3D",
-    "description" : "登录模板",
-    "versionName" : "1.0.0",
-    "versionCode" : "100",
-    "transformPx" : false,
+    "name": "e航运",
+    "appid": "__UNI__6A80F3D",
+    "description": "登录模板",
+    "versionName": "1.0.0",
+    "versionCode": "100",
+    "transformPx": false,
     /* 5+App特有相关 */
-    "app-plus" : {
-        "usingComponents" : true,
+    "app-plus": {
+        "usingComponents": true,
         /* 模块配置 */
-        "modules" : {
-            "Maps" : {}
+        "modules": {
+            "Maps": {}
         },
         /* 应用发布信息 */
-        "distribute" : {
+        "distribute": {
             /* android打包配置 */
-            "android" : {
-                "permissions" : [
+            "android": {
+                "permissions": [
                     "<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>",
                     "<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>",
                     "<uses-permission android:name=\"android.permission.READ_CONTACTS\"/>",
@@ -49,90 +49,90 @@
                 ]
             },
             /* ios打包配置 */
-            "ios" : {},
+            "ios": {},
             /* SDK配置 */
-            "sdkConfigs" : {
-                "maps" : {
-                    "amap" : {
-                        "appkey_ios" : "d2262f8a65b4c6f0e9ef59f792efa6d7",
-                        "appkey_android" : ""
+            "sdkConfigs": {
+                "maps": {
+                    "amap": {
+                        "appkey_ios": "d2262f8a65b4c6f0e9ef59f792efa6d7",
+                        "appkey_android": ""
                     }
                 }
             },
-            "icons" : {
-                "ios" : {
-                    "iphone" : {
-                        "app@2x" : "/Users/zxy/Desktop/新建文件夹/icon/120X120.png",
-                        "app@3x" : "/Users/zxy/Desktop/新建文件夹/icon/180X180.png",
-                        "spotlight@2x" : "/Users/zxy/Desktop/新建文件夹/icon/80X80.png",
-                        "spotlight@3x" : "/Users/zxy/Desktop/新建文件夹/icon/120X120.png",
-                        "notification@2x" : "/Users/zxy/Desktop/新建文件夹/icon/40X40.png",
-                        "notification@3x" : "/Users/zxy/Desktop/新建文件夹/icon/60X60.png",
-                        "settings@2x" : "/Users/zxy/Desktop/新建文件夹/icon/58X58.png",
-                        "settings@3x" : "/Users/zxy/Desktop/新建文件夹/icon/87X87.png"
+            "icons": {
+                "ios": {
+                    "iphone": {
+                        "app@2x": "/Users/zxy/Desktop/新建文件夹/icon/120X120.png",
+                        "app@3x": "/Users/zxy/Desktop/新建文件夹/icon/180X180.png",
+                        "spotlight@2x": "/Users/zxy/Desktop/新建文件夹/icon/80X80.png",
+                        "spotlight@3x": "/Users/zxy/Desktop/新建文件夹/icon/120X120.png",
+                        "notification@2x": "/Users/zxy/Desktop/新建文件夹/icon/40X40.png",
+                        "notification@3x": "/Users/zxy/Desktop/新建文件夹/icon/60X60.png",
+                        "settings@2x": "/Users/zxy/Desktop/新建文件夹/icon/58X58.png",
+                        "settings@3x": "/Users/zxy/Desktop/新建文件夹/icon/87X87.png"
                     },
-                    "appstore" : "",
-                    "ipad" : {
-                        "app" : "",
-                        "app@2x" : "",
-                        "notification" : "",
-                        "notification@2x" : "",
-                        "proapp@2x" : "",
-                        "settings" : "",
-                        "settings@2x" : "",
-                        "spotlight" : "",
-                        "spotlight@2x" : ""
+                    "appstore": "",
+                    "ipad": {
+                        "app": "",
+                        "app@2x": "",
+                        "notification": "",
+                        "notification@2x": "",
+                        "proapp@2x": "",
+                        "settings": "",
+                        "settings@2x": "",
+                        "spotlight": "",
+                        "spotlight@2x": ""
                     }
                 },
-                "android" : {
-                    "hdpi" : "",
-                    "xhdpi" : "",
-                    "xxhdpi" : "",
-                    "xxxhdpi" : ""
+                "android": {
+                    "hdpi": "",
+                    "xhdpi": "",
+                    "xxhdpi": "",
+                    "xxxhdpi": ""
                 }
             },
-            "splashscreen" : {
-                "ios" : {
-                    "iphone" : {
-                        "portrait-896h@3x" : "/Users/zxy/Desktop/新建文件夹/1242X2688.png",
-                        "landscape-896h@3x" : "",
-                        "portrait-896h@2x" : "/Users/zxy/Desktop/新建文件夹/828X1792.png",
-                        "retina55" : "/Users/zxy/Desktop/新建文件夹/1242X2208.png",
-                        "retina55l" : "",
-                        "iphonexl" : "",
-                        "iphonex" : "/Users/zxy/Desktop/新建文件夹/1125X2436.png",
-                        "retina47" : "/Users/zxy/Desktop/新建文件夹/750X1334.png",
-                        "retina40" : "/Users/zxy/Desktop/新建文件夹/640X1136.png",
-                        "retina35" : "/Users/zxy/Desktop/新建文件夹/640X960.png"
+            "splashscreen": {
+                "ios": {
+                    "iphone": {
+                        "portrait-896h@3x": "/Users/zxy/Desktop/新建文件夹/1242X2688.png",
+                        "landscape-896h@3x": "",
+                        "portrait-896h@2x": "/Users/zxy/Desktop/新建文件夹/828X1792.png",
+                        "retina55": "/Users/zxy/Desktop/新建文件夹/1242X2208.png",
+                        "retina55l": "",
+                        "iphonexl": "",
+                        "iphonex": "/Users/zxy/Desktop/新建文件夹/1125X2436.png",
+                        "retina47": "/Users/zxy/Desktop/新建文件夹/750X1334.png",
+                        "retina40": "/Users/zxy/Desktop/新建文件夹/640X1136.png",
+                        "retina35": "/Users/zxy/Desktop/新建文件夹/640X960.png"
                     }
                 },
-                "android" : {
-                    "hdpi" : ""
+                "android": {
+                    "hdpi": ""
                 }
             }
         },
-        "splashscreen" : {
-            "waiting" : true,
-            "alwaysShowBeforeRender" : true
+        "splashscreen": {
+            "waiting": true,
+            "alwaysShowBeforeRender": true
         }
     },
     /* 快应用特有相关 */
-    "quickapp" : {},
+    "quickapp": {},
     /* 小程序特有相关 */
-    "mp-weixin" : {
-        "appid" : "",
-        "setting" : {
-            "urlCheck" : false
+    "mp-weixin": {
+        "appid": "",
+        "setting": {
+            "urlCheck": false
         },
-        "usingComponents" : true
+        "usingComponents": true
     },
-    "mp-alipay" : {
-        "usingComponents" : true
+    "mp-alipay": {
+        "usingComponents": true
     },
-    "mp-baidu" : {
-        "usingComponents" : true
+    "mp-baidu": {
+        "usingComponents": true
     },
-    "mp-toutiao" : {
-        "usingComponents" : true
+    "mp-toutiao": {
+        "usingComponents": true
     }
 }

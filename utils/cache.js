@@ -34,3 +34,11 @@ export function getShipName() {
 export function saveShipName(ship) {
 	uni.setStorageSync(shipName, ship);
 }
+
+const userName = 'userName'
+export function saveUserName(name) {
+	uni.setStorageSync(userName, name);
+}
+export function getUserName() {
+	return uni.getStorageSync(userName);
+}

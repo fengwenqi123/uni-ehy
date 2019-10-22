@@ -20,8 +20,8 @@ export default {
 	data() {
 		return {
 			form: {
-				name: '李桂琴',
-				idCard: '321281196808155761'
+				name: '',
+				idCard: ''
 			}
 		};
 	},

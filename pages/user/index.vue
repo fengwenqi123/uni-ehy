@@ -59,17 +59,17 @@ export default {
 					name: '关于我们',
 					icon: require('@/static/img/i-about.png'),
 					path: '/pages/about/index'
-				},
-				{
-					name: '检查新版本',
-					icon: require('@/static/img/i-update.png'),
-					path: ''
-				},
-				{
-					name: '二维码',
-					icon: require('@/static/img/i-ewm.png'),
-					path: ''
 				}
+				// {
+				// 	name: '检查新版本',
+				// 	icon: require('@/static/img/i-update.png'),
+				// 	path: ''
+				// },
+				// {
+				// 	name: '二维码',
+				// 	icon: require('@/static/img/i-ewm.png'),
+				// 	path: ''
+				// }
 			]
 		};
 	},

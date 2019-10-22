@@ -21,6 +21,9 @@ export default {
 			}
 		};
 	},
+	onLoad(option) {
+		this.form.name = option.name;
+	},
 	methods: {
 		submit() {
 			if (!this.form.name) {

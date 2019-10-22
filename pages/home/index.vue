@@ -48,37 +48,25 @@
 		<div class="box">
 			<view class="padding-xl radius bg-white">
 				<ul>
-					<li @click="port()">
-						<image src="../../static/img/h1.png" alt="">
-							<p>过闸申报</p>
-					</li>
 					<li @click="sewage()">
 						<image src="../../static/img/h2.png" alt="">
-							<p>船舶排污</p>
+							<p>污染物上岸</p>
 					</li>
 					<li @click="port()">
 						<image src="../../static/img/h3.png" alt="">
 							<p>电子报告</p>
 					</li>
-					<li @click="port()">
-						<image src="../../static/img/h4.png" alt="">
-							<p>问题上报</p>
-					</li>
 					<li @click="police()">
 						<image src="../../static/img/h5.png" alt="">
 							<p>一键报警</p>
 					</li>
-					<li @click="port()">
-						<image src="../../static/img/h6.png" alt="">
-							<p>法律法规</p>
+					<li @click="srz()">
+						<image src="../../static/img/srz.png" alt="">
+							<p>船员适任证</p>
 					</li>
 					<li @click="port()">
-						<image src="../../static/img/h1.png" alt="">
-							<p>船员采集点</p>
-					</li>
-					<li @click="port()">
-						<image src="../../static/img/h8.png" alt="">
-							<p>浙里办</p>
+						<image src="../../static/img/weizhang.png" alt="">
+							<p>船舶违章</p>
 					</li>
 				</ul>
 			</view>
@@ -228,6 +216,13 @@
 						// console.log(res);
 						this.waterInfo = res.data;
 					});
+			},
+			srz(){
+				uni.navigateTo({
+					url:'/pages/certificate/index',
+					animationType: 'pop-in',
+					animationDuration: 300
+				});
 			}
 		}
 	}

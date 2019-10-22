@@ -19,7 +19,7 @@
 						</div>
 					</div>
 				</li>
-				<li @click="editName">
+				<li @click="editName(user.name)">
 					<div class="item nicheng">
 						<div class="label"><div class="name">账号昵称</div></div>
 						<div class="right">
@@ -39,17 +39,13 @@
 				</li>
 				<li>
 					<div class="item" @click="forget()">
-						<div class="label">
-							<div class="name">修改密码</div>
-						</div>
+						<div class="label"><div class="name">修改密码</div></div>
 						<div class="right"><image src="../../static/img/i-right.png" mode=""></image></div>
 					</div>
 				</li>
 				<li>
 					<div class="item" @click="SignOut()">
-						<div class="label">
-							<div class="name">退出</div>
-						</div>
+						<div class="label"><div class="name">退出</div></div>
 						<div class="right"><image src="../../static/img/i-right.png" mode=""></image></div>
 					</div>
 				</li>
@@ -62,7 +58,7 @@
 import { getUserInfo, getToken, removeToken, removeUserInfo, saveUserInfo } from '@/utils/cache.js';
 import { updatePhoto, userInfoById } from '@/api/personal.js';
 import ssUploadImage from '@/components/ss-upload-image/ss-upload-image1';
-import { online,logout } from '@/api/login.js';
+import { online, logout } from '@/api/login.js';
 export default {
 	data() {
 		return {
@@ -140,7 +136,7 @@ export default {
 			uni.showLoading({
 				title: '正在加载...',
 				mask: false
-			}); 
+			});
 		},
 		// 上传失败
 		onError(err) {
@@ -156,15 +152,15 @@ export default {
 				animationDuration: 300
 			});
 		},
-		SignOut(){
-			uni.showModal({ 
-				content: "退出登录",
-				success:  (res)=> {
+		SignOut() {
+			uni.showModal({
+				content: '退出登录',
+				success: res => {
 					if (res.confirm) {
 						this.postLogout();
 					}
 				}
-			})
+			});
 		},
 		set_updatePhoto(photo) {
 			updatePhoto({ photo }).then(response => {
@@ -172,15 +168,15 @@ export default {
 				this.fileList = [photo];
 			});
 		},
-		editName() {
+		editName(name) {
 			uni.navigateTo({
-				url: '/pages/personal/newName',
+				url: '/pages/personal/newName?name=' + name,
 				animationType: 'pop-in',
-				animationDuration: 300  
+				animationDuration: 300
 			});
 		},
 		editCity() {
-			console.log(this.city)
+			console.log(this.city);
 			uni.navigateTo({
 				url: `/pages/personal/selectCity?city=${this.city}`,
 				animationType: 'pop-in',
