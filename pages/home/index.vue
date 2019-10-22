@@ -228,7 +228,7 @@
 			},
 			shipwz(){
 				uni.navigateTo({
-					url:'/pages/home/shipInfo/index',
+					url:'/pages/home/shipInfo/index?active=3',
 					animationType: 'pop-in',
 					animationDuration: 300
 				});
