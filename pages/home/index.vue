@@ -191,8 +191,9 @@
 				uni.request({
 					url: `https://api.cjbe88.com/gis/weather/findByName?name=${this.city}`,
 					success: (res) => {
-						console.log(res)
-						console.log(this.weather)
+						console.log(res.data.data.lives[0])
+						this.weather=res.data.data.lives[0]
+						// this.weather=res.data.lives
 						// this.weather=JSON.parse(res.object).lives[0];
 					}
 				});
@@ -318,7 +319,7 @@
 
 					p:last-child {
 						font-size: 32rpx;
-						// padding-top: 20rpx;
+						padding-top: 20rpx;
 					}
 				}
 			}
