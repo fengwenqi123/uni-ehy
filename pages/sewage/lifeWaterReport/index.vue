@@ -48,9 +48,11 @@
 import { sewageReport } from '@/api/sewage.js';
 import MescrollUni from 'mescroll-uni'; // npm安装的引入方式
 import mpvuePicker from 'mpvue-picker';
+import { getShipName } from '@/utils/cache.js';
 export default {
 	data() {
 		return {
+			shipName: '',
 			// 下拉刷新的常用配置
 			downOption: {
 				use: true, // 是否启用下拉刷新; 默认true
@@ -124,6 +126,8 @@ export default {
 		MescrollUni
 	},
 	created() {
+		this.shipName = getShipName();
+		console.log('船名', this.shipName);
 		let date = new Date();
 		let year = date.getFullYear();
 		let month = date.getMonth() + 1;
@@ -166,7 +170,7 @@ export default {
 			let pageNum = mescroll.num; // 页码, 默认从1开始
 			let pageSize = mescroll.size; // 页长, 默认每页10条
 			console.log(pageNum, pageSize);
-			sewageReport(pageNum, pageSize, this.time, this.type).then(response => {
+			sewageReport(pageNum, pageSize, this.time, this.type, this.shipName).then(response => {
 				console.log(response);
 				// 接口返回的当前页数据列表 (数组)
 				let curPageData = response.data.dataList;

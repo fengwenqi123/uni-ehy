@@ -9,12 +9,12 @@
 				<p>e航运</p>
 			</div>
 			<div class="weather">
-				<div v-if="weather.daytemp">
-					<p>{{weather.nighttemp}} ~{{weather.daytemp}}℃</p>
+				<div v-if="weather.temperature">
+					<p>{{weather.temperature}}℃</p>
 					<p>
-						<span>{{weather.dayweather }}</span>
-						<span>{{ weather.daywind}}风</span>
-						<span>{{ weather.daypower}}级</span>
+						<span>{{weather.weather}}</span>
+						<span>{{ weather.winddirection}}风</span>
+						<span>{{ weather.windpower}}级</span>
 					</p>
 				</div>
 				<div @click="water()">
@@ -39,7 +39,6 @@
 						</div>
 						<div v-else class="ship-add" @click="addClick()">
 							<p><image src="../../static/img/ship.png" mode=""></image>立即添加船舶</p>
-							
 						</div>
 					</swiper-item>
 				</swiper>
@@ -187,27 +186,25 @@
 				});
 			},
 			getLocation() {
-				let _this = this
 				uni.getLocation({
 					type: 'gcj02',
 					geocode: true,
-					success: function(res) {
-						// console.log(res);
+					success: res => {
+						console.log(res);
 						if (res.address) {
-							_this.city = res.address.city;
+							this.city = res.address.city;
+							console.log(this.city)
 						}
 					}
 				});
 			},
-			getWeather() {
-
+			getWeather() {	
 				uni.request({
-					url: 'http://jhzhgh.jtysj.jinhua.gov.cn:8002/common/getWeather',
-					data: {
-						city: this.city
-					},
+					url: `http://jhzhgh.jtysj.jinhua.gov.cn:8002/weather/${this.city}`,
 					success: (res) => {
-						this.weather = JSON.parse(res.data.Data).forecasts[0].casts[0];
+						console.log(res)
+						console.log(this.weather)
+						// this.weather=JSON.parse(res.object).lives[0];
 					}
 				});
 			},
@@ -310,7 +307,6 @@
 					float: right;
 					margin-right: 40rpx;
 					margin-top: 90rpx;
-
 					p {
 						font-size: 40rpx;
 						color: #fff;
@@ -319,7 +315,7 @@
 
 					p:last-child {
 						font-size: 32rpx;
-						padding-top: 20rpx;
+						// padding-top: 20rpx;
 					}
 				}
 			}

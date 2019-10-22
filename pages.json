@@ -12,7 +12,7 @@
 		{
 			"path": "pages/news/index",
 			"style": {
-				"navigationBarTitleText": "通航",
+				"navigationBarTitleText": "航行通告",
 				"app-plus": {
 					"bounce": "none" // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消, 点此查看H5端的取消方法...
 				}
@@ -263,7 +263,7 @@
 			},
 			{
 				"pagePath": "pages/news/index",
-				"text": "通航",
+				"text": "航行通告",
 				"iconPath": "static/img/info.png",
 				"selectedIconPath": "static/img/infoHL.png"
 			},

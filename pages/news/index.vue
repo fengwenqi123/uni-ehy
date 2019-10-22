@@ -1,12 +1,8 @@
 <template>
 	<view class="news">
-		<!-- <nav-bar>
-				<block slot="content">导航栏</block>
-				<block slot="right">导航栏</block>
-			</nav-bar> -->
 		<mescroll-uni :down="downOption" @down="downCallback" :up="upOption" @up="upCallback">
 			<view v-for="data in dataList" :key="data.id" @click="goDetail(data)">
-				<ul class="news-content" v-if="data.categoryName === 'e航运'">
+				<ul class="news-content">
 					<li >
 						<image v-if="data.categoryName === '公告'" src="../../static/img/n1.png" mode=""></image>
 						<image v-else-if="data.categoryName === 'e航运'" src="../../static/img/n2.png" mode=""></image>
@@ -18,7 +14,7 @@
 					<li>
 						<p>
 							<span>{{data.title}}</span>
-							<i>{{data.addTimeString.slice(0,10)}}</i>
+							<i>{{data.addTimeString}}</i>
 						</p>
 						<p v-html="data.content"></p>
 					</li>
@@ -144,7 +140,7 @@
 					line-height: 100rpx;
 
 					span {
-						width: calc(100% - 150rpx);
+						width: calc(100% - 300rpx);
 						float: left;
 						font-weight: 500;
 						font-size: 38rpx;
@@ -154,14 +150,15 @@
 					}
 
 					i {
-						width: 150rpx;
-						float: right;
+						// width: 150rpx;
+						// float: right;
 						font-size: 28rpx;
 						color: #888;
 					}
 				}
 				p:last-child{
 					height: 56rpx;
+					color:#888;
 					overflow: hidden;
 					text-overflow: ellipsis;
 					display:-webkit-box;
