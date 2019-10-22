@@ -64,7 +64,7 @@
 						<image src="../../static/img/srz.png" alt="">
 							<p>船员适任证</p>
 					</li>
-					<li @click="port()">
+					<li @click="shipwz()">
 						<image src="../../static/img/weizhang.png" alt="">
 							<p>船舶违章</p>
 					</li>
@@ -160,6 +160,7 @@
 				})
 			},
 			tabClick(item) {
+				console.log(item.cbsbh)
 				uni.navigateTo({
 					url: '/pages/home/shipInfo/index?cm=' + item.shipName + '&cbdjh=' + item.cbdjh + '&cbsbh=' + item.cbsbh,
 					animationType: 'pop-in',
@@ -186,7 +187,7 @@
 					}
 				});
 			},
-			getWeather() {	
+			getWeather() {
 				uni.request({
 					url: `https://api.cjbe88.com/gis/weather/findByName?name=${this.city}`,
 					success: (res) => {
@@ -220,6 +221,13 @@
 			srz(){
 				uni.navigateTo({
 					url:'/pages/certificate/index',
+					animationType: 'pop-in',
+					animationDuration: 300
+				});
+			},
+			shipwz(){
+				uni.navigateTo({
+					url:'/pages/home/shipInfo/index',
 					animationType: 'pop-in',
 					animationDuration: 300
 				});
@@ -383,7 +391,7 @@
 					text-align: center;
 					font-size: 40rpx;
 					font-weight: bold;
-					color: #666; 
+					color: #666;
 				}
 				image {
 					width: 70rpx;
