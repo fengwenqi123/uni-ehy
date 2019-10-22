@@ -24,3 +24,11 @@ export function saveUserInfo(user) {
 export function removeUserInfo() {
 	uni.removeStorageSync(userInfo);
 }
+
+const userName = 'userName'
+export function saveUserName(name) {
+	uni.setStorageSync(userName, name);
+}
+export function getUserName() {
+	return uni.getStorageSync(userName);
+}

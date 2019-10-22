@@ -13,8 +13,8 @@
 		</view>
 		<view class="water-scroll">
 			<mescroll-uni class="list" :down="downOption" @down="downCallback" :up="upOption" @up="upCallback">
-				<view class="li" v-for="(item, index) in items" :key="index" :class="{ danger: item.status !== 1 }">
-					<ul>
+				<view class="li" v-for="(item, index) in items" :key="index">
+					<ul  :class="{ danger: item.status !== 1 }">
 						<li>
 							<div>
 								<span>{{ item.name }}</span>
@@ -206,7 +206,7 @@
 		}
 
 		.danger {
-			background: #fff0f0;
+			background: #FFF0F0;
 
 			.red {
 				color: red !important;
