@@ -1,5 +1,5 @@
 {
-    "name" : "ehy",
+    "name" : "e航运",
     "appid" : "__UNI__6A80F3D",
     "description" : "登录模板",
     "versionName" : "1.0.0",
@@ -62,14 +62,14 @@
             "icons" : {
                 "ios" : {
                     "iphone" : {
-                        "app@2x" : "",
-                        "app@3x" : "",
-                        "spotlight@2x" : "",
-                        "spotlight@3x" : "",
-                        "notification@2x" : "",
-                        "notification@3x" : "",
-                        "settings@2x" : "",
-                        "settings@3x" : ""
+                        "app@2x" : "/Users/zxy/Desktop/新建文件夹/icon/120X120.png",
+                        "app@3x" : "/Users/zxy/Desktop/新建文件夹/icon/180X180.png",
+                        "spotlight@2x" : "/Users/zxy/Desktop/新建文件夹/icon/80X80.png",
+                        "spotlight@3x" : "/Users/zxy/Desktop/新建文件夹/icon/120X120.png",
+                        "notification@2x" : "/Users/zxy/Desktop/新建文件夹/icon/40X40.png",
+                        "notification@3x" : "/Users/zxy/Desktop/新建文件夹/icon/60X60.png",
+                        "settings@2x" : "/Users/zxy/Desktop/新建文件夹/icon/58X58.png",
+                        "settings@3x" : "/Users/zxy/Desktop/新建文件夹/icon/87X87.png"
                     },
                     "appstore" : "",
                     "ipad" : {
@@ -94,12 +94,16 @@
             "splashscreen" : {
                 "ios" : {
                     "iphone" : {
-                        "portrait-896h@3x" : "",
+                        "portrait-896h@3x" : "/Users/zxy/Desktop/新建文件夹/1242X2688.png",
                         "landscape-896h@3x" : "",
-                        "portrait-896h@2x" : "",
-                        "retina55" : "",
+                        "portrait-896h@2x" : "/Users/zxy/Desktop/新建文件夹/828X1792.png",
+                        "retina55" : "/Users/zxy/Desktop/新建文件夹/1242X2208.png",
                         "retina55l" : "",
-                        "iphonexl" : ""
+                        "iphonexl" : "",
+                        "iphonex" : "/Users/zxy/Desktop/新建文件夹/1125X2436.png",
+                        "retina47" : "/Users/zxy/Desktop/新建文件夹/750X1334.png",
+                        "retina40" : "/Users/zxy/Desktop/新建文件夹/640X1136.png",
+                        "retina35" : "/Users/zxy/Desktop/新建文件夹/640X960.png"
                     }
                 },
                 "android" : {

@@ -200,7 +200,7 @@
 			},
 			getWeather() {	
 				uni.request({
-					url: `http://jhzhgh.jtysj.jinhua.gov.cn:8002/weather/${this.city}`,
+					url: `https://api.cjbe88.com/gis/weather/findByName?name=${this.city}`,
 					success: (res) => {
 						console.log(res)
 						console.log(this.weather)
