@@ -7,7 +7,10 @@
 					<span>{{ shipName }}</span>
 				</div>
 				<div>
-					<picker mode="selector" :range="shipList" @change="selectShip"><span>切换</span><image class="img1" src="../../static/img/change.png"></image></picker>
+					<picker mode="selector" :range="shipList" @change="selectShip">
+						<span>切换</span>
+						<image class="img1" src="../../static/img/change.png"></image>
+					</picker>
 				</div>
 			</div>
 			<div><span style="font-size:30rpx;margin-top:20rpx;" @click="goPoint">排污积分：0 ></span></div>
@@ -53,6 +56,7 @@
 
 <script>
 import { boatList, recoveryInfo } from '@/api/sewage.js';
+import { saveShipName } from '@/utils/cache.js';
 export default {
 	data() {
 		return {
@@ -66,48 +70,50 @@ export default {
 		this.list();
 	},
 	methods: {
-		goOli(){
+		goOli() {
 			uni.showModal({
-				content: "暂未开放，敬请期待！",
+				content: '暂未开放，敬请期待！',
 				showCancel: false,
-				confirmText: "确定"
-			})
+				confirmText: '确定'
+			});
 		},
-		goLifeRubbish(){
+		goLifeRubbish() {
 			uni.showModal({
-				content: "暂未开放，敬请期待！",
+				content: '暂未开放，敬请期待！',
 				showCancel: false,
-				confirmText: "确定"
-			})
+				confirmText: '确定'
+			});
 		},
 		list() {
 			boatList(2).then(response => {
 				console.log(response);
 				this.shipList = response.data.map(item => item.shipName);
 				this.shipName = this.shipList[0];
+				console.log('船名',this.shipName)
+				saveShipName(this.shipName)
 			});
 		},
-		goPoint(){
+		goPoint() {
 			uni.showModal({
-				content: "暂未开放，敬请期待！",
+				content: '暂未开放，敬请期待！',
 				showCancel: false,
-				confirmText: "确定"
-			})
+				confirmText: '确定'
+			});
 			// uni.navigateTo({
 			// 	url: '/pages/sewage/sewageScore/index'
 			// });
 		},
-		goSite(){
+		goSite() {
 			uni.navigateTo({
 				url: '/pages/sewage/siteList/index'
 			});
 		},
-		goReport(){
+		goReport() {
 			uni.navigateTo({
 				url: '/pages/sewage/failReport/index'
 			});
 		},
-		goLifeWater(){
+		goLifeWater() {
 			uni.navigateTo({
 				url: '/pages/sewage/lifeWaterReport/index'
 			});
@@ -115,6 +121,7 @@ export default {
 		selectShip(e) {
 			console.log(e.detail.value);
 			this.shipName = this.shipList[e.detail.value];
+			uni.setStorageSync('shipName', this.shipName);
 		},
 		getScanCode() {
 			uni.scanCode({
@@ -122,7 +129,7 @@ export default {
 				success: res => {
 					console.log('条码类型：' + res.scanType);
 					console.log('条码内容：' + res.result);
-					this.code = res.result
+					this.code = res.result;
 					// console.log('条码内容：'+this.code)
 					this.getRecoveryInfo();
 				}
@@ -134,7 +141,7 @@ export default {
 			recoveryInfo(this.shipName, this.code)
 				.then(response => {
 					this.codeInfo = response.data;
-					console.log(this.codeInfo)
+					console.log(this.codeInfo);
 					// this.code = '445678902454545453535';
 					// this.codeInfo = JSON.stringify({ shipName: 'sasasas', siteName: '花式科技', type: 3, attribute: 2, address: '湖州市港航管理局',name:"123213123" });
 					switch (this.codeInfo.type) {
@@ -181,7 +188,7 @@ export default {
 				height: 60rpx;
 				float: left;
 			}
-			span { 
+			span {
 				display: inline-block;
 				line-height: 60rpx;
 				color: #fff;
@@ -192,8 +199,8 @@ export default {
 				display: flex;
 				justify-content: flex-end;
 				align-items: center;
-				span{
-					font-size:30rpx;
+				span {
+					font-size: 30rpx;
 				}
 				.img1 {
 					width: 30rpx;

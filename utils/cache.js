@@ -25,6 +25,16 @@ export function removeUserInfo() {
 	uni.removeStorageSync(userInfo);
 }
 
+//船名
+const shipName = "shipName"
+export function getShipName() {
+	return uni.getStorageSync(shipName);
+}
+
+export function saveShipName(ship) {
+	uni.setStorageSync(shipName, ship);
+}
+
 const userName = 'userName'
 export function saveUserName(name) {
 	uni.setStorageSync(userName, name);

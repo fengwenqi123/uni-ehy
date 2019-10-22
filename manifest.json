@@ -106,6 +106,10 @@
                     "hdpi" : ""
                 }
             }
+        },
+        "splashscreen" : {
+            "waiting" : true,
+            "alwaysShowBeforeRender" : true
         }
     },
     /* 快应用特有相关 */
