@@ -3,7 +3,7 @@
 		<mescroll-uni :down="downOption" @down="downCallback" :up="upOption" @up="upCallback">
 			<view v-for="data in dataList" :key="data.id" @click="goDetail(data)">
 				<ul class="news-content" v-if="data.categoryName === 'e航运'">
-<!-- 					<li>
+                   <!-- <li>
 						<image v-if="data.categoryName === '公告'" src="../../static/img/n1.png" mode=""></image>
 						<image v-else-if="data.categoryName === 'e航运'" src="../../static/img/n2.png" mode=""></image>
 						<image v-else src="../../static/img/n3.png" mode=""></image>
