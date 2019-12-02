@@ -46,14 +46,6 @@ export default {
 				animationType: 'pop-in',
 				animationDuration: 300
 			});
-			// this.$router.push({
-			//   path: '/page/about/aboutContent',
-			//   query: {
-			//     content,
-			//     title,
-			//     flag
-			//   }
-			// })
 		}
 	}
 };
