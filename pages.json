@@ -42,7 +42,7 @@
 		{
 			"path": "pages/sewage/index",
 			"style": {
-				"navigationBarTitleText": "排污",
+				"navigationBarTitleText": "污染物上岸",
 				"app-plus": {
 					"bounce": "none"
 				}
@@ -150,25 +150,25 @@
 		{
 			"path": "pages/sewage/lifeRubbish/index",
 			"style": {
-				"navigationBarTitleText": "污染物上岸"
+				"navigationBarTitleText": "生活垃圾"
 			}
 		},
 		{
 			"path": "pages/sewage/oil/index",
 			"style": {
-				"navigationBarTitleText": "污染物上岸"
+				"navigationBarTitleText": "油污水"
 			}
 		},
 		{
 			"path": "pages/sewage/lifeWater/index",
 			"style": {
-				"navigationBarTitleText": "污染物上岸"
+				"navigationBarTitleText": "生活污水"
 			}
 		},
 		{
 			"path": "pages/sewage/success/index",
 			"style": {
-				"navigationBarTitleText": "污染物上岸"
+				"navigationBarTitleText": "排污成功"
 			}
 		},
 		{
@@ -196,15 +196,15 @@
 			}
 		},
 		{
-			"path": "pages/sewage/lifeWaterReport/index",
+			"path": "pages/sewage/sewageRecord/index",
 			"style": {
-				"navigationBarTitleText": "生活污水回收记录"
+				"navigationBarTitleText": "上岸记录"
 			}
 		},
 		{
-			"path": "pages/sewage/lifeWaterReport/detail",
+			"path": "pages/sewage/sewageRecord/detail",
 			"style": {
-				"navigationBarTitleText": "生活污水回收记录详情"
+				"navigationBarTitleText": "上岸记录详情"
 			}
 		},
 		{
@@ -214,13 +214,13 @@
 			}
 		},
 		{
-			"path": "pages/sewage/sewageScore/index",
+			"path": "pages/sewage/scoreMall/index",
 			"style": {
-				"navigationBarTitleText": "信用积分"
+				"navigationBarTitleText": "积分商城"
 			}
 		},
 		{
-			"path": "pages/sewage/sewageScore/detail",
+			"path": "pages/sewage/scoreMall/detail",
 			"style": {
 				"navigationBarTitleText": "排污积分"
 			}

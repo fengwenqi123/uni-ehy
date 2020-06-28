@@ -13,14 +13,30 @@
 		  </view>
 	  </view>
 	  <view class="sewage-banner-bottom">
-		  <view class="sewage-banner-bottom-left"></view>
-		  <view class="sewage-banner-bottom-right"></view>
+		  <view class="sewage-banner-bottom-left">
+			  <view class="sewage-banner-bottom-left-top">
+				 <smImg style="margin-bottom:10rpx"/>
+				  <span>扫码排放</span>
+			  </view>
+			  <view class="sewage-banner-bottom-left-bottom"></view>
+		  </view>
+		  <view class="sewage-banner-bottom-right">
+			  <view class="sewage-banner-bottom-right-top">
+				 <image src="../../static/img/ls.png" class="ls"></image>
+				 <span>可用绿水积分</span>
+			  </view>
+			  <view class="sewage-banner-bottom-right-bottom">0</view>
+		  </view>
 	  </view>
 	</view>
 </template>
 
 <script>
+import smImg from './sm.vue'
 	export default {
+		components:{
+			smImg
+		},
 		data(){
 			return {
 				shipName:"这萧山货24091"
@@ -74,7 +90,63 @@
 			
 		}
 		.sewage-banner-bottom{
-			height:100rpx;
+            padding:50rpx 0;
+			display: flex;
+			width:100%;
+			.sewage-banner-bottom-left,.sewage-banner-bottom-right{
+				width:50%;
+				display:flex;
+				flex-direction: column;
+				
+				align-items: center;
+			}
+			.sewage-banner-bottom-left{
+				width:50%;
+				.sewage-banner-bottom-left-top{
+					display: flex;
+					height:100rpx;
+					justify-content: center;
+					align-items: center;
+					flex-direction: column;
+					.sm{
+						margin-bottom:20rpx;
+					}
+					span{
+						color:#fff;
+					}
+				}
+				.sewage-banner-bottom-left-bottom{
+					height:30rpx;
+				}
+			}
+			.sewage-banner-bottom-right{
+				width:50%;
+				position: relative;
+				.sewage-banner-bottom-right-top{
+					height:100rpx;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					flex-direction: column;
+					.ls{
+						width:60rpx;
+						height:180rpx;
+						margin-bottom:20rpx;
+					}
+					span{
+						color:#fff;
+					}
+				}
+				.sewage-banner-bottom-right-bottom{
+					position: absolute;
+					height:40rpx;
+					color:#fff;
+					margin-top:20rpx;
+					bottom:-20rpx;
+					left:50%;
+					transform: translateX(-50%);
+				}
+			}
 		}
 	}
 
